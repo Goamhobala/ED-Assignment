@@ -1,0 +1,20 @@
+{
+  "Language": "Python (CPython)",
+  "Version": "3.11.9",
+  "Command": "python3 leibniz.py",
+  "CalculatedPi": "3.1415926435899633",
+  "Accuracy": 8.497157260192571,
+  "Mean": "78.41204873218s",
+  "Stddev": "nulls",
+  "UserTime": "78.38551487999999s",
+  "SystemTime": "0.017464s",
+  "Median": "78.41204873218s",
+  "Min": "78.41204873218s",
+  "Max": "78.41204873218s",
+  "TimesPerRun": [
+    78.41204873218
+  ],
+  "ExitCodesPerRun": [
+    0
+  ]
+}

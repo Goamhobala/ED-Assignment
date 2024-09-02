@@ -1,0 +1,20 @@
+{
+  "Language": "Java",
+  "Version": "19.36",
+  "Command": "java leibniz",
+  "CalculatedPi": "3.141592663589326",
+  "Accuracy": 8.497170166376472,
+  "Mean": "6.37750414914s",
+  "Stddev": "nulls",
+  "UserTime": "6.5904418399999996s",
+  "SystemTime": "0.18232014s",
+  "Median": "6.37750414914s",
+  "Min": "6.37750414914s",
+  "Max": "6.37750414914s",
+  "TimesPerRun": [
+    6.37750414914
+  ],
+  "ExitCodesPerRun": [
+    0
+  ]
+}

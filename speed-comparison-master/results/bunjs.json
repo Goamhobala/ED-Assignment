@@ -1,0 +1,20 @@
+{
+  "Language": "Javascript (bun)",
+  "Version": "0.5.0",
+  "Command": "bun run leibniz.js",
+  "CalculatedPi": "3.141592663589326",
+  "Accuracy": 8.497170166376472,
+  "Mean": "11.59484818496s",
+  "Stddev": "nulls",
+  "UserTime": "11.940045699999999s",
+  "SystemTime": "0.12104958s",
+  "Median": "11.59484818496s",
+  "Min": "11.59484818496s",
+  "Max": "11.59484818496s",
+  "TimesPerRun": [
+    11.59484818496
+  ],
+  "ExitCodesPerRun": [
+    0
+  ]
+}
