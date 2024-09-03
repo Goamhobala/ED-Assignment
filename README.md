@@ -1,6 +1,7 @@
 ### What this test is about
 This test suite benchmarks the performance of various programming languages. This is done by measuring the time taken for each language to approximate $\pi$ using Leibniz's formula up to a very large term.
 The formula is given as follows:
+
 $$
 \pi = 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}
 $$
