@@ -3,11 +3,12 @@ import subprocess
 import sys
 
 
-def main(rounds="100000000"):
+def main(rounds="100000000", iterations=1):
     with open("src/rounds.txt", mode="w") as file:
         file.write(rounds)
     
-    subprocess.run(["python3", "src/run_test.py"])
+    for i in range(int(iterations)):
+        subprocess.run(["python3", "src/run_test.py"])
     
     
 if __name__ == "__main__":

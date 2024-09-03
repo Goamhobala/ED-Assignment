@@ -2,6 +2,7 @@ import os
 import time
 import subprocess
 import csv
+import random
 
 
 def set_up(languages):
@@ -75,6 +76,8 @@ def main(rounds):
          "subscript": ".php"}
     
     languages = [c, cpp, java, php, python, r]
+    # randomising order
+    random.shuffle(languages)
     set_up(languages)
     benchmark(rounds, languages)
 
