@@ -8,3 +8,7 @@ leibniz
 src/cs/obj/Debug
 *.o
 *.hi
+src/leibnizc
+src/leibnizcpp
+src/leibnizc.exe
+src/leibnizcpp.exe
