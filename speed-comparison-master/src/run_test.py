@@ -16,10 +16,11 @@ def set_up(languages):
 # def unix_dependency():
 #     dependencies = [""]
 
-def benchmark(languages=list):
+def benchmark(rounds, languages=list):
     """Perform benchmarking for each language in the languages list"""
+    rounds = int(rounds) * (10**-9)
     for lang in languages:
-        lang["result"] = f"../results/{lang['name']}.csv"
+        lang["result"] = f"../results/{lang['name']}{rounds}.csv"
         if lang["warmup"] == True:
             for i in range(3):
                 "warm up the code to get more accurate results"
@@ -34,16 +35,17 @@ def benchmark(languages=list):
             writer.writerow([duration * (10**-6)])
             
 
-def main():
+def main(rounds):
+    os.chdir("src")
     # some predefined languages info
     c = {"name" : "c",
          "compile": "gcc leibniz.c -o leibnizc -O3 ",
-         "warmup": False,
+         "warmup": True,
          "run_env": "./",
          "subscript": "c"}
     cpp = {"name" : "cpp",
          "compile": "g++ leibniz.c -o leibnizcpp -O3 -std=c++11",
-         "warmup": False,
+         "warmup": True,
          "run_env": "./",
          "subscript": "cpp"}
     java = {"name" : "java",
@@ -66,12 +68,21 @@ def main():
          "warmup": False,
          "run_env": "RScript ",
          "subscript": ".r"}
+    php = {"name" : "php",
+         "compile": "",
+         "warmup": True,
+         "run_env": "php ",
+         "subscript": ".php"}
     
-    languages = [c, cpp, java, javascript, python, r]
+    languages = [c, cpp, java, php, python, r]
     set_up(languages)
-    benchmark(languages)
-    
-main()
+    benchmark(rounds, languages)
+
+
+with open("src/rounds.txt", mode="r") as f:
+     rounds = f.read()
+     
+main(rounds)
         
         
             
