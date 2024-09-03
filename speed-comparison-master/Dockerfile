@@ -112,11 +112,13 @@ RUN mv ./scmeta/scmeta.json ./results/r.json
 
 # pip install requiremnets
 FROM python:3.11-slim
+WORKDIR /app
 COPY ./requirements.txt ./
 RUN pip install -r ./requirements.txt
 COPY ./*.py ./
 COPY ./src/rounds.txt ./
 COPY results ./
 # Combine all results
-RUN python3 data_writer.py --folder ./results/ --out ./ --rounds ./rounds.txt
-COPY ./*.csv ./results/
+CMD ["python3", "data_writer.py", "--folder" , "./results/" , "--out", "./", "--rounds", "./rounds.txt"]
+# RUN python3 data_writer.py --folder ./results/ --out ./ --rounds ./rounds.txt
+# COPY ./*.csv ./results/
