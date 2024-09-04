@@ -10,12 +10,6 @@ def set_up(languages):
     for lang in languages:
         if lang["compile"] != "":
             subprocess.run(lang["compile"].split())
-    # subprocess.run(["javac", "leibniz.java"])
-    # subprocess.run("gcc leibniz.c -o leibniz -O3 -s -static -flto -march=athlon64 -mtune=generic -fomit-frame-pointer -fno-signed-zeros -fno-trapping-math -fassociative-math".split())
-    # subprocess.run("g++ ./leibniz.cpp -o leibniz -O3 -s -static -flto -march=athlon64 -mtune=generic -fomit-frame-pointer -fno-signed-zeros -fno-trapping-math -fassociative-math".split())
-    
-# def unix_dependency():
-#     dependencies = [""]
 
 def benchmark(rounds, languages=list):
     """Perform benchmarking for each language in the languages list"""
@@ -95,7 +89,7 @@ with open("src/rounds.txt", mode="r") as f:
      
 main(rounds)
         
-        
+
             
         
     
