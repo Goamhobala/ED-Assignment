@@ -1,0 +1,8 @@
+Device name	LIB-LWTR-011
+Full device name	LIB-LWTR-011.wf.uct.ac.za
+Processor	Intel(R) Core(TM) i5-9500 CPU @ 3.00GHz   3.00 GHz
+Installed RAM	8,00 GB (7,81 GB usable)
+Device ID	1F9AA734-FEA7-4E7D-A93B-133887DB9440
+Product ID	00329-00000-00003-AA428
+System type	64-bit operating system, x64-based processor
+Pen and touch	No pen or touch input is available for this display

@@ -9,27 +9,26 @@ $$
 ### How to run
 To run the code, the user will need to first have the following dependencies installed:
 ```
-sudo apt install g++
-sudo apt install gcc
-sudo apt install python3
-sudo apt install java
-sudo apt install php
-sudo apt install r
+sudo apt-get install g++
+sudo apt-get install gcc
+sudo apt-get install python3
+sudo apt-get install java
+sudo apt-get install ruby
+sudo apt-get install r
 ```
 
-Note: For Windows user, please install <a href="https://cygwin.com/">cygwin</a> instead, and have the below pacakages selected when running the installer. Then, run the below command in cygwin.
+Note: For Windows user, please install <a href="https://cygwin.com/">cygwin</a> instead, and have the following pacakages selected when running the installer. Afterwards, in cygwin, change directory to speed-comparison-master then run the commands below
 * gcc-core
 * gcc-g++
-* php
 * python3
-* php
+* ruby
 * R
 * git
 
 ```python
-python3 run.py main $times
-# Where times is the number of times the Leibniz's formula  is applied
+python3 run.py main $rounds $iterations
+# Where rounds is the number of times the Leibniz's formula  is applied and iterations the number of trials to perform
 # for example
-python3 run.py main 1000000000
-# This will benchmark the code performance when applying the leibniz formula a billion times
+python3 run.py main 1000000000 10
+# This will benchmark 10 performances of the code when applying the leibniz formula a billion times
 ```
