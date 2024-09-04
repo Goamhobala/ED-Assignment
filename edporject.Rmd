@@ -1,0 +1,196 @@
+---
+title: "ED project"
+author: "Jing Yeh, Saurav Sathnarayan"
+date: "2024-09-03"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Contents
+
+#### Introduction
+
+#### Objectives
+
+#### Sources of Variation
+
+#### Randomisation
+
+#### Analysis of pilot experiment
+
+#### Our Model and Analysis
+
+#### Summary and Conclusions
+
+#### References
+
+#### Apenddix
+
+\
+
+_things need to change and edit_
+\
+1. add page numbers
+\
+2. might need to add new pages/headings depending on project length.
+\
+3. Add title page?
+
+\newpage
+
+
+
+```{r include=FALSE}
+#page 1
+```
+
+# Introduction
+
+The goal of this experiment is to identify the programming language that delivers the fastest execution time when calculating a value of $\pi$ with respect to Leibiniz formula. $$\sum_{n=0}^{\infty} (-1)^n/(2n+1)$$
+
+With the increasing demand for high-performance applications, understanding which programming languages offer superior speed in terms of execution is crucial for developers, especially in domains requiring real-time processing, large-scale data analysis, and resource-intensive computations.
+\
+This problem will focus on evaluating a selection of popular programming languages, including but not limited to C++, C, R, Python, Java, and JavaScript. The evaluation will consider how quickly a value of pi can be calculated using leibiniz formula, using varying number of terms, ie 100000 terms or 1000000 terms.We are not concerned about how accurate our value of $\pi$ is, but rather how quickly a programming language computes that value.
+\
+
+#### Compiled Language:
+\
+In a compiled language, the source code is translated into machine code by a compiler before execution. This machine code, often called an executable, can be run directly by the computer's hardware.
+\
+Compiled programs typically run faster since they are already in machine language, which the computer's processor can execute directly.
+\
+Examples: C, C++, Rust, and Go are examples of compiled languages.
+
+#### Interpreted Language:
+\
+In an interpreted language, the source code is executed line-by-line by an interpreter at runtime. The interpreter reads the code, translates it into machine code, and executes it on the fly.
+\
+Interpreted programs generally run slower than compiled ones because the translation happens during execution.
+\
+Examples: Python, JavaScript, Ruby, and PHP are examples of interpreted languages.
+
+#### Key Differences:
+Compiled languages require a compilation step that produces an executable, while interpreted languages are executed directly by an interpreter.
+\
+ Compiled languages tend to have better performance due to the pre-compiled nature of the code, whereas interpreted languages are more flexible but slower due to the runtime translation.
+\
+Some languages, like Java, use a combination of both techniques, where the code is first compiled into an intermediate form (bytecode) and then interpreted or just-in-time (JIT) compiled at runtime.
+\
+_still need to edit this_
+
+
+\newpage
+
+
+```{r include=FALSE}
+#page 2
+```
+
+# Objectives
+
+_list our hypothesis here (is there a difference or not?)_
+\
+_list our contrasts. Figure out whether whihc method we are using to control type 1 error_
+\
+_what we hope to find from out experiment._
+
+\newpage
+
+
+
+
+```{r include=FALSE}
+#page 3
+```
+
+# Sources of Variation
+
+_discuss treatment factor and different levels_
+\
+_our experiment units, maybe list pc specs_
+\
+_go into depth about specs of pcs, blocking for each pc, to reduce experiment error variance._
+
+\newpage
+
+
+
+
+```{r include=FALSE}
+#page 4
+```
+
+# Randomisation
+
+_randomisation and soucres of variation can be one page_
+\
+_discuss process of randomisation, why we using it..._
+
+\newpage
+
+
+```{r include=FALSE}
+#page 5
+```
+
+# Analysis of pilot experiment
+
+_we need to decide on number of observations._
+\
+_full analysis here_
+\
+_list our hypothesis here (is there a difference or not?)_
+\
+_list our contrasts. Figure out whether which method we are using to control type 1 error_
+\
+_what we hope to find from out experiment._
+\
+_anova table and conclusions_
+\
+_contrasts and CI plus conclusions_
+
+\newpage
+
+
+```{r include=FALSE}
+#page 6
+```
+# Our Model and Analysis
+
+_list model formulation_
+\
+_explain model terms_
+\
+_repeat steps above_
+
+
+\newpage
+
+
+```{r include=FALSE}
+#page 7
+```
+# Summary and Conclusions
+
+_draw conclusions here_
+\
+_explain any challenges possibly_
+\
+_explain how we would do it differently, to fix errors or mistakes_
+\newpage
+
+```{r include=FALSE}
+#page 8
+```
+# References
+_any references, textbook, code, people wh helped us._
+\newpage
+
+```{r include=FALSE}
+#page 9
+```
+# Apenddix
+_add important code here._
