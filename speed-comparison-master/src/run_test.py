@@ -64,7 +64,7 @@ def main(rounds):
     r = {"name" : "r",
          "compile": "",
          "warmup": False,
-         "run_env": "RScript ",
+         "run_env": "Rscript ",
          "subscript": ".r"}
     php = {"name" : "php",
          "compile": "",
