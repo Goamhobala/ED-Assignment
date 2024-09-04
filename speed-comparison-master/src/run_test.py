@@ -20,14 +20,17 @@ def set_up(languages):
 def benchmark(rounds, languages=list):
     """Perform benchmarking for each language in the languages list"""
     rounds = int(rounds) * (10**-9)
+    
     for lang in languages:
         lang["result"] = f"../results/{lang['name']}{rounds}.csv"
         if lang["warmup"] == True:
+            print("Warming up " + lang["name"]) 
             for i in range(3):
                 "warm up the code to get more accurate results"
                 subprocess.run(f"{lang['run_env']}leibniz{lang['subscript']}".split())
-                
+            print("Done warming up " + lang["name"])
         with open(lang["result"], mode= "a") as result:
+            print("Testing " + lang["name"])
             start_time = time.perf_counter_ns()
             subprocess.run(f"{lang['run_env']}leibniz{lang['subscript']}".split())
             end_time = time.perf_counter_ns()
@@ -74,8 +77,13 @@ def main(rounds):
          "warmup": True,
          "run_env": "php ",
          "subscript": ".php"}
+    ruby = {"name" : "ruby",
+         "compile": "",
+         "warmup": False,
+         "run_env": "ruby ",
+         "subscript": ".rb"}
     
-    languages = [c, cpp, java, php, python, r]
+    languages = [c, cpp, java, ruby, python, r]
     # randomising order
     random.shuffle(languages)
     set_up(languages)
