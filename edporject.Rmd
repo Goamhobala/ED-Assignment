@@ -117,16 +117,17 @@ _come back to check if hypthesis test is right._
 
 # Sources of Variation
 
-_discuss treatment factor and different levels_
-Our treatment factor is implementing Leibiniz Formula to the to the different programming languages. 
 
-
+Our treatment Factors are 6 programming languages: C, C++, Java, Python, R and Ruby. To apply each factor, will run Leibiniz formula a billion times to get an observation. Our response $Y_{ij}$ is the amount of seconds taken to compute leibinz formula a billion times.
+\
+Our experimental units are PCs, which have taken from The following Labs Ishango, Scilab and MiddleTr. Due to the differences in specifications in the PCs, we have decided to block for the labs, to reduce experimental error variance between the experiment units. We've selected 3 PCs from each lab (randomly).  So we have ( experimental units in total. 
 
 \
 _our experiment units, maybe list pc specs_
 \
 _go into depth about specs of pcs, blocking for each pc, to reduce experiment error variance._
-
+\
+_discuss treatment factor and different levels_
 \newpage
 
 
@@ -185,6 +186,8 @@ $$\beta_j\hspace{35pt} \text{effect of }\, j^{th}\, \text{block} $$
 $$e_{ij}\hspace{35pt} \text{random error of the observation} $$
 
 
+
+_need to do formatting_
   
 _explain model terms_
 \
