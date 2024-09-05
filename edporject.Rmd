@@ -91,12 +91,21 @@ _still need to edit this_
 
 # Objectives
 
-_list our hypothesis here (is there a difference or not?)_
+Our main objective is to test the following hypothesis: $$H_0 : \alpha_1 = \alpha_2$$ $$H_1 : \alpha_1 \neq \alpha_2$$
+
+#### Planned comparsions
 \
-_list our contrasts. Figure out whether whihc method we are using to control type 1 error_
+1. Which language is the fastest?
+\
+2. Comparsions between C and C++ and other languages
+\
+3. Do complied languages run faster than interpreted languages ?
+\
+4. Is R (vectorised Language) faster than non-vectorised language when performing calculations?
 \
 _what we hope to find from out experiment._
-
+\
+_come back to check if hypthesis test is right._
 \newpage
 
 
@@ -109,6 +118,10 @@ _what we hope to find from out experiment._
 # Sources of Variation
 
 _discuss treatment factor and different levels_
+Our treatment factor is implementing Leibiniz Formula to the to the different programming languages. 
+
+
+
 \
 _our experiment units, maybe list pc specs_
 \
@@ -160,8 +173,19 @@ _contrasts and CI plus conclusions_
 ```
 # Our Model and Analysis
 
-_list model formulation_
-\
+Our model:
+$$Y_{ij} = \mu + \alpha_i + \beta_j+ e_{ij}$$
+$$ i = 1 ...a$$
+$$ j = 1 ...b$$
+where
+$$\sum_{i=1}^a \alpha_i = \sum_{j=1}^b \beta_i =0 $$
+$$ \mu\hspace{35pt}  \text{overall mean}$$
+$$\alpha_i\hspace{35pt} \text{effect of }\, i^{th}\, \text{treatment} $$
+$$\beta_j\hspace{35pt} \text{effect of }\, j^{th}\, \text{block} $$
+$$e_{ij}\hspace{35pt} \text{random error of the observation} $$
+
+
+  
 _explain model terms_
 \
 _repeat steps above_
