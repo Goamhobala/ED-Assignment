@@ -91,7 +91,8 @@ _still need to edit this_
 
 # Objectives
 
-Our main objective is to test the following hypothesis: $$H_0 : \alpha_1 = \alpha_2$$ $$H_1 : \alpha_1 \neq \alpha_2$$
+Our main objective is to test the following hypothesis: $$H_0 : \alpha_i = 0$$ $$H_1 :\text{at least of } \alpha_i \neq 0$$
+$\text{For some } i = 1,2...6$
 
 #### Planned comparsions
 \
@@ -105,7 +106,6 @@ Our main objective is to test the following hypothesis: $$H_0 : \alpha_1 = \alph
 \
 _what we hope to find from out experiment._
 \
-_come back to check if hypthesis test is right._
 \newpage
 
 
@@ -120,14 +120,44 @@ _come back to check if hypthesis test is right._
 
 Our treatment Factors are 6 programming languages: C, C++, Java, Python, R and Ruby. To apply each factor, will run Leibiniz formula a billion times to get an observation. Our response $Y_{ij}$ is the amount of seconds taken to compute leibinz formula a billion times.
 \
-Our experimental units are PCs, which have taken from The following Labs Ishango, Scilab and MiddleTr. Due to the differences in specifications in the PCs, we have decided to block for the labs, to reduce experimental error variance between the experiment units. We've selected 3 PCs from each lab (randomly).  So we have ( experimental units in total. 
+Our experimental units are PCs, which have taken from The following Labs Ishango, Scilab and MiddleTr. 
 
+#### PC Specificiations
 \
-_our experiment units, maybe list pc specs_
+Ishango PC
 \
-_go into depth about specs of pcs, blocking for each pc, to reduce experiment error variance._
+Memory:                                     8,0 GB
 \
-_discuss treatment factor and different levels_
+Processor:                                  Intel® Core™ i3-9100 
+\
+Graphics:                                   Intel® UHD Graphics 630 (CFL GT2)
+\
+
+MidddleTR
+\
+Memory:                                     8,0 GB
+\
+Processor:                                  Intel(R) Core(TM) i5-9500 CPU
+\
+Graphics: 
+\
+
+ScilabB
+\
+Memory:                                     16,0 GB 
+\
+Processor:                                  12th Gen Intel(R) Core(TM) i5-12400
+\
+Graphics: 
+\
+
+Due to the differences in specifications in the PCs, we have decided to block for the labs, to reduce experimental error variance between the experiment units. We've selected 3 PCs from each lab (randomly).  So we have 9 experimental units in total. 
+_get gpu specs for last two pcs_
+ 
+
+#### Treatment Factor
+_talk about treament factor_
+
 \newpage
 
 
