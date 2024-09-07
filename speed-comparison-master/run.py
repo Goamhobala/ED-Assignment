@@ -57,12 +57,12 @@ def run(languages, rounds="100000000", sample_size=10):
 def main(rounds="100000000", sample_size=10, num_samples=1):
     
     c = {"name" : "c",
-         "compile": "gcc leibniz.c -o leibnizc -O3 ",
+         "compile": "gcc leibniz.c -o leibnizc -O0 ",
          "warmup": True,
          "run_env": "./",
          "subscript": "c"}
     cpp = {"name" : "cpp",
-         "compile": "g++ leibniz.c -o leibnizcpp -O3 -std=c++11",
+         "compile": "g++ leibniz.c -o leibnizcpp -O0 -std=c++11",
          "warmup": True,
          "run_env": "./",
          "subscript": "cpp"}
@@ -97,7 +97,8 @@ def main(rounds="100000000", sample_size=10, num_samples=1):
          "run_env": "ruby ",
          "subscript": ".rb"}
     
-    languages = [c, cpp, java, ruby, python, r]
+    #languages = [c, cpp, java, ruby, python, r]
+    languages = [c, cpp]
     os.chdir("src")
     set_up(languages)
     for i in range(int(num_samples)):
