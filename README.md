@@ -26,9 +26,9 @@ Note: For Windows user, please install <a href="https://cygwin.com/">cygwin</a> 
 * git
 
 ```python
-python3 run.py main $rounds $iterations
-# Where rounds is the number of times the Leibniz's formula  is applied and iterations the number of trials to perform
+python3 run.py main $rounds $sample_size %number_of_samples
+# Where rounds is the number of times the Leibniz's formula  is applied and sample_size the number of trials to perform for each sample
 # for example
-python3 run.py main 1000000000 10
+python3 run.py main 1000000000 5 20
 # This will benchmark 10 performances of the code when applying the leibniz formula a billion times
 ```
