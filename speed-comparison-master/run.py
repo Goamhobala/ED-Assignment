@@ -32,9 +32,9 @@ def benchmark(rounds, languages=list):
             start_time = time.perf_counter_ns()
             subprocess.run(f"{lang['run_env']}leibniz{lang['subscript']}".split())
             end_time = time.perf_counter_ns()
-            duration = end_time - start_time
+            duration = (end_time - start_time) * (10**-6)
             writer = csv.writer(result)
-            writer.writerow([duration * (10**-6)])
+            writer.writerow([duration])
             lang['total'] += duration
 
 def run(languages, rounds="100000000", sample_size=10):
@@ -51,6 +51,8 @@ def run(languages, rounds="100000000", sample_size=10):
         with open(f"../results/avg_{lang['name']}_{rounds}.csv", mode= "a") as result: 
             writer = csv.writer(result)
             writer.writerow([lang["mean"]])
+            # reinitialise total
+            lang["total"] = 0
         
 def main(rounds="100000000", sample_size=10, num_samples=1):
     
