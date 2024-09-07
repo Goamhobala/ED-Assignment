@@ -7,6 +7,10 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(scales)
+library(gridExtra)
+
 ```
 
 # Contents
@@ -182,20 +186,49 @@ _discuss process of randomisation, why we using it..._
 ```
 
 # Analysis of pilot experiment
+```{r include=FALSE}
+# Set up R for pilot study
+
+```
 
 As mentioned in the introduction, we aim to investigate the speed of various programming languages when used to perform large amount of computation. To start with, we conducted a small scale pilot experiment. This is based on the "first explore then confirm" strategy described in [1],
  
 Since the number of treatments we apply in this experiment does not significantly impact the time and cost required, we apply all six treatments. However, as computers of different specifications are harder to come by, we will only use 3 different hardware setup for this pilot study.
 
-Upon inspecting the qqnorm plots of the runtime of all programming languages on the same machine, we discovered that, with the exception of C and C++, the runtime of most languages tend to not follow a normal distribution. Note: The sample size is too small to meaningfully apply Shapiro-Wilk test
-_todo: Insesrt qqplots_
+Upon inspecting the qqnorm plots of the runtime of all programming languages on the same machine, we discovered that the runtime of languages tend to not follow a normal distribution, even when the sample size is big (n = 100)
 
-To address this, we run the program 5 times per sample for each programming language, and repeating the process 30 times. By the Central Limit Theorem (CLT), we may assume the distribution of sample means to be normal [2]. The mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we take as a single observation.
+To address this, we run the program 5 times per sample for each programming language, and repeating the process 30 times. By the Central Limit Theorem (CLT), the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we take as a single observation.
 
 The process described above is automated using the following command:
 ```{eval=FALSE}
-python3 run.py main 100000000 5 20
+python3 run.py main 100000000 15 30
 ```
+
+
+```{r echo=FALSE}
+setwd("./speed-comparison-master/data/")
+ishango.before <- read.csv("ishango/noCLT/ishango.csv")
+ishango.before.long <- pivot_longer(ishango.before, cols=everything(), names_to="language", values_to="runtime")
+before <- ggplot(ishango.before.long, aes(sample=(runtime)))+
+  stat_qq(col="green")+
+  stat_qq_line(col="blue")+
+  facet_wrap(~language, scales="free")+
+  labs(x="quantiles", y="ms", title="Using One Sample of Size 100")+
+  theme(axis.text.x = element_text(size=6))
+
+ishango.after <- read.csv("ishango/fifteen30/ishango_mean.csv")
+
+ishango.after.long <- pivot_longer(ishango.after, cols=everything(), names_to="language", values_to="runtime")
+after <- ggplot(ishango.after.long, aes(sample=(runtime)))+
+  stat_qq(col="coral")+
+  stat_qq_line(col="blue")+
+  facet_wrap(~language, scales="free")+
+  labs(x="quantiles", y="ms", title="Using 30 Samples of Size 15")+
+  theme(axis.text.x = element_text(size=6))
+
+grid.arrange(before, after, ncol=2, nrow=1)
+```
+
 
 _todo: insert table for results_
 \

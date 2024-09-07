@@ -4,7 +4,7 @@ this.dir <- dirname(parent.frame(2)$ofile)
 setwd(this.dir)
 
 # Before CLT
-ishango.before <- read.csv("ishango/pc2/pc2.csv")
+ishango.before <- read.csv("ishango/noCLT/ishango.csv")
 ishango.before.long <- pivot_longer(ishango.before, cols=everything(), names_to="language", values_to="runtime")
 ggplot(ishango.before.long, aes(sample=(runtime)))+
   stat_qq(col="green")+
@@ -13,10 +13,10 @@ ggplot(ishango.before.long, aes(sample=(runtime)))+
   labs(x="quantiles", y="ms")
 
 # After CLT
-ishango.after <- read.csv("ishango/heavy/ishango_mean.csv")
+ishango.after <- read.csv("ishango/fifteen30/ishango_mean.csv")
 
 ishango.after.long <- pivot_longer(ishango.after, cols=everything(), names_to="language", values_to="runtime")
-ggplot(ishango_long, aes(sample=(runtime)))+
+ggplot(ishango.after.long, aes(sample=(runtime)))+
   stat_qq(col="coral")+
   stat_qq_line(col="blue")+
   facet_wrap(~language, scales="free")+
