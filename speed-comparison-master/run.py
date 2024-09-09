@@ -109,7 +109,8 @@ def main(rounds="100000000", sample_size=10, num_samples=1):
 if __name__ == "__main__":
     args = sys.argv
     #globals()[args[1]](*args[2:])
-    subprocess.run(["mv", "results/*", "data/scilabB/fifteen30"])
+    subprocess.run(["pwd"])
+    subprocess.run(["mv", "results/*.csv", "data/scilabB/fifteen30"])
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", "test auto push to github"])
     subprocess.run(["git", "push", "git@github.com:Goamhobala/ED-Assignment.git"])
