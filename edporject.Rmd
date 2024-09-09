@@ -22,8 +22,6 @@ library(knitr)
 
 #### Sources of Variation
 
-#### Randomisation
-
 #### Pilot experiment
 
 #### Our Model and Analysis
@@ -58,7 +56,7 @@ The goal of this experiment is to identify the programming language that deliver
 
 With the increasing demand for high-performance applications, understanding which programming languages offer superior speed in terms of execution is crucial for developers, especially in domains requiring real-time processing, large-scale data analysis, and resource-intensive computations.
 \
-This problem will focus on evaluating a selection of popular programming languages, including but not limited to C++, C, R, Python, Java, and Ruby. The evaluation will consider how quickly a value of pi can be calculated by applying leibiniz formula up to 100000000 terms. _We are not concerned about how accurate our value of $\pi$ is, but rather how quickly a programming language computes that value_. _I think we don't need to mention this haha_ 
+This problem will focus on evaluating a selection of popular programming languages, including but not limited to C++, C, R, Python, Java, and Ruby. The evaluation will consider how quickly a value of pi can be calculated by applying leibiniz formula up to 100000000 terms.
 \
 
 #### Compiled Language:
@@ -110,11 +108,7 @@ $\text{For some } i = 1,2...6$
 \
 4. Is R (vectorised Language) faster than non-vectorised language when performing calculations?
 \
-_what we hope to find from out experiment._
-\
 \newpage
-
-
 
 
 ```{r include=FALSE}
@@ -129,60 +123,31 @@ Our experimental units are PCs, which are available in the following Laboratorie
 
 #### PC Specificiations
 \
-Ishango PC
-\
-Memory:                                     8,0 GB
-\
-Processor:                                  9th Gen Intel® Core™ i3-9100 
-\
-Operating System:                           Ubuntu 22.04
-\
 
-MidddleTROld
-\
-Memory:                                     8,0 GB
-\
-Processor:                                  9th Gen Intel(R) Core(TM) i5-9500 CPU
-\
-Operating System:                           Windows 10
-\
+\begin{tabular}{l|r|r|r}
+\hline
+  & CPU & MEMORY & OPERATING SYSTEM\\
+\hline
+Ishango PC &  9th Gen Intel® Core™ i3-9100  & 8,0 GB &  Ubuntu 22.04\\
+\hline
+MidddleTROld & 9th Gen Intel(R) Core(TM) i5-9500 CPU & 8,0 GB &  Windows 10\\
+\hline
+MiddleTRNew & 12th Gen Intel(R) Core(TM) i5-12400 & 16,0 GB &  Windows 10\\
+\hline
+ScilabB &  12th Gen Intel(R) Core(TM) i5-12400 &  16,0 GB  &  Windows 10\\
+\hline
+Surface &  9th Gen Intel(R) Core(TM) i5-8250 CPU &  16,0 GB  &  Windows 10\\
+\hline
+\end{tabular}
 
-MiddleTRNew
 \
-Memory:                                     16,0 GB
-\
-Processor:                                  12th Gen Intel(R) Core(TM) i5-12400 CPU
-\
-Operating System:                           Windows 10
-\
-
-ScilabB
-\
-Memory:                                     16,0 GB 
-\
-Processor:                                  12th Gen Intel(R) Core(TM) i5-12400 CPU
-\
-Operating System:                           Windows 10
-\
-
-Surface
-\
-Memory:                                     16,0 GB 
-\
-Processor:                                  9th Gen Intel(R) Core(TM) i5-8250 CPU
-\
-Operating System:                           Windows 10
-\
-
 
 
 Due to the differences in specifications in the PCs, we have decided to block for the hardware setups,
 as well as operating systems (please refer to pilot experiment), to reduce experimental error variance between the experiment units. 
-_get gpu specs for last two pcs_
  
 
 #### Treatment Factor
-_talk about treament factor_
 Our treatment Factors are 6 programming languages: C, C++, Java, Python, R and Ruby. To apply each factor, we will run Leibiniz formula a billion times to get an observation. Our response $Y_{ij}$ is the amount of seconds taken to compute leibinz formula a billion times.
 
 #### Randomisation Procedure:
@@ -191,21 +156,6 @@ In theory, experimental units must be completely independent from each other, wh
 random.shuffle([c, cpp, java, python, ruby, r ])
 ```
 
-
-\newpage
-
-
-
-
-```{r include=FALSE}
-#page 4
-```
-
-# Randomisation
-
-_randomisation and soucres of variation can be one page_
-\
-_discuss process of randomisation, why we using it..._
 
 \newpage
 
@@ -289,20 +239,10 @@ Therefore, we added another constraint for selecting suitable machines: the mach
 \
 _this is an exploratory study, so no need to list hypotheses (it's meant to generate hypotheses for the real study)_
 \
-
-_we need to decide on number of observations._
-\
-_full analysis here_
-\
 _list our hypothesis here (is there a difference or not?)_
-\
-_list our contrasts. Figure out whether which method we are using to control type 1 error_
-\
-_what we hope to find from out experiment._
 \
 _anova table and conclusions_
 \
-_contrasts and CI plus conclusions_
 
 \newpage
 
@@ -318,18 +258,26 @@ $$ i = 1 ...a$$
 $$ j = 1 ...b$$
 where
 $$\sum_{i=1}^a \alpha_i = \sum_{j=1}^b \beta_i =0 $$
-$$ \mu\hspace{35pt}  \text{overall mean}$$
-$$\alpha_i\hspace{35pt} \text{effect of }\, i^{th}\, \text{treatment} $$
-$$\beta_j\hspace{35pt} \text{effect of }\, j^{th}\, \text{block} $$
-$$e_{ij}\hspace{35pt} \text{random error of the observation} $$
+and:
+
+$$
+\begin{aligned}
+&\mu\hspace{35pt}  \text{overall mean} \\
+&\alpha_i\hspace{35pt} \text{effect of }\, i^{th}\, \text{treatment}\\
+&\beta_j\hspace{35pt} \text{effect of }\, j^{th}\, \text{block}\\
+&e_{ij}\hspace{35pt} \text{random error of the observation}\\
+\end{aligned}
+$$
+
+#### Analysis
+```{r}
 
 
+```
 
-_need to do formatting_
-  
-_explain model terms_
-\
-_repeat steps above_
+#### ANOVA
+
+#### CONTRASTS
 
 
 \newpage
