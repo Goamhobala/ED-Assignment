@@ -24,7 +24,7 @@ library(knitr)
 
 #### Randomisation
 
-#### Analysis of pilot experiment
+#### Pilot experiment
 
 #### Our Model and Analysis
 
@@ -120,13 +120,12 @@ _what we hope to find from out experiment._
 ```{r include=FALSE}
 #page 3
 ```
+# Methods
 
-# Sources of Variation
 
-
-Our treatment Factors are 6 programming languages: C, C++, Java, Python, R and Ruby. To apply each factor, will run Leibiniz formula a billion times to get an observation. Our response $Y_{ij}$ is the amount of seconds taken to compute leibinz formula a billion times.
+#### Sources of Variation
 \
-Our experimental units are PCs, which have taken from The following Labs Ishango, Scilab and MiddleTr. 
+Our experimental units are PCs, which are available in the following Laboratories: Ishango Senior Computing Laboratory(Ishango) , Science Laboratory B (Scilab B) and Middle Campus Library Training Room (MiddleTROld and MiddleTRNew).
 
 #### PC Specificiations
 \
@@ -134,35 +133,64 @@ Ishango PC
 \
 Memory:                                     8,0 GB
 \
-Processor:                                  Intel® Core™ i3-9100 
+Processor:                                  9th Gen Intel® Core™ i3-9100 
 \
-Graphics:                                   Intel® UHD Graphics 630 (CFL GT2)
+Operating System:                           Ubuntu 22.04
 \
 
-MidddleTR
+MidddleTROld
 \
 Memory:                                     8,0 GB
 \
-Processor:                                  Intel(R) Core(TM) i5-9500 CPU
+Processor:                                  9th Gen Intel(R) Core(TM) i5-9500 CPU
 \
-Graphics: 
+Operating System:                           Windows 10
+\
+
+MiddleTRNew
+\
+Memory:                                     16,0 GB
+\
+Processor:                                  12th Gen Intel(R) Core(TM) i5-12400 CPU
+\
+Operating System:                           Windows 10
 \
 
 ScilabB
 \
 Memory:                                     16,0 GB 
 \
-Processor:                                  12th Gen Intel(R) Core(TM) i5-12400
+Processor:                                  12th Gen Intel(R) Core(TM) i5-12400 CPU
 \
-Graphics: 
+Operating System:                           Windows 10
 \
 
-Due to the differences in specifications in the PCs, we have decided to block for the labs, to reduce experimental error variance between the experiment units. We've selected 3 PCs from each lab (randomly).  So we have 9 experimental units in total. 
+Surface
+\
+Memory:                                     16,0 GB 
+\
+Processor:                                  9th Gen Intel(R) Core(TM) i5-8250 CPU
+\
+Operating System:                           Windows 10
+\
+
+
+
+Due to the differences in specifications in the PCs, we have decided to block for the hardware setups,
+as well as operating systems (please refer to pilot experiment), to reduce experimental error variance between the experiment units. 
 _get gpu specs for last two pcs_
  
 
 #### Treatment Factor
 _talk about treament factor_
+Our treatment Factors are 6 programming languages: C, C++, Java, Python, R and Ruby. To apply each factor, we will run Leibiniz formula a billion times to get an observation. Our response $Y_{ij}$ is the amount of seconds taken to compute leibinz formula a billion times.
+
+#### Randomisation Procedure:
+In theory, experimental units must be completely independent from each other, which implies that using different machines for each treatment would be ideal. In practice, however, this is not feasible as we only have access to a limited range of hardware setups, and a limited number of machines for some setups. Therefore, we applied the treatments on the same machines, but made sure that caches have been cleared in every run, as well as randomised the order in which we applied the treatments to minise the impact of confounding factors. This is done through the **suffule** method that comes with Python's random module.
+```{python3 eval=FALSE}
+random.shuffle([c, cpp, java, python, ruby, r ])
+```
+
 
 \newpage
 
@@ -186,17 +214,19 @@ _discuss process of randomisation, why we using it..._
 #page 5
 ```
 
-# Analysis of pilot experiment
+# Pilot experiment
 ```{r include=FALSE}
 # Set up R for pilot study
 
 ```
 
-As mentioned in the introduction, we aim to investigate the speed of various programming languages when used to perform large amount of computation. To start with, we conducted a small scale pilot experiment. This is based on the "first explore then confirm" strategy described in [1],
+### Scale of Experiment
+As mentioned in the introduction, we aim to investigate the speed of various programming languages when used to perform large amount of computation. To start with, we conducted a small scale pilot experiment. This is based on the "first explore then confirm" strategy described in [1] and [4].
  
 Since the number of treatments we apply in this experiment does not significantly impact the time and cost required, we apply all six treatments. However, as computers of different specifications are harder to come by, we will only use 3 different hardware setup for this pilot study.
 
-Upon inspecting the qqnorm plots of the runtime of all programming languages on the same machine, we discovered that the runtime of languages tend to not follow a normal distribution, even when the sample size is big (n = 100)
+### Problem: Runtimes of Programming Langugaes are not Normally Distributed
+Upon inspecting the qqnorm plots of the runtime of all programming languages on the same machine, we discovered that the runtime of languages tend to not follow a normal distribution, even when the sample size is fairly large (n = 100)
 
 To address this, we ran the program 15 times per sample for each programming language, and repeated the process 30 times. By the Central Limit Theorem (CLT), the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we take as a single observation.
 
@@ -229,8 +259,9 @@ after <- ggplot(ishango.after.long, aes(sample=(runtime)))+
 
 grid.arrange(before, after, ncol=2, nrow=1)
 ```
-After we have applied the procedure described above, we obtained the following result:
 
+
+### Problem: Ensuring no Interactions between Blocking Factors and Treatment Factors
 _todo: insert table for results_
 ```{r echo=FALSE}
 setwd("./speed-comparison-master/data/")
@@ -240,14 +271,21 @@ ttheme <- ttheme_minimal(base_size=10)
 table <- tableGrob(pilot, them=ttheme)
 
 pilot.long <- pivot_longer(pilot, cols=C:R, names_to = "language", values_to = "runtime")
-plot <- ggplot(pilot.long, aes(x=language, y=runtime, group=Hardware, color=Hardware))+
+plot <- ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardware))+
   geom_point()+
   geom_line()+
   labs(title= "Interaction Graph",
        x= "Progamming Language",
-       y= "Runtime")
+       y= "Log Runtime")
 grid.arrange(plot, table, ncol=1, nrow=2)
 ```
+From the data collected, we observed that the results collected from Ishango do not follow the general trends established by the other three setups. Firstly, the hardware setup in Ishango lab is significantly less advance than MiddleTRNew. Yet, most programming languages tend to perform better on the Ishango machine. Secondly, to add to the first observation, not all programming languages perform better on the Ishango machine.
+
+After further investigation, we learned that programming languages perform differently on various operating systems [4]. We hypothesised that this is likely the reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system).
+
+Therefore, we added another constraint for selecting suitable machines: the machines must all run on Windows 10, as these machines are the most widely available.
+
+
 \
 _this is an exploratory study, so no need to list hypotheses (it's meant to generate hypotheses for the real study)_
 \
