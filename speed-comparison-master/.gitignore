@@ -2,8 +2,8 @@
 .lsp
 .vscode
 .idea
-results/*.csv
 results/*.png
+results/*.csv
 leibniz
 src/cs/obj/Debug
 *.o
