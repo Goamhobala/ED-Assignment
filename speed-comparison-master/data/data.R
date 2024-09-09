@@ -23,12 +23,14 @@ ggplot(ishango.after.long, aes(sample=(runtime)))+
   labs(x="quantiles", y="ms")
 
 
-
 pilot <- read.csv("pilotData.csv")
 pilot.long <- pivot_longer(pilot, cols=C:R, names_to = "language", values_to = "runtime")
-ggplot(pilot.long, aes(x=language, y=runtime, group=Hardware, color=Hardware))+
+ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardware))+
   geom_point()+
   geom_line()+
   labs(title= "Interaction Graph",
        x= "Progamming Language",
        y= "Runtime")
+
+anova <- aov(runtime~language+Hardware, pilot.long)
+anova_log <- aov(log(runtime)~language+Hardware, pilot.long)
