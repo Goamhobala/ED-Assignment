@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(scales)
 library(gridExtra)
+library(knitr)
 
 ```
 
@@ -197,7 +198,7 @@ Since the number of treatments we apply in this experiment does not significantl
 
 Upon inspecting the qqnorm plots of the runtime of all programming languages on the same machine, we discovered that the runtime of languages tend to not follow a normal distribution, even when the sample size is big (n = 100)
 
-To address this, we run the program 5 times per sample for each programming language, and repeating the process 30 times. By the Central Limit Theorem (CLT), the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we take as a single observation.
+To address this, we ran the program 15 times per sample for each programming language, and repeated the process 30 times. By the Central Limit Theorem (CLT), the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we take as a single observation.
 
 The process described above is automated using the following command:
 ```{eval=FALSE}
@@ -205,7 +206,7 @@ python3 run.py main 100000000 15 30
 ```
 
 
-```{r echo=FALSE}
+```{r, echo=FALSE, out.height="45%"}
 setwd("./speed-comparison-master/data/")
 ishango.before <- read.csv("ishango/noCLT/ishango.csv")
 ishango.before.long <- pivot_longer(ishango.before, cols=everything(), names_to="language", values_to="runtime")
@@ -228,9 +229,25 @@ after <- ggplot(ishango.after.long, aes(sample=(runtime)))+
 
 grid.arrange(before, after, ncol=2, nrow=1)
 ```
-
+After we have applied the procedure described above, we obtained the following result:
 
 _todo: insert table for results_
+```{r echo=FALSE}
+setwd("./speed-comparison-master/data/")
+
+pilot <- read.csv("pilotData.csv")
+ttheme <- ttheme_minimal(base_size=10)
+table <- tableGrob(pilot, them=ttheme)
+
+pilot.long <- pivot_longer(pilot, cols=C:R, names_to = "language", values_to = "runtime")
+plot <- ggplot(pilot.long, aes(x=language, y=runtime, group=Hardware, color=Hardware))+
+  geom_point()+
+  geom_line()+
+  labs(title= "Interaction Graph",
+       x= "Progamming Language",
+       y= "Runtime")
+grid.arrange(plot, table, ncol=1, nrow=2)
+```
 \
 _this is an exploratory study, so no need to list hypotheses (it's meant to generate hypotheses for the real study)_
 \

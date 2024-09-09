@@ -21,3 +21,14 @@ ggplot(ishango.after.long, aes(sample=(runtime)))+
   stat_qq_line(col="blue")+
   facet_wrap(~language, scales="free")+
   labs(x="quantiles", y="ms")
+
+
+
+pilot <- read.csv("pilotData.csv")
+pilot.long <- pivot_longer(pilot, cols=C:R, names_to = "language", values_to = "runtime")
+ggplot(pilot.long, aes(x=language, y=runtime, group=Hardware, color=Hardware))+
+  geom_point()+
+  geom_line()+
+  labs(title= "Interaction Graph",
+       x= "Progamming Language",
+       y= "Runtime")
