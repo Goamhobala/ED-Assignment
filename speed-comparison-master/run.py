@@ -112,7 +112,7 @@ if __name__ == "__main__":
     subprocess.run(["mv", "results/*", "data/scilabB/fifteen30"])
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", "test auto push to github"])
-    subprocess.run(["git", "push", "https://Student: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@github.com/Goamhobala/ED-Assignment.git"])
+    subprocess.run(["git", "push", "git@github.com:Goamhobala/ED-Assignment.git"])
 
 
 
