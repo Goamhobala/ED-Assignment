@@ -132,7 +132,7 @@ Ishango PC &  9th Gen Intel® Core™ i3-9100  & 8,0 GB &  Ubuntu 22.04\\
 \hline
 MidddleTROld & 9th Gen Intel(R) Core(TM) i5-9500 CPU & 8,0 GB &  Windows 10\\
 \hline
-MiddleTRNew & 12th Gen Intel(R) Core(TM) i5-12400 & 16,0 GB &  Windows 10\\
+MiddleTRNew & 12th Gen Intel(R) Core(TM) i5-13400 & 16,0 GB &  Windows 10\\
 \hline
 ScilabB &  12th Gen Intel(R) Core(TM) i5-12400 &  16,0 GB  &  Windows 10\\
 \hline
@@ -151,7 +151,7 @@ as well as operating systems (please refer to pilot experiment), to reduce exper
 Our treatment Factors are 6 programming languages: C, C++, Java, Python, R and Ruby. To apply each factor, we will run Leibiniz formula a billion times to get an observation. Our response $Y_{ij}$ is the amount of seconds taken to compute leibinz formula a billion times.
 
 #### Randomisation Procedure:
-In theory, experimental units must be completely independent from each other, which implies that using different machines for each treatment would be ideal. In practice, however, this is not feasible as we only have access to a limited range of hardware setups, and a limited number of machines for some setups. Therefore, we applied the treatments on the same machines, but made sure that caches have been cleared in every run, as well as randomised the order in which we applied the treatments to minise the impact of confounding factors. This is done through the **suffule** method that comes with Python's random module.
+In theory, experimental units must be completely independent from eah other, which implies that using different machines for each treatment would be ideal. In practice, however, this is not feasible as we only have access to a limited range of hardware setups, and a limited number of machines for some setups. Therefore, we applied the treatments on the same machines, but made sure that caches have been cleared in every run, as well as randomised the order in which we applied the treatments to minimise the impact of confounding factors. This is done through the **shuffle** method that comes with Python's random module.
 ```{python3 eval=FALSE}
 random.shuffle([c, cpp, java, python, ruby, r ])
 ```
@@ -234,6 +234,9 @@ From the data collected, we observed that the results collected from Ishango do 
 After further investigation, we learned that programming languages perform differently on various operating systems [4]. We hypothesised that this is likely the reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system).
 
 Therefore, we added another constraint for selecting suitable machines: the machines must all run on Windows 10, as these machines are the most widely available.
+
+
+
 
 
 \

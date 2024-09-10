@@ -32,5 +32,15 @@ ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardwar
        x= "Progamming Language",
        y= "Runtime")
 
-anova <- aov(runtime~language+Hardware, pilot.long)
-anova_log <- aov(log(runtime)~language+Hardware, pilot.long)
+analysis <- read.csv("analysis.csv")
+analysis.long <- pivot_longer(analysis, cols=C:R, names_to = "language", values_to = "runtime")
+ggplot(analysis.long, aes(x=language, y=(runtime), group=Hardware, color=Hardware))+
+  geom_point()+
+  geom_line()+
+  labs(title= "Interaction Graph",
+       x= "Progamming Language",
+       y= "Runtime")
+
+
+anova <- aov(runtime~language+Hardware, analysis.long)
+anova_log <- aov(log(runtime)~language+Hardware, analysis.long)
