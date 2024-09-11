@@ -5,6 +5,7 @@ import sys
 def main(rounds, sample_size, num_samples, machine):
 	subprocess.run(f"python3 run.py main {rounds} {sample_size} {num_samples}".split())
 	subprocess.run(["git", "pull"])
+	os.system(f"mkdir data/{machine}")
 	os.system(f"mkdir data/{machine}/fifteen30")
 	os.system(f"mv results/* data/{machine}/fifteen30")
 	subprocess.run(["git", "add", "."])
