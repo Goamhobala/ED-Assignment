@@ -138,6 +138,7 @@ ScilabB &  12th Gen Intel(R) Core(TM) i5-12400 &  16,0 GB  &  Windows 10\\
 \hline
 Surface &  9th Gen Intel(R) Core(TM) i5-8250 CPU &  16,0 GB  &  Windows 10\\
 \hline
+ASUS laptop &  5th Gen Intel(R) Core(TM) i7-5500U CPU &  6,0 GB  &  Windows 10\\
 \end{tabular}
 
 \
