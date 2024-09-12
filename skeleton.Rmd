@@ -106,11 +106,11 @@ jitter <- ggplot(middleTRNew.before.long, aes(x=language, y=log(runtime), color=
   geom_point(alpha=0.3, position=position_jitter(height=1, width=0.3))+
   labs(x="language", y="runtime (log(ms))", title="Jittered Graph of Execution Time", size=8)
 
-qq <- ggplot(middleTRNew.before.long, aes(sample=(runtime)))+
+qq <- ggplot(middleTRNew.before.long, aes(sample=log(runtime)))+
   stat_qq(col="green")+
   stat_qq_line(col="blue")+
   facet_wrap(~language, scales="free")+
-  labs(x="quantiles", y="ms", title="Quantile-Quantile Plots of Execution Time",
+  labs(x="quantiles", y="runtime (log(ms))", title="Quantile-Quantile Plots of Execution Time",
        size=8)
 grid.arrange(jitter, qq, ncol=2, nrow=1)
 ```
