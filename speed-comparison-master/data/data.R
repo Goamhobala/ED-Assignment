@@ -13,6 +13,8 @@ ggplot(ishango.before.long, aes(sample=(runtime)))+
   facet_wrap(~language, scales="free")+
   labs(x="quantiles", y="ms")
 
+
+
 # After CLT
 ishango.after <- read.csv("ishango/fifteen30/ishango_mean.csv")
 
@@ -22,6 +24,7 @@ ggplot(ishango.after.long, aes(sample=(runtime)))+
   stat_qq_line(col="blue")+
   facet_wrap(~language, scales="free")+
   labs(x="quantiles", y="ms")
+
 
 
 pilot <- read.csv("pilotData.csv")
@@ -54,12 +57,24 @@ ggplot(data.frame(anova_log.residauls), aes(sample=(anova_log.residauls)))+
 shapiro.test(anova_log.residauls)
 
 
-table_anova <- su
-mmary(anova_log)
+middleTRNew.before <-read.csv("middleTRNew/middleTRNewBefore.csv")
+middleTRNew.before.long <- pivot_longer(middleTRNew.before, cols=everything(), names_to="language", values_to="runtime")
+ggplot(middleTRNew.before.long, aes(x=language, y=log(runtime), color=language))+
+  geom_point(alpha=0.3, position=position_jitter(height=1, width=0.3))+
+  labs(x="Language", y="Runtime (log(ms))", title="Jittered Graph of Runtime for Programming Languages")
+
+ggplot(middleTRNew.before.long, aes(sample=(runtime)))+
+  stat_qq(col="green")+
+  stat_qq_line(col="blue")+
+  facet_wrap(~language, scales="free")+
+  labs(x="quantiles", y="ms")
+
+table_anova <- summary(anova_log)
 table_anova
 tableGrob(as.data.frame(table_anova))
 
 shapiro = c()
+
 
 #for (i in 1:7):
   #shapiro <- c(shapiro.test(pilot))
