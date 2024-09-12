@@ -1,0 +1,442 @@
+
+\documentclass[12pt,halfline,a4paper,]{ouparticle}
+
+% Packages I think are necessary for basic Rmarkdown functionality
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\usepackage{framed}
+
+% Link coloring
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={STA2005S - Experimental Design Assignment}
+            }
+
+
+%% To allow better options for figure placement
+%\usepackage{float}
+
+% Packages that are supposedly required by OUP sty file
+\usepackage{amssymb, amsmath, geometry, amsfonts, verbatim, endnotes, setspace}
+
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+% Macros for dealing with affiliations, footnotes, etc.
+\makeatletter
+\def\Newlabel#1#2#3{\expandafter\gdef\csname #1@#2\endcsname{#3}}
+
+\def\Ref#1#2{\@ifundefined{#1@#2}{???}{\csname #1@#2\endcsname}}
+
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+
+\newcommand*\ifcounter[1]{%
+  \ifcsname c@#1\endcsname
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+}
+
+\newcommand*\thanksbycode[1]{%
+  \ifcounter{FNCT@#1}
+    {\samethanks[\value{FNCT@#1}]}
+    {\thanks{\Ref{FN}{#1}}\newcounter{FNCT@#1}\setcounter{FNCT@#1}{\value{footnote}}}
+}
+
+% Create labels for Addresses if the are given in Elsevier format
+
+% Create labels for Footnotes if the are given in Elsevier format
+
+% Part for setting citation format package: natbib
+
+% Part for setting citation format package: biblatex
+
+% Pandoc syntax highlighting
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+
+% tightlist command for lists without linebreak
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+\usepackage{booktabs}
+
+\begin{document}
+
+\title{STA2005S - Experimental Design Assignment}
+
+\author{%
+%
+% Code for old style authors field
+%
+% Add \and if both authors and author
+%
+%
+% Code for new (elsevier) style author field
+\name{Jing Yeh}
+\address{\Ref{ADR}{University of Cape Town}}
+%
+\email{\href{mailto:yhxjin001@myuct.ac.za}{yhxjin001@myuct.ac.za}}%
+%
+%
+%
+\and
+\name{Saurav Sathnarayan}
+\address{\Ref{ADR}{University of Cape Town}}
+%
+\email{\href{mailto:yhxjin001@myuct.ac.za}{yhxjin001@myuct.ac.za}}%
+%
+%
+%
+%
+}
+
+\abstract{This is the abstract.
+
+It consists of two paragraphs.}
+
+\date{2024-09-12}
+
+\keywords{key; dictionary; word}
+
+\maketitle
+
+
+
+\newpage
+
+\section{Introduction}\label{introduction}
+
+The goal of this experiment is to identify the programming language that
+delivers the fastest execution time when calculating a value of \(\pi\)
+with respect to Leibiniz formula. \[\sum_{n=0}^{\infty} (-1)^n/(2n+1)\]
+
+With the increasing demand for high-performance applications,
+understanding which programming languages offer superior speed in terms
+of execution is crucial for developers, especially in domains requiring
+real-time processing, large-scale data analysis, and resource-intensive
+computations.\\
+This problem will focus on evaluating a selection of popular programming
+languages, including but not limited to C++, C, R, Python, Java, and
+Ruby. The evaluation will consider how quickly a value of pi can be
+calculated by applying leibiniz formula up to 100000000 terms.\\
+
+\paragraph{Compiled Language:}\label{compiled-language}
+
+\hfill\break
+In a compiled language, the source code is translated into machine code
+by a compiler before execution. This machine code, often called an
+executable, can be run directly by the computer's hardware.\\
+Compiled programs typically run faster since they are already in machine
+language, which the computer's processor can execute directly.\\
+Examples: C, C++, Rust, and Go are examples of compiled languages.
+
+\paragraph{Interpreted Language:}\label{interpreted-language}
+
+\hfill\break
+In an interpreted language, the source code is executed line-by-line by
+an interpreter at runtime. The interpreter reads the code, translates it
+into machine code, and executes it on the fly.\\
+Interpreted programs generally run slower than compiled ones because the
+translation happens during execution.\\
+Examples: Python, JavaScript, Ruby, and PHP are examples of interpreted
+languages.
+
+\paragraph{Key Differences:}\label{key-differences}
+
+Compiled languages require a compilation step that produces an
+executable, while interpreted languages are executed directly by an
+interpreter.\\
+Compiled languages tend to have better performance due to the
+pre-compiled nature of the code, whereas interpreted languages are more
+flexible but slower due to the runtime translation.\\
+Some languages, like Java, use a combination of both techniques, where
+the code is first compiled into an intermediate form (bytecode) and then
+interpreted just-in-time (JIT) at runtime.\\
+\emph{still need to edit this}
+
+\newpage
+
+\section{Reference example}\label{reference-example}
+
+Here are two sample references:. Bibliography will appear at the end of
+the document.
+
+\section{Materials and methods}\label{materials-and-methods}
+
+An equation with a label for cross-referencing:
+
+\begin{equation}\label{eq:eq1}
+\sum_{n=0}^{\infty} (-1)^n/(2n+1)
+\end{equation}
+
+\subsection{A subsection}\label{a-subsection}
+
+A numbered list:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  First point
+\item
+  Second point
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Subpoint
+  \end{itemize}
+\end{enumerate}
+
+A bullet list:
+
+\begin{itemize}
+\tightlist
+\item
+  First point
+\item
+  Second point
+\end{itemize}
+
+\section{Results}\label{results}
+
+computers of different specifications are harder to come by, we will
+only use 3 different hardware setup for this pilot study.
+
+\subsection{Pilot Study}\label{pilot-study}
+
+\subsubsection{Problem: Runtimes of Programming Langugaes are not
+Normally
+Distributed}\label{problem-runtimes-of-programming-langugaes-are-not-normally-distributed}
+
+Upon inspecting the qqnorm plots of the runtime of all programming
+languages on the same machine, we discovered that the runtimes of
+languages clearly do not follow a normal distribution, even when the
+sample size is fairly large (n = 100)
+
+To address this, we ran the program 15 times per sample for each
+programming language, and repeated the process 30 times. By the Central
+Limit Theorem (CLT), the distribution of sample means is approximately
+normal {[}2{]}. If we assume sample means to be normally distributed,
+the mean of the distribution of sample means is then an unbiased
+estimator for the true run time of each programming language{[}2{]},
+which we take as a single observation.
+
+The process described above is automated using the following command:
+
+\begin{verbatim}
+python3 run.py main 100000000 15 30
+\end{verbatim}
+
+\includegraphics[width=1\linewidth,height=0.45\textheight]{skeleton_files/figure-latex/unnamed-chunk-1-1}
+
+\subsubsection{Problem: Ensuring no Interactions between Blocking
+Factors and Treatment
+Factors}\label{problem-ensuring-no-interactions-between-blocking-factors-and-treatment-factors}
+
+\emph{todo: insert table for results}
+
+\begin{verbatim}
+## Warning in read.table(file = file, header = header, sep = sep, quote = quote, :
+## incomplete final line found by readTableHeader on 'pilotData.csv'
+\end{verbatim}
+
+\includegraphics[width=1\linewidth]{skeleton_files/figure-latex/unnamed-chunk-2-1}
+From the data collected, we observed that the results collected from
+Ishango do not follow the general trends established by the other three
+setups. Firstly, the hardware setup in Ishango lab is significantly less
+advance than MiddleTRNew. Yet, most programming languages tend to
+perform better on the Ishango machine. Secondly, to add to the first
+observation, not all programming languages perform better on the Ishango
+machine.
+
+After further investigation, we learned that programming languages
+perform differently on various operating systems {[}4{]}. We
+hypothesised that this is likely the reason for the deviation, though
+further studies are needed to confirm this (we lack access to machines
+with the same hardware setup but run on different operating system).
+
+Therefore, we added another constraint for selecting suitable machines:
+the machines must all run on Windows 10, as these machines are the most
+widely available. \#\# Generate a figure.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{, }\AttributeTok{main =} \StringTok{"Some data"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Distance (cm)"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Time (hours)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[p]
+\includegraphics[width=1\linewidth]{skeleton_files/figure-latex/fig1-1} \caption{This is the first figure.}\label{fig:fig1}
+\end{figure}
+
+You can reference this figure as follows: Fig. \ref{fig:fig1}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{, }\AttributeTok{main =} \StringTok{"Some data"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Distance (cm)"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Time (hours)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[p]
+\includegraphics[width=1\linewidth]{skeleton_files/figure-latex/fig2-1} \caption{This is the second figure.}\label{fig:fig2}
+\end{figure}
+
+Reference to second figure: Fig. \ref{fig:fig2}
+
+\subsection{\texorpdfstring{Generate a table using
+\texttt{xtable}}{Generate a table using xtable}}\label{generate-a-table-using-xtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{ID =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{, }\AttributeTok{code =}\NormalTok{ letters[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{])}
+
+\CommentTok{\# Creates tables that follow OUP guidelines using xtable}
+\FunctionTok{library}\NormalTok{(xtable)}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{xtable}\NormalTok{(df, }\AttributeTok{caption =} \StringTok{"This is the table caption"}\NormalTok{, }\AttributeTok{label =} \StringTok{"tab:tab1"}\NormalTok{),}
+  \AttributeTok{comment =} \ConstantTok{FALSE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrl}
+  \hline
+ & ID & code \\ 
+  \hline
+1 &   1 & a \\ 
+  2 &   2 & b \\ 
+  3 &   3 & c \\ 
+   \hline
+\end{tabular}
+\caption{This is the table caption} 
+\label{tab:tab1}
+\end{table}
+
+You can reference this table as follows: Table \ref{tab:tab1}.
+
+\subsection{\texorpdfstring{Generate a table using
+\texttt{kable}}{Generate a table using kable}}\label{generate-a-table-using-kable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{ID =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{, }\AttributeTok{code =}\NormalTok{ letters[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{])}
+
+\CommentTok{\# kable can alse be used for creating tables}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(df,}
+  \AttributeTok{caption =} \StringTok{"This is the table caption"}\NormalTok{, }\AttributeTok{format =} \StringTok{"latex"}\NormalTok{,}
+  \AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{label =} \StringTok{"tab2"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:tab2}This is the table caption}
+\centering
+\begin{tabular}[t]{rl}
+\toprule
+ID & code\\
+\midrule
+1 & a\\
+2 & b\\
+3 & c\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+You can reference this table as follows: Table \ref{tab:tab2}.
+
+\section{Discussion}\label{discussion}
+
+You can cross-reference sections and subsections as follows: Section
+\ref{materials-and-methods} and Section \ref{a-subsection}.
+
+\textbf{\emph{Note:}} the last section in the document will be used as
+the section title for the bibliography.
+
+\section{References}\label{references}
+
+\section{Appendix}\label{appendix}
+
+\paragraph{PC Specificiations}\label{pc-specificiations}
+
+\hfill\break
+
+\begin{tabular}{l|r|r|r}
+\hline
+  & CPU & MEMORY & OPERATING SYSTEM\\
+\hline
+Ishango PC &  9th Gen Intel® Core™ i3-9100  & 8,0 GB &  Ubuntu 22.04\\
+\hline
+MidddleTROld & 9th Gen Intel(R) Core(TM) i5-9500 CPU & 8,0 GB &  Windows 10\\
+\hline
+MiddleTRNew & 12th Gen Intel(R) Core(TM) i5-13400 & 16,0 GB &  Windows 10\\
+\hline
+ScilabB &  12th Gen Intel(R) Core(TM) i5-12400 &  16,0 GB  &  Windows 10\\
+\hline
+Surface &  9th Gen Intel(R) Core(TM) i5-8250 CPU &  16,0 GB  &  Windows 10\\
+\hline
+ASUS laptop &  5th Gen Intel(R) Core(TM) i7-5500U CPU &  6,0 GB  &  Windows 10\\
+\end{tabular}
+
+\hfill\break
+
+
+\begin{notes}[Acknowledgements]
+This is an acknowledgement.
+
+It consists of two paragraphs.
+\end{notes}
+
+
+
+
+\end{document}

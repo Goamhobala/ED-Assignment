@@ -1,5 +1,6 @@
 # analysis.r
 library(tidyverse)
+library(gridExtra)
 this.dir <- dirname(parent.frame(2)$ofile)
 setwd(this.dir)
 
@@ -32,15 +33,33 @@ ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardwar
        x= "Progamming Language",
        y= "Runtime")
 
+
+
 analysis <- read.csv("analysis.csv")
 analysis.long <- pivot_longer(analysis, cols=C:R, names_to = "language", values_to = "runtime")
-ggplot(analysis.long, aes(x=language, y=(runtime), group=Hardware, color=Hardware))+
+ggplot(analysis.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardware))+
   geom_point()+
   geom_line()+
   labs(title= "Interaction Graph",
        x= "Progamming Language",
        y= "Runtime")
 
+anova <- aov(runtime~language + Hardware, analysis.long)
+anova_log <- aov(log(runtime)~language + Hardware, analysis.long)
+anova_log.residauls = resid(anova_log)
+ggplot(data.frame(anova_log.residauls), aes(sample=(anova_log.residauls)))+
+  stat_qq(col="coral")+
+  stat_qq_line(col="blue")+
+  labs(x="Quantiles", y="log(ms)")
+shapiro.test(anova_log.residauls)
 
-anova <- aov(runtime~language+Hardware, analysis.long)
-anova_log <- aov(log(runtime)~language+Hardware, analysis.long)
+
+table_anova <- su
+mmary(anova_log)
+table_anova
+tableGrob(as.data.frame(table_anova))
+
+shapiro = c()
+
+#for (i in 1:7):
+  #shapiro <- c(shapiro.test(pilot))
