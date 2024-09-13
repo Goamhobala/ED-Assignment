@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.13)  13 SEP 2024 23:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.13)  14 SEP 2024 00:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -502,24 +502,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./skeleton.aux)
 \openout1 = `skeleton.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
 (c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -560,23 +560,23 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 79.
+Package hyperref Info: Link coloring OFF on input line 78.
 (./skeleton.out) (./skeleton.out)
 \@outlinefile=\write5
 \openout5 = `skeleton.out'.
 
 \c@lstlisting=\count337
 
-LaTeX Warning: Hyper reference `ADR' on page 1 undefined on input line 116.
+LaTeX Warning: Hyper reference `ADR' on page 1 undefined on input line 115.
 
 
-LaTeX Warning: Reference `ADR' on page 1 undefined on input line 116.
+LaTeX Warning: Reference `ADR' on page 1 undefined on input line 115.
 
 
-LaTeX Warning: Hyper reference `ADR' on page 1 undefined on input line 116.
+LaTeX Warning: Hyper reference `ADR' on page 1 undefined on input line 115.
 
 
-LaTeX Warning: Reference `ADR' on page 1 undefined on input line 116.
+LaTeX Warning: Reference `ADR' on page 1 undefined on input line 115.
 
 
 
@@ -584,54 +584,54 @@ LaTeX Warning: Reference `ADR' on page 1 undefined on input line 116.
 
 
 {c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 179--188
+Underfull \hbox (badness 10000) in paragraph at lines 178--187
 
  []
 
 
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 192--199
+Underfull \hbox (badness 10000) in paragraph at lines 191--198
 
  []
 
-<skeleton_files/figure-latex/figPrior-1.pdf, id=88, 614.295pt x 325.215pt>
+<skeleton_files/figure-latex/figPrior-1.pdf, id=92, 614.295pt x 325.215pt>
 File: skeleton_files/figure-latex/figPrior-1.pdf Graphic file (type pdf)
 <use skeleton_files/figure-latex/figPrior-1.pdf>
-Package pdftex.def Info: skeleton_files/figure-latex/figPrior-1.pdf  used on input line 200.
+Package pdftex.def Info: skeleton_files/figure-latex/figPrior-1.pdf  used on input line 199.
 (pdftex.def)             Requested size: 452.9679pt x 239.80676pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 200--205
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 199--204
 [][]
  []
 
 
 
 [3 <./skeleton_files/figure-latex/figPrior-1.pdf>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 228.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 227.
 (c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 228.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 227.
 (c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 228.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 227.
 (c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
-LaTeX Warning: Command \textpm invalid in math mode on input line 235.
+LaTeX Warning: Command \textpm invalid in math mode on input line 234.
 
 
-LaTeX Warning: Command \textpm invalid in math mode on input line 235.
+LaTeX Warning: Command \textpm invalid in math mode on input line 234.
 
 Missing character: There is no ± in font cmr12!
 
-LaTeX Warning: Command \textpm invalid in math mode on input line 238.
+LaTeX Warning: Command \textpm invalid in math mode on input line 237.
 
 
-LaTeX Warning: Command \textpm invalid in math mode on input line 238.
+LaTeX Warning: Command \textpm invalid in math mode on input line 237.
 
 Missing character: There is no ± in font cmr12!
 
@@ -639,64 +639,64 @@ Missing character: There is no ± in font cmr12!
 [4]
 
 [5]
-Overfull \hbox (53.38235pt too wide) in paragraph at lines 319--319
+Overfull \hbox (53.38235pt too wide) in paragraph at lines 318--318
 []\OT1/cmtt/m/n/12 ## Warning in read.table(file = file, header = header, sep = sep, quote = quote, : 
  []
 
-<skeleton_files/figure-latex/figPilot-1.pdf, id=132, 469.755pt x 144.54pt>
+<skeleton_files/figure-latex/figPilot-1.pdf, id=136, 469.755pt x 144.54pt>
 File: skeleton_files/figure-latex/figPilot-1.pdf Graphic file (type pdf)
 <use skeleton_files/figure-latex/figPilot-1.pdf>
-Package pdftex.def Info: skeleton_files/figure-latex/figPilot-1.pdf  used on input line 323.
+Package pdftex.def Info: skeleton_files/figure-latex/figPilot-1.pdf  used on input line 322.
 (pdftex.def)             Requested size: 452.9679pt x 139.37434pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 323--331
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 322--330
 [][]
  []
 
 
 
 [6 <./skeleton_files/figure-latex/figPilot-1.pdf>]
-<diagram.png, id=143, 983.47424pt x 325.215pt>
+<diagram.png, id=148, 983.47424pt x 325.215pt>
 File: diagram.png Graphic file (type png)
 <use diagram.png>
-Package pdftex.def Info: diagram.png  used on input line 370.
+Package pdftex.def Info: diagram.png  used on input line 369.
 (pdftex.def)             Requested size: 452.9679pt x 149.78432pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 370--371
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 369--370
 [][] 
  []
 
 
 
 [7 <./diagram.PNG>]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 384.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 383.
 (c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 384.
-<skeleton_files/figure-latex/tableAnova-1.pdf, id=152, 469.755pt x 325.215pt>
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 383.
+<skeleton_files/figure-latex/tableAnova-1.pdf, id=156, 469.755pt x 325.215pt>
 File: skeleton_files/figure-latex/tableAnova-1.pdf Graphic file (type pdf)
 <use skeleton_files/figure-latex/tableAnova-1.pdf>
-Package pdftex.def Info: skeleton_files/figure-latex/tableAnova-1.pdf  used on input line 398.
+Package pdftex.def Info: skeleton_files/figure-latex/tableAnova-1.pdf  used on input line 397.
 (pdftex.def)             Requested size: 452.9679pt x 313.59232pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 398--403
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 397--402
 [][]
  []
 
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 408.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 407.
 (c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 408.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 407.
 
 
 [8 <./skeleton_files/figure-latex/tableAnova-1.pdf>]
 
 [9]
-Overfull \hbox (33.90697pt too wide) in paragraph at lines 428--443
+Overfull \hbox (33.90697pt too wide) in paragraph at lines 439--454
  [][] 
  []
 
@@ -711,21 +711,21 @@ L3 programming layer <2024-08-30>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `skeleton.out' has not changed.
-(rerunfilecheck)             Checksum: 9B89AFE2F842EC7E7695EA673A81CBB7;1992.
+(rerunfilecheck)             Checksum: C481A329AB9AC01B83184E552CDDC0FC;2081.
  ) 
 Here is how much of TeX's memory you used:
- 13573 strings out of 475538
- 211902 string characters out of 5775789
- 615322 words of memory out of 5000000
- 35951 multiletter control sequences out of 15000+600000
+ 13577 strings out of 475538
+ 211942 string characters out of 5775789
+ 615354 words of memory out of 5000000
+ 35953 multiletter control sequences out of 15000+600000
  568929 words of font info for 81 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,9n,79p,407b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/Users/saurav/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on skeleton.pdf (10 pages, 540004 bytes).
+Output written on skeleton.pdf (10 pages, 540670 bytes).
 PDF statistics:
- 260 PDF objects out of 1000 (max. 8388607)
- 208 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 265 PDF objects out of 1000 (max. 8388607)
+ 213 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

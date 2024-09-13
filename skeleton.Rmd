@@ -7,10 +7,11 @@ date: "`r Sys.Date()`"
 author:
   - name: Jing Yeh
     email: yhxjin001@myuct.ac.za
-    affiliation: University of Cape Town
+    affiliation:  'University of Cape Town'
   - name: Saurav Sathnarayan
     email: sthsau01001@myuct.ac.za
-    affiliation: University of Cape Town
+    affiliation:  University of Cape Town'
+
 
 abstract: |
   Test
@@ -23,6 +24,8 @@ keywords:
   - dictionary
   - word
 bibliography: mybibfile.bib
+
+  
 # Use a CSL when `citation_package = "default"`
 #csl: https://www.zotero.org/styles/oxford-university-press-note
 
@@ -40,10 +43,11 @@ bibliography: mybibfile.bib
 #  - \usepackage{lineno} # For line numbering
 #  - \linenumbers # For line numbering
 
-output: 
-  rticles::oup_article:
+output:
+    rticles::oup_article:
     oup_version: 0 # 1 = 2020 CTAN OUP CLS package; 0 = 2009 OUP CLS package
     extra_dependencies: booktabs # for kable example
+    
 ---
 
 ```{r setup, include = FALSE, warning=FALSE}
@@ -280,7 +284,26 @@ We verified our model by observing the Fitted vs Residuals graph: the residuals 
 
 We further verified our assumptions by performing Shapiro Wilk test on the residuals. We obtained a fairly large p-value of 0.7521, indicating that we have little evidence for residuals not being normally distributed. Further, we also got that the mean of the residuals is approximately zero ($ < 10^{-15}$), indicating that it is sensible to assume $e_{ij} \sim \mathcal{N}(0, \sigma^2)$
 
+# Contrasts
+
+Planned comparsions:
+\
+1. Which language is the fastest?
+\
+2. Comparsions between C and C++ and other languages
+\
+3. Do complied languages run faster than interpreted languages ?
+\
+4. Is R (vectorised Language) faster than non-vectorised language when
+performing calculations?
+
+
+
 # References
+```{r, include = FALSE}
+knitr::write_bib(x = c("rmarkdown", "knitr"), file = "mybib.bib")
+```
+nocite: '@*
 
 \newpage
 
