@@ -142,7 +142,6 @@ further analyses are needed. We can also see from the Quantile-Quantile(Q-Q) plo
 Here are two sample references:. Bibliography will appear at the end of the document.
 
 # Methods
-# Methods
 ## Setting
 This study was mostly conducted at the University of Cape Town, utilising the computers available on campus. We found that there are only 5 different hardware setups available. Thus, to supplement the range of our hardware setups, we also borrowed machines of 2 more hardware setups from our friends.
 
@@ -238,8 +237,7 @@ Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
 $$
 Below is the layout of the design
 ```{r echo=FALSE, results='asis'}
-df <- read.csv('diagram.csv',header = TRUE)
-print(xtable(df, type = "latex", comment = FALSE, caption = 'placeholder'))
+knitr::include_graphics("diagram.png")
 ```
 ```{r include FALSE}
 #This equation can be referenced as follows: Eq. \ref{eq:eq1}
@@ -293,3 +291,11 @@ We further verified our assumptions by performing Shapiro Wilk test on the resid
 dfpc <- read.csv('pcSpecs.csv',header = TRUE)
 print(xtable(dfpc, type = "latex", comment = FALSE, caption = 'Table of Pcs used and their respective specifications'))
 ```
+
+
+```{r echo=FALSE, results='asis'}
+dfdata <- read.csv('analysis.csv',header = TRUE)
+print(xtable(dfdata, type = "latex", comment = FALSE, caption = 'Table of data used for analysis'))
+```
+
+
