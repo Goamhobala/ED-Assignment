@@ -52,9 +52,10 @@ anova <- aov(Runtime~Language + Hardware, analysis.long)
 anova_log <- aov(log(Runtime)~Language + Hardware, analysis.long)
 anova_log.residauls = resid(anova_log)
 ggplot(data.frame(anova_log.residauls), aes(sample=(anova_log.residauls)))+
-  stat_qq(col="coral")+
+  stat_qq(col="red")+
   stat_qq_line(col="blue")+
-  labs(x="Quantiles", y="log(ms)")
+  stat_qq_band(col="pink")+
+  labs(x="Quantile", y="Runtime log(ms)")
 
 frame <- data.frame(summary(anova_log)[[1]])
 colnames(frame) <- c("Df", "Sum sq", "Mean sq", "F value", "Pr(>F)")

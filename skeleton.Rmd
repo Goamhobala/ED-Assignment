@@ -177,7 +177,7 @@ From the data collected, we observed that the results collected from Ishango do 
 
 After further investigation, we learned that programming languages perform differently on various operating systems [4]. We hypothesised that this is likely the reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system). Therefore, we added another constraint for selecting suitable machines: the machines must all run on Windows 10, as these machines are the most widely available.
 
-Besides the observation mentioned above, we can also see that there is relatively little difference in execution times on the other hardware setups. This motivates us to employ an Randomised Block Design(RBD)
+Besides the observation mentioned above, we can also see that there is relatively little difference in execution times on the other hardware setups. This motivated us to employ an Randomised Block Design(RBD)
 
 ## Design
 We assume that:
@@ -240,7 +240,8 @@ frame$'F value' <- ifelse(is.na(frame$'F value'), "", round(frame$'F value', dig
 
 kable(frame, format="pandoc", escape=FALSE, digits=4, align=c("r", "r", "r", "r", "r", "r"))
 ```
-We verified our assumptions by performing Shapiro Wilk test on the residuals. We obtained
+We verified our assumptions by performing Shapiro Wilk test on the residuals. We obtained a p-value of 0.2531, indicating that there is little evidence that the residuals are not normally distributed. Further, we also got that the mean of the residuals is less than 0.0001, indicating that it is safe to assume $e_{ij} \sim \mathcal{N}(0, \sigma^2)$ 
+
 
 # Discussion
 
