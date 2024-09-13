@@ -142,6 +142,23 @@ further analyses are needed. We can also see from the Quantile-Quantile(Q-Q) plo
 Here are two sample references:. Bibliography will appear at the end of the document.
 
 # Methods
+# Methods
+## Setting
+This study was mostly conducted at the University of Cape Town, utilising the computers available on campus. We found that there are only 5 different hardware setups available. Thus, to supplement the range of our hardware setups, we also borrowed machines of 2 more hardware setups from our friends.
+
+## Approximation of $\pi$
+The number $\pi$, the ubiquitous and equally mysterious irrational number, has been fascinating the humankind since time immemorial. Mathematicians from 4000 years ago to the present time have devised various methods attempting to get closer to the true value of $\pi$. One such method is using Leibniz's formula:
+$$
+4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}
+$$
+Leibniz, whom the formula is named after, proved that the series above eventually converges to $\pi$. That is:
+$$
+\pi = 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}.
+$$
+We applied this algorithm in 6 programming languages, including 3 compiled languages: C, C++, Java, and 3 interpreted languages: Python, R, Ruby, up to a billion terms.
+
+## Sources of Variation
+
 #### Treatments:
 We have 6 treatment factors, which are the programming languages we applied algorithm to. Each treatment has one level (applying the formula up to $100 \times 10^6$ terms). We selected this particular level because it is the largest, practical number of terms we could apply with our hardware setups (For some setups, it may take up to 4 hours to arrive at a single observation), and fewer terms imply larger relative measurement error [7]. We cannot include more levels because in the existing literature, most studies of such kind choose to run all languages on the same machine. However, since we would like to avoid pseudo replication as much as possible we use one machine per observation. The downside of this approach is that we do not have sufficient machines to perform more than one levels.
 
@@ -159,7 +176,7 @@ As mentioned earlier, we would like to avoid pseudo replication as much as possi
 Since existing literature tend to suggest that execution times of programming languages are not normally distributed, we perform a priori tests to confirm that none of our languages has normally distributed runtime. This imposed an issue as it prevented us to apply anova models. To address this, we applied the Central Limit Theorem(CLT) to obtain a normal distribution for the average execution times. We ran the program 15 times per sample for each programming language, and repeated the process 30 times. Applying CLT, it is relatively safe to assume the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we will take as a single observation. (Note: We arrived at the number 15 through trial and error, and 30 from [8])
 
 ## Randomisation Procedure
-We first ordered the computers belonging to each block from 1 to 6. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same assigned number.
+We first order the computers belonging to each block from 1 to 6. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same assigned number.
 
 ## Pilot Experiment
 We followed this direction and performed an pilot study to obtain the following execution times of programming languages on 4 hardware setups
@@ -232,7 +249,7 @@ print(xtable(df, type = "latex", comment = FALSE, caption = 'placeholder'))
 # Results
 We performed the experiment described above on 7 different hardware setups and applied all 6 treatments. The table for data and details of each hardware setups can be found in the appendix. The Analysis of Variance (ANOVA) table is shown below:
 
-```{r, tableAnova, tableAnova.cap="The ANOVA table", results='asis', warning=FALSE}
+```{r, tableAnova, figAnova.cap="The ANOVA table and Relavent Plots", results='asis', warning=FALSE}
 setwd("./speed-comparison-master/data/")
 
 analysis <- read.csv("analysis.csv")

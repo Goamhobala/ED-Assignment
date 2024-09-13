@@ -206,6 +206,34 @@ the document.
 
 \section{Methods}\label{methods}
 
+\section{Methods}\label{methods-1}
+
+\subsection{Setting}\label{setting}
+
+This study was mostly conducted at the University of Cape Town,
+utilising the computers available on campus. We found that there are
+only 5 different hardware setups available. Thus, to supplement the
+range of our hardware setups, we also borrowed machines of 2 more
+hardware setups from our friends.
+
+\subsection{\texorpdfstring{Approximation of
+\(\pi\)}{Approximation of \textbackslash pi}}\label{approximation-of-pi}
+
+The number \(\pi\), the ubiquitous and equally mysterious irrational
+number, has been fascinating the humankind since time immemorial.
+Mathematicians from 4000 years ago to the present time have devised
+various methods attempting to get closer to the true value of \(\pi\).
+One such method is using Leibniz's formula: \[
+4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}
+\] Leibniz, whom the formula is named after, proved that the series
+above eventually converges to \(\pi\). That is: \[
+\pi = 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}.
+\] We applied this algorithm in 6 programming languages, including 3
+compiled languages: C, C++, Java, and 3 interpreted languages: Python,
+R, Ruby, up to a billion terms.
+
+\subsection{Sources of Variation}\label{sources-of-variation}
+
 \paragraph{Treatments:}\label{treatments}
 
 We have 6 treatment factors, which are the programming languages we
@@ -260,7 +288,7 @@ error, and 30 from {[}8{]})
 
 \subsection{Randomisation Procedure}\label{randomisation-procedure}
 
-We first ordered the computers belonging to each block from 1 to 6. We
+We first order the computers belonging to each block from 1 to 6. We
 then used the random number generator from Python's \emph{random} module
 to randomly shuffle, and thus producing a permutation of the list, {[}C,
 C++, Java, Python, Ruby, R{]}. The index of each programming language in
@@ -323,7 +351,7 @@ Y_{ij} \sim \mathcal{N}(\mu, \sigma^2)
 \] Otherwise, if there are blocking and treatment effects, then: \[
 Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
 \] Below is the layout of the design \% latex table generated in R 4.4.1
-by xtable 1.8-4 package \% Fri Sep 13 20:30:23 2024
+by xtable 1.8-4 package \% Fri Sep 13 20:41:45 2024
 
 \begin{table}[ht]
 \centering
@@ -370,8 +398,8 @@ Residuals & 30 & 1.3683 & 0.0456 & & \\
 \end{verbatim}
 
 \includegraphics[width=1\linewidth]{skeleton_files/figure-latex/tableAnova-1}
-We can observe from the Fitted vs Residuals graph that the residuals
-seem to spread out haphazardly, with no obvious patterns to be
+We verified our model by observing the Fitted vs Residuals graph: the
+residuals seem to spread out haphazardly, with no obvious patterns to be
 discerned. This suggests homoscedasticity {[}7{]}. Also, the
 Quantile-Quantile graph offers a fairly good fit.
 
@@ -380,7 +408,7 @@ the residuals. We obtained a fairly large p-value of 0.7521, indicating
 that we have little evidence for residuals not being normally
 distributed. Further, we also got that the mean of the residuals is
 approximately zero (\$ \textless{} 10\^{}\{-15\}\$), indicating that it
-is feasible to assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
+is sensible to assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
 
 \section{References}\label{references}
 
@@ -392,7 +420,7 @@ is feasible to assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
 
 \hfill\break
 \% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Fri Sep
-13 20:30:24 2024
+13 20:41:46 2024
 
 \begin{table}[ht]
 \centering

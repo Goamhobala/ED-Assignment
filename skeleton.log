@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.11)  13 SEP 2024 20:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.11)  13 SEP 2024 20:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -595,7 +595,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--193
 
  []
 
-<skeleton_files/figure-latex/figPrior-1.pdf, id=71, 614.295pt x 325.215pt>
+<skeleton_files/figure-latex/figPrior-1.pdf, id=87, 614.295pt x 325.215pt>
 File: skeleton_files/figure-latex/figPrior-1.pdf Graphic file (type pdf)
 <use skeleton_files/figure-latex/figPrior-1.pdf>
 Package pdftex.def Info: skeleton_files/figure-latex/figPrior-1.pdf  used on input line 194.
@@ -608,74 +608,90 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 194--199
 
 
 [3 <./skeleton_files/figure-latex/figPrior-1.pdf>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 213.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 220.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 213.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 220.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 213.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 220.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
+LaTeX Warning: Command \textpm invalid in math mode on input line 227.
+
+
+LaTeX Warning: Command \textpm invalid in math mode on input line 227.
+
+Missing character: There is no ± in font cmr12!
+
+LaTeX Warning: Command \textpm invalid in math mode on input line 230.
+
+
+LaTeX Warning: Command \textpm invalid in math mode on input line 230.
+
+Missing character: There is no ± in font cmr12!
+
+
 [4]
-Overfull \hbox (53.38235pt too wide) in paragraph at lines 276--276
+
+[5]
+Overfull \hbox (53.38235pt too wide) in paragraph at lines 304--304
 []\OT1/cmtt/m/n/12 ## Warning in read.table(file = file, header = header, sep = sep, quote = quote, : 
  []
 
-<skeleton_files/figure-latex/figPilot-1.pdf, id=96, 469.755pt x 144.54pt>
+<skeleton_files/figure-latex/figPilot-1.pdf, id=119, 469.755pt x 144.54pt>
 File: skeleton_files/figure-latex/figPilot-1.pdf Graphic file (type pdf)
 <use skeleton_files/figure-latex/figPilot-1.pdf>
-Package pdftex.def Info: skeleton_files/figure-latex/figPilot-1.pdf  used on input line 280.
+Package pdftex.def Info: skeleton_files/figure-latex/figPilot-1.pdf  used on input line 308.
 (pdftex.def)             Requested size: 452.9679pt x 139.37434pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 280--288
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 308--316
 [][]
  []
 
 
 
-[5 <./skeleton_files/figure-latex/figPilot-1.pdf>]
+[6 <./skeleton_files/figure-latex/figPilot-1.pdf>]
 
-[6]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 358.
+[7]
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 386.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 358.
-<skeleton_files/figure-latex/tableAnova-1.pdf, id=113, 469.755pt x 325.215pt>
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 386.
+<skeleton_files/figure-latex/tableAnova-1.pdf, id=136, 469.755pt x 325.215pt>
 File: skeleton_files/figure-latex/tableAnova-1.pdf Graphic file (type pdf)
 <use skeleton_files/figure-latex/tableAnova-1.pdf>
-Package pdftex.def Info: skeleton_files/figure-latex/tableAnova-1.pdf  used on input line 372.
+Package pdftex.def Info: skeleton_files/figure-latex/tableAnova-1.pdf  used on input line 400.
 (pdftex.def)             Requested size: 452.9679pt x 313.59232pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 372--377
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 400--405
 [][]
  []
 
-
-
-[7 <./skeleton_files/figure-latex/tableAnova-1.pdf>]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 382.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 410.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 382.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 410.
 
 
-[8]
-Overfull \hbox (33.90697pt too wide) in paragraph at lines 399--414
+[8 <./skeleton_files/figure-latex/tableAnova-1.pdf>]
+
+[9]
+Overfull \hbox (33.90697pt too wide) in paragraph at lines 427--442
  [][] 
  []
 
 
 
-[9] (./skeleton.aux)
+[10] (./skeleton.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
@@ -684,21 +700,21 @@ L3 programming layer <2024-08-30>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `skeleton.out' has not changed.
-(rerunfilecheck)             Checksum: 0C54FCD639C6B64B22CB6105444545DE;1568.
+(rerunfilecheck)             Checksum: E0FE09CB247437BB1D689540DA63281E;2071.
  ) 
 Here is how much of TeX's memory you used:
- 13516 strings out of 475539
- 209874 string characters out of 5776321
- 610149 words of memory out of 5000000
- 35919 multiletter control sequences out of 15000+600000
- 566310 words of font info for 68 fonts, out of 8000000 for 9000
+ 13544 strings out of 475539
+ 210248 string characters out of 5776321
+ 610349 words of memory out of 5000000
+ 35941 multiletter control sequences out of 15000+600000
+ 568929 words of font info for 81 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,9n,79p,407b,455s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </Users/youyasushi/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on skeleton.pdf (9 pages, 481394 bytes).
+ 75i,9n,79p,407b,447s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </Users/youyasushi/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on skeleton.pdf (10 pages, 493500 bytes).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 162 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 112 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 144 words of extra memory for PDF output out of 10000 (max. 10000000)
 
