@@ -112,7 +112,7 @@ qq <- ggplot(middleTRNew.before.long, aes(sample=log(runtime)))+
   facet_wrap(~language, scales="free")+
   labs(x="quantiles", y="runtime (log(ms))", title="Quantile-Quantile Plots of Execution Time",
        size=8)
-grid.arrange(jitter, qq, ncol=2, nrow=1)
+grid.arrange(jitter, qq, ncol=2, nrow=1, widths=c(1.15 , 1))
 ```
 We can observe that C and C++ seem to be the fastest languages, though further analyses still need to be performed. We can also see from the Quantile-Quantile(QQ) plots that the execution times are clearly not normally distributed.
 
@@ -164,23 +164,19 @@ We follow this direction and perform an pilot study to obtain the following data
 setwd("./speed-comparison-master/data/")
 
 pilot <- read.csv("pilotData.csv")
-ttheme <- ttheme_minimal(base_size=10)
-table <- tableGrob(pilot, them=ttheme)
-
 pilot.long <- pivot_longer(pilot, cols=C:R, names_to = "language", values_to = "runtime")
-plot <- ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardware))+
+ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardware))+
   geom_point()+
   geom_line()+
   labs(title= "Interaction Graph",
        x= "Progamming Language",
-       y= "Log Runtime")
-grid.arrange(plot, table, ncol=1, nrow=2)
+       y= "Runtime (log(ms))")
 ```
-From the data collected, we observed that the results collected from Ishango do not follow the general trends established by the other three setups. Firstly, the hardware setup in Ishango lab is significantly less advance than MiddleTRNew. Yet, most programming languages tend to perform better on the Ishango machine. Secondly, to add to the first observation, not all programming languages perform better on the Ishango machine.
+From the data collected, we observed that the results collected from Ishango do not follow the general trends established by the other three setups. The hardware setup in Ishango lab is significantly less advance than MiddleTRNew; yet, most programming languages tend to perform better on the Ishango machine. Secondly, to add to the first observation, not all programming languages perform better on the Ishango machine.
 
-After further investigation, we learned that programming languages perform differently on various operating systems [4]. We hypothesised that this is likely the reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system).
+After further investigation, we learned that programming languages perform differently on various operating systems [4]. We hypothesised that this is likely the reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system). Therefore, we added another constraint for selecting suitable machines: the machines must all run on Windows 10, as these machines are the most widely available.
 
-Therefore, we added another constraint for selecting suitable machines: the machines must all run on Windows 10, as these machines are the most widely available.
+Besides the observation mentioned above, we can also see that there is relatively little execution times on the other hardware setups. This motivates us to employ an Randomised Block Design(RBD)
 ## Design
 
 
