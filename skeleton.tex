@@ -129,7 +129,7 @@
 \name{Saurav Sathnarayan}
 \address{\Ref{ADR}{University of Cape Town}}
 %
-\email{\href{mailto:yhxjin001@myuct.ac.za}{yhxjin001@myuct.ac.za}}%
+\email{\href{mailto:sthsau01001@myuct.ac.za}{sthsau01001@myuct.ac.za}}%
 %
 %
 %
@@ -279,7 +279,7 @@ downside of this approach is that we do not have sufficient machines to
 perform more than one levels.
 
 \hypertarget{blocks}{%
-\subsubsection{\#Blocks:}\label{blocks}}
+\paragraph{Blocks:}\label{blocks}}
 
 From our a priori analysis, we noticed that the execution times of the 6
 programming languages we tested on various hardware setups seem to
@@ -326,6 +326,31 @@ to randomly shuffle, and thus producing a permutation of the list, {[}C,
 C++, Java, Python, Ruby, R{]}. The index of each programming language in
 the permutation would then be paired to the computer with the same
 number.
+
+\hypertarget{diagram}{%
+\section{diagram}\label{diagram}}
+
+\% latex table generated in R 4.3.1 by xtable 1.8-4 package \% Fri Sep
+13 19:05:55 2024
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rll}
+  \hline
+ & PCSpec & Treatment \\ 
+  \hline
+1 & Ishango PC &  java   c   python   ruby   c++   r \\ 
+  2 & MidddleTROld & r   c++   python   c   ruby   java \\ 
+  3 & MiddleTRNew &  python   r   java   c   c++   ruby \\ 
+  4 & ScilabB &  python   java   ruby   r   c   c++ \\ 
+  5 & ASUS (i7-5500u) &  c   c++   r   ruby   python   java \\ 
+  6 & ScilabD &  c   python   java   r   ruby   c++ \\ 
+  7 & LT &  c   java   r   c++   ruby   python \\ 
+  8 & HP (i5-7200) &  r   python   ruby   c++   java   c \\ 
+   \hline
+\end{tabular}
+\caption{placeholder} 
+\end{table}
 
 \hypertarget{pilot-experiment}{%
 \subsection{Pilot Experiment}\label{pilot-experiment}}
@@ -485,6 +510,8 @@ the section title for the bibliography.
 \hypertarget{references}{%
 \section{References}\label{references}}
 
+\newpage
+
 \hypertarget{appendix}{%
 \section{Appendix}\label{appendix}}
 
@@ -492,25 +519,28 @@ the section title for the bibliography.
 \paragraph{PC Specificiations}\label{pc-specificiations}}
 
 \hfill\break
+\% latex table generated in R 4.3.1 by xtable 1.8-4 package \% Fri Sep
+13 19:05:56 2024
 
-\begin{tabular}{l|r|r|r}
-\hline
-  & CPU & MEMORY & OPERATING SYSTEM\\
-\hline
-Ishango PC &  9th Gen Intel® Core™ i3-9100  & 8,0 GB &  Ubuntu 22.04\\
-\hline
-MidddleTROld & 9th Gen Intel(R) Core(TM) i5-9500 CPU & 8,0 GB &  Windows 10\\
-\hline
-MiddleTRNew & 12th Gen Intel(R) Core(TM) i5-13400 & 16,0 GB &  Windows 10\\
-\hline
-ScilabB &  12th Gen Intel(R) Core(TM) i5-12400 &  16,0 GB  &  Windows 10\\
-\hline
-Surface &  9th Gen Intel(R) Core(TM) i5-8250 CPU &  16,0 GB  &  Windows 10\\
-\hline
-ASUS laptop &  5th Gen Intel(R) Core(TM) i7-5500U CPU &  6,0 GB  &  Windows 10\\
+\begin{table}[ht]
+\centering
+\begin{tabular}{rllll}
+  \hline
+ & PC & CPU & RAM & OS \\ 
+  \hline
+1 & Ishango PC &  9th Gen Intel® Core™ i3-9100  &  8.0 GB  & Ubuntu 22.04 \\ 
+  2 & MidddleTROld &  9th Gen Intel(R) Core(TM) i5-9500 CPU  &  8.0 GB  &   Windows 10 \\ 
+  3 & MiddleTRNew  &  12th Gen Intel(R) Core(TM) i5-13400  &  16.0 GB  &   Windows 10 \\ 
+  4 & ScilabB  &   12th Gen Intel(R) Core(TM) i5-12400  &   16.0 GB   &   Windows 10 \\ 
+  5 & Surface  &   9th Gen Intel(R) Core(TM) i5-8250 CPU  &   16.0 GB   &   Windows 10 \\ 
+  6 & ASUS (i7-5500u)  &   5th Gen Intel(R) Core(TM) i7-5500U CPU  &   6.0 GB   &   Windows 10 \\ 
+  7 & ScilabD  &   10th Gen Intel(R) Core(TM) i5-10500  &   16.0 GB   &   Windows 10 \\ 
+  8 & LT  &   9th Gen Intel(R) Core(TM) i5-9400f  &   8.0 GB   &   Windows 10 \\ 
+  9 & HP (i5-7200)  &   7th Gen Intel(R) Core(TM) i5-7200  &   8.0 GB   &   Windows 10 \\ 
+   \hline
 \end{tabular}
-
-\hfill\break
+\caption{Table of Pcs used and their respective specifications} 
+\end{table}
 
 
 \begin{notes}[Acknowledgements]
