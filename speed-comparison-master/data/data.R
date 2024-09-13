@@ -1,6 +1,7 @@
 # analysis.r
 library(tidyverse)
 library(gridExtra)
+library(kableExtra)
 this.dir <- dirname(parent.frame(2)$ofile)
 setwd(this.dir)
 
@@ -39,21 +40,30 @@ ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardwar
 
 
 analysis <- read.csv("analysis.csv")
-analysis.long <- pivot_longer(analysis, cols=C:R, names_to = "language", values_to = "runtime")
-ggplot(analysis.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardware))+
+analysis.long <- pivot_longer(analysis, cols=C:R, names_to = "Language", values_to = "Runtime")
+ggplot(analysis.long, aes(x=Language, y=log(Runtime), group=Hardware, color=Hardware))+
   geom_point()+
   geom_line()+
   labs(title= "Interaction Graph",
        x= "Progamming Language",
        y= "Runtime")
 
-anova <- aov(runtime~language + Hardware, analysis.long)
-anova_log <- aov(log(runtime)~language + Hardware, analysis.long)
+anova <- aov(Runtime~Language + Hardware, analysis.long)
+anova_log <- aov(log(Runtime)~Language + Hardware, analysis.long)
 anova_log.residauls = resid(anova_log)
 ggplot(data.frame(anova_log.residauls), aes(sample=(anova_log.residauls)))+
-  stat_qq(col="coral")+
+  stat_qq(col="red")+
   stat_qq_line(col="blue")+
-  labs(x="Quantiles", y="log(ms)")
+  stat_qq_band(col="pink")+
+  labs(x="Quantile", y="Runtime log(ms)")
+
+frame <- data.frame(summary(anova_log)[[1]])
+colnames(frame) <- c("Df", "Sum sq", "Mean sq", "F value", "Pr(>F)")
+frame$'Pr(>F)' <- ifelse(is.na(frame$'Pr(>F)'), "", '< 0.0001')
+frame$'F value' <- as.numeric(frame$'F value')
+frame$'F value' <- ifelse(is.na(frame$'F value'), "", round(frame$'F value', digits=4) )
+
+kable(frame, format="markdown", escape=FALSE, digits=4, align=c("r", "r", "r", "r", "r", "r")) %>% kable_styling(latex_options = "striped")
 shapiro.test(anova_log.residauls)
 
 
@@ -63,15 +73,6 @@ ggplot(middleTRNew.before.long, aes(x=language, y=log(runtime), color=language))
   geom_point(alpha=0.3, position=position_jitter(height=1, width=0.3))+
   labs(x="Language", y="Runtime (log(ms))", title="Jittered Graph of Runtime for Programming Languages")
 
-ggplot(middleTRNew.before.long, aes(sample=(runtime)))+
-  stat_qq(col="green")+
-  stat_qq_line(col="blue")+
-  facet_wrap(~language, scales="free")+
-  labs(x="quantiles", y="ms")
-
-table_anova <- summary(anova_log)
-table_anova
-tableGrob(as.data.frame(table_anova))
 
 shapiro = c()
 
