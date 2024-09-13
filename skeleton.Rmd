@@ -46,7 +46,7 @@ output:
     extra_dependencies: booktabs # for kable example
 ---
 
-```{r setup, include = FALSE}
+```{r setup, include = FALSE, warning=FALSE}
 knitr::opts_chunk$set(
   echo = FALSE, # By default, hide code; set to TRUE to see code
   fig.pos = 'p', # Places figures on pages separate from text
@@ -225,7 +225,7 @@ $$
 # Results
 We performed the experiment described above on 7 different hardware setups and applied all 6 treatments. The table for data and details of each hardware setups can be found in the appendix. The Analysis of Variance (ANOVA) table is shown below:
 
-```{r, tableAnova, tableAnova.cap="The ANOVA table", results='asis'}
+```{r, tableAnova, tableAnova.cap="The ANOVA table", results='asis', warning=FALSE}
 setwd("./speed-comparison-master/data/")
 
 analysis <- read.csv("analysis.csv")
@@ -239,8 +239,24 @@ frame$'F value' <- as.numeric(frame$'F value')
 frame$'F value' <- ifelse(is.na(frame$'F value'), "", round(frame$'F value', digits=4) )
 
 kable(frame, format="pandoc", escape=FALSE, digits=4, align=c("r", "r", "r", "r", "r", "r"))
+
+anova_log.residauls <- resid(anova_log)
+anova_qq <- ggplot(data.frame(anova_log.residauls), aes(sample=(anova_log.residauls)))+
+  geom_qq(col="firebrick", size=2.5)+
+  geom_qq_line(col="deepskyblue4", alpha=0.75)+
+  labs(x="Quantile", y="Runtime log(ms)", title="Quantile-Quantile")
+  
+
+anova_residuals_fitted <- ggplot(anova_log,aes(x=fitted(anova_log), y=anova_log.residauls))+
+  geom_point(col="firebrick")+
+  geom_smooth(col="deepskyblue4",alpha=0 )+
+  labs(x="Fitted", y="Residuals (log(ms))", title="Residuals vs Fitted")
+
+grid.arrange(anova_qq, anova_residuals_fitted,ncol=1, nrow=2)
 ```
-We verified our assumptions by performing Shapiro Wilk test on the residuals. We obtained a p-value of 0.2531, indicating that there is little evidence that the residuals are not normally distributed. Further, we also got that the mean of the residuals is less than 0.0001, indicating that it is safe to assume $e_{ij} \sim \mathcal{N}(0, \sigma^2)$ 
+We can observe from the Fitted vs Residuals graph that the residuals seem to spread out haphazardly, with no obvious patterns to be discerned. Also, the Quantile-Quatile graph offers a fairly good fit, suggesting that residuals 
+
+We further verified our assumptions by performing Shapiro Wilk test on the residuals. We obtained a fairly large p-value of 0.7521, indicating that there we have little evidence that the residuals are not normally distributed. Further, we also got that the mean of the residuals is approximately zero ($ < 10^{-15}$), indicating that it is feasible to assume $e_{ij} \sim \mathcal{N}(0, \sigma^2)$
 
 
 # Discussion

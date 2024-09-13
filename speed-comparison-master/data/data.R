@@ -2,6 +2,7 @@
 library(tidyverse)
 library(gridExtra)
 library(kableExtra)
+library(qqplotr)
 this.dir <- dirname(parent.frame(2)$ofile)
 setwd(this.dir)
 
@@ -21,8 +22,8 @@ ishango.after <- read.csv("ishango/fifteen30/ishango_mean.csv")
 
 ishango.after.long <- pivot_longer(ishango.after, cols=everything(), names_to="language", values_to="runtime")
 ggplot(ishango.after.long, aes(sample=(runtime)))+
-  stat_qq(col="coral")+
-  stat_qq_line(col="blue")+
+  stat_qq(col="coral") +
+  stat_qq_line(col="blue") +
   facet_wrap(~language, scales="free")+
   labs(x="quantiles", y="ms")
 
@@ -41,7 +42,7 @@ ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardwar
 
 analysis <- read.csv("analysis.csv")
 analysis.long <- pivot_longer(analysis, cols=C:R, names_to = "Language", values_to = "Runtime")
-ggplot(analysis.long, aes(x=Language, y=log(Runtime), group=Hardware, color=Hardware))+
+analysis_interaction <- ggplot(analysis.long, aes(x=Language, y=log(Runtime), group=Hardware, color=Hardware))+
   geom_point()+
   geom_line()+
   labs(title= "Interaction Graph",
@@ -50,12 +51,16 @@ ggplot(analysis.long, aes(x=Language, y=log(Runtime), group=Hardware, color=Hard
 
 anova <- aov(Runtime~Language + Hardware, analysis.long)
 anova_log <- aov(log(Runtime)~Language + Hardware, analysis.long)
-anova_log.residauls = resid(anova_log)
-ggplot(data.frame(anova_log.residauls), aes(sample=(anova_log.residauls)))+
-  stat_qq(col="red")+
-  stat_qq_line(col="blue")+
-  stat_qq_band(col="pink")+
+anova_log.residauls = residuals(anova_log)
+anova_qq <- ggplot(data.frame(anova_log.residauls), aes(sample=(anova_log.residauls)))+
+  geom_qq(col="firebrick", size=2.5)+
+  geom_qq_line(col="deepskyblue4", size=1, alpha=0.75)+
   labs(x="Quantile", y="Runtime log(ms)")
+  
+
+anova_residuals_fitted <- ggplot(anova_log,aes(x=fitted(anova_log), y=anova_log.residauls))+
+  geom_point(col="firebrick")+
+  geom_smooth(col="deepskyblue4", size=1, alpha=0, )
 
 frame <- data.frame(summary(anova_log)[[1]])
 colnames(frame) <- c("Df", "Sum sq", "Mean sq", "F value", "Pr(>F)")

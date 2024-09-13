@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.11)  13 SEP 2024 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.11)  13 SEP 2024 19:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -755,45 +755,48 @@ File: omlcmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 386.
+<skeleton_files/figure-latex/tableAnova-1.pdf, id=139, 469.755pt x 325.215pt>
+File: skeleton_files/figure-latex/tableAnova-1.pdf Graphic file (type pdf)
+<use skeleton_files/figure-latex/tableAnova-1.pdf>
+Package pdftex.def Info: skeleton_files/figure-latex/tableAnova-1.pdf  used on input line 400.
+(pdftex.def)             Requested size: 452.9679pt x 313.59232pt.
 
-Overfull \hbox (69.57314pt too wide) in alignment at lines 384--388
- [] [] [] [] [] [] 
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 400--405
+[][]
+ []
+
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 410.
+(/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 410.
+
+LaTeX Warning: Reference `materials-and-methods' on page 9 undefined on input line 416.
+
+
+LaTeX Warning: Reference `a-subsection' on page 9 undefined on input line 416.
+
+
+
+[9 <./skeleton_files/figure-latex/tableAnova-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 427--428
+
  []
 
 
-Overfull \hbox (69.57314pt too wide) in alignment at lines 388--390
- [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (69.57314pt too wide) in alignment at lines 390--396
- [] [] [] [] [] [] 
- []
-
-
-LaTeX Warning: Reference `materials-and-methods' on page 9 undefined on input line 401.
-
-
-LaTeX Warning: Reference `a-subsection' on page 9 undefined on input line 401.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
-
- []
-
-
-Overfull \hbox (94.22147pt too wide) in paragraph at lines 414--430
+Overfull \hbox (94.22147pt too wide) in paragraph at lines 429--445
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--432
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
 
  []
 
 
 
-[9] (./skeleton.aux)
+[10] (./skeleton.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
@@ -805,18 +808,18 @@ Package rerunfilecheck Info: File `skeleton.out' has not changed.
 (rerunfilecheck)             Checksum: 6DD6E507A594D93DFD604AEDBFD75F0D;2042.
  ) 
 Here is how much of TeX's memory you used:
- 14928 strings out of 475539
- 232667 string characters out of 5776321
- 639706 words of memory out of 5000000
- 37276 multiletter control sequences out of 15000+600000
+ 14960 strings out of 475539
+ 233555 string characters out of 5776321
+ 637709 words of memory out of 5000000
+ 37304 multiletter control sequences out of 15000+600000
  569288 words of font info for 82 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,9n,79p,407b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/youyasushi/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on skeleton.pdf (9 pages, 490004 bytes).
+Output written on skeleton.pdf (10 pages, 502528 bytes).
 PDF statistics:
- 222 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 144 words of extra memory for PDF output out of 10000 (max. 10000000)
 

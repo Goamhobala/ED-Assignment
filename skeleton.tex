@@ -133,19 +133,19 @@
 
 \section{Introduction}\label{introduction}
 
-Computation has been playing a major role in human history ever since
-people began living in cities. The need to calculate taxes motivated the
+Computation has played a major role in human history ever since people
+began living in cities. The need to calculate taxes motivated the
 invention of various computing devices that aided such computations,
 such as the Sumerian abacus, invented in Babylon at around
 2500BC{[}7{]}. In the 21st century, the capability our digital computing
 devices have vastly surpassed the capacity of those proto-computers, but
 so has our need for computational power. Everything in our daily life
 requires some form of computers: from our phones, cars, to even our
-refrigerators (side note: initially, Java was actually invented for
+refrigerators (side note: initially, Java was invented for
 refrigerators).
 
-However, with large computation capability comes the complexity in the
-design of these device: to speak plainly, they are damn difficult to
+However, with large computation capability comes complexity in the
+design of these devices: to speak plainly, they are damn difficult to
 use. Computer scientists have therefore invented numerous
 \emph{programming languages} that allow us to harness the power of these
 devices more easily.
@@ -338,7 +338,7 @@ widely available.
 
 Besides the observation mentioned above, we can also see that there is
 relatively little difference in execution times on the other hardware
-setups. This motivates us to employ an Randomised Block Design(RBD)
+setups. This motivated us to employ an Randomised Block Design(RBD)
 
 \subsection{Design}\label{design}
 
@@ -388,12 +388,27 @@ Variance (ANOVA) table is shown below:
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Language & 5 & 58.1057 & 11.6211 & 1032.9348 & \textless{} 0.0001 \\
-Hardware & 6 & 5.5176 & 0.9196 & 81.7379 & \textless{} 0.0001 \\
-Residuals & 30 & 0.3375 & 0.0113 & & \\
-We verified & our a & ssumptions & by perfor & ming Shapiro & Wilk test
-on the residuals. We obtained \\
+Language & 5 & 65.2112 & 13.0422 & 285.9459 & \textless{} 0.0001 \\
+Hardware & 6 & 6.5717 & 1.0953 & 24.0136 & \textless{} 0.0001 \\
+Residuals & 30 & 1.3683 & 0.0456 & & \\
 \end{longtable}
+
+\begin{verbatim}
+## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+\end{verbatim}
+
+\includegraphics[width=1\linewidth]{skeleton_files/figure-latex/tableAnova-1}
+We can observe from the Fitted vs Residuals graph that the residuals
+seem to spread out haphazardly, with no obvious patterns to be
+discerned. Also, the Quantile-Quatile graph offers a fairly good fit,
+suggesting that residuals
+
+We further verified our assumptions by performing Shapiro Wilk test on
+the residuals. We obtained a fairly large p-value of 0.7521, indicating
+that there we have little evidence that the residuals are not normally
+distributed. Further, we also got that the mean of the residuals is
+approximately zero (\$ \textless{} 10\^{}\{-15\}\$), indicating that it
+is feasible to assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
 
 \section{Discussion}\label{discussion}
 
