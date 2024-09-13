@@ -158,10 +158,14 @@ ScilabB &  12th Gen Intel(R) Core(TM) i5-12400 &  16,0 GB  &  Windows 10\\
 \hline
 Surface &  9th Gen Intel(R) Core(TM) i5-8250 CPU &  16,0 GB  &  Windows 10\\
 \hline
-ASUS laptop &  5th Gen Intel(R) Core(TM) i7-5500U CPU &  6,0 GB  &  Windows 10\\
+ASUS (i7-5500u) &  5th Gen Intel(R) Core(TM) i7-5500U CPU &  6,0 GB  &  Windows 10\\
+\hline
+ScilabD &  10th Gen Intel(R) Core(TM) i5-10500 &  16,0 GB  &  Windows 10\\
+\hline
+LT &  9th Gen Intel(R) Core(TM) i5-9400f &  8,0 GB  &  Windows 10\\
+\hline
+HP (i5-7200) &  7th Gen Intel(R) Core(TM) i5-7200 &  8,0 GB  &  Windows 10\\
 \end{tabular}
-
-\
 
 
 Due to the differences in specifications in the PCs, we have decided to block for the hardware setups,
@@ -331,3 +335,12 @@ _any references, textbook, code, people wh helped us._
 ```
 # Apenddix
 _add important code here._
+
+# DIAGRAM
+\begin{tabular}{l|r|r}
+ PC SPEC & TREATMENT\\
+\hline
+Ishango PC & random.shuffle([c, cpp, java, python, ruby, r])\\
+\end{tabular}
+
+_things need to change and edit_

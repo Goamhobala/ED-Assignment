@@ -57,15 +57,20 @@ library(tidyverse)
 library(scales)
 library(gridExtra)
 library(knitr)
+library(kableExtra)
 
 ```
 \newpage
 
 # Introduction
-The goal of this experiment is to identify the programming language that delivers the fastest execution time when calculating a value of $\pi$ with respect to Leibiniz formula. $$\sum_{n=0}^{\infty} (-1)^n/(2n+1)$$
+Computation has been playing a major role in human history ever since people began living in cities. The need to calculate taxes motivated the invention of various computing devices that aided such computations, such as the Sumerian abacus, invented in Babylon at around 2500BC[7]. In the 21st century, the capability our digital computing devices have vastly surpassed the capacity of those proto-computers, but so has our need for computational power. Everything in our daily life requires some form of computers: from our phones, cars, to even our refrigerators (side note: initially, Java was actually invented for refrigerators).
 
-With the increasing demand for high-performance applications, understanding which programming languages offer superior speed in terms of execution is crucial for developers, especially in domains requiring real-time processing, large-scale data analysis, and resource-intensive computations.
-\
+However, with large computation capability comes the complexity in the design of these device: to speak plainly, they are damn difficult to use. Computer scientists have therefore invented numerous _programming languages_ that allow us to harness the power of these devices more easily.
+
+Eventually, programming languages have become the primary medium for instructing computers to perform our increasingly complex tasks. Understanding which programming languages offer superior execution speed is therefore crucial for developers, especially in domains requiring real-time processing, large-scale data analysis, and other resource-intensive computations. The goal of this experiment is to identify such languages that deliver the fastest execution time.
+
+__when calculating a value of $\pi$ with respect to Leibiniz formula. $$\sum_{n=0}^{\infty} (-1)^n/(2n+1)$$__
+
 This problem will focus on evaluating a selection of popular programming languages, including but not limited to C++, C, R, Python, Java, and Ruby. The evaluation will consider how quickly a value of pi can be calculated by applying leibiniz formula up to 100000000 terms.
 \
 
@@ -95,7 +100,7 @@ Some languages, like Java, use a combination of both techniques, where the code 
 \
 
 ## A Priori Analysis
-Since existing literature on the execution times of programming languages when applying Leibniz's formula is limited, we performed an a priori test to gauge the execution time for the programming languages we planned on experimenting with. We performed 500 approximations using the algorithm for each programming language and obtained the following jittered graph.
+Since existing literature on the execution times of programming languages when applying Leibniz's formula is limited, we performed an a priori test to gauge the execution time for the programming languages we planned on experimenting with. We performed 500 approximations of $pi$ ,using the algorithm described in the Method section, for each programming language. We obtained the following jittered graph.
 \
 \
 ```{r echo=FALSE, figPrior, figPrior.cap="Runtimes of Programming Languages of Interest When Applying Leibniz's Formula up to 100 million terms", fig.width=8.5}
@@ -114,20 +119,16 @@ qq <- ggplot(middleTRNew.before.long, aes(sample=log(runtime)))+
        size=8)
 grid.arrange(jitter, qq, ncol=2, nrow=1, widths=c(1.15 , 1))
 ```
-We can observe that C and C++ seem to be the fastest languages, though further analyses still need to be performed. We can also see from the Quantile-Quantile(QQ) plots that the execution times are clearly not normally distributed.
+We can observe that C and C++ seem to be the fastest languages, though further analyses are needed. We can also see from the Quantile-Quantile(QQ) plots that the execution times are clearly not normally distributed.
 
 \newpage
 
-# Reference example
-
-Here are two sample references:. Bibliography will appear at the end of the document.
-
 # Methods
 ## Setting
-This study was mostly conducted at the University of Cape Town, utilising the computers available on campus. We found that there are 5 different hardware setups available as blocks. To supplement the range of our hardware setups, we also borrowed machines of 2 more hardware setups from our friends.
+This study was mostly conducted at the University of Cape Town, utilising the computers available on campus. We found that there are only 5 different hardware setups available. Thus, to supplement the range of our hardware setups, we also borrowed machines of 2 more hardware setups from our friends.
 
 ## Approximation of $\pi$
-The number $\pi$, the ubiquitous and equally mysterious irrational, has been fascinating the humankind since time immemorial. Mathematicians from 4000 years ago to the present time have devised various methods attempting to get closer to the true value of $\pi$. One such method is using Leibniz's formula:
+The number $\pi$, the ubiquitous and equally mysterious irrational number, has been fascinating the humankind since time immemorial. Mathematicians from 4000 years ago to the present time have devised various methods attempting to get closer to the true value of $\pi$. One such method is using Leibniz's formula:
 $$
 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}
 $$
@@ -140,26 +141,26 @@ We applied this algorithm in 6 programming languages, including 3 compiled langu
 ## Sources of Variation
 
 #### Treatments:
-We have 6 treatment factors, which are the programming languages that the algorithm is applied to. Each treatment has one level (applying the formula up to $100 \times 10^6$ terms). We selected this particular level because it is the largest, practical number of terms we could apply with our hardware setups (For some setups, it may take up to 4 hours to arrive at a single observation), and fewer terms imply larger relative measurement error [7]. We cannot include more levels because in the existing literature, most studies of such kind choose to run all languages on the same machine. However, since we would like to avoid pseudo replication and use one machine per observation. The downside of this approach is that we do not have sufficient machines to perform more than one levels.
+We have 6 treatment factors, which are the programming languages we applied algorithm to. Each treatment has one level (applying the formula up to $100 \times 10^6$ terms). We selected this particular level because it is the largest, practical number of terms we could apply with our hardware setups (For some setups, it may take up to 4 hours to arrive at a single observation), and fewer terms imply larger relative measurement error [7]. We cannot include more levels because in the existing literature, most studies of such kind choose to run all languages on the same machine. However, since we would like to avoid pseudo replication as much as possible we use one machine per observation. The downside of this approach is that we do not have sufficient machines to perform more than one levels.
 
-### #Blocks: 
-From our a priori analysis, we noticed that the execution times of the 6 programming languages we tested on various hardware setups seem to follow the same order:
+#### Blocks: 
+From our a priori analysis, we noticed that the execution times of the 6 programming languages we tested seem to follow the same order on various hardware setups:
 \begin{equation}
 t(C) \approx t(C++) < t(Java) < t(R) < t(Python) < t(Ruby)
 \end{equation}
-Whist the exact runtimes on machines of the same hardware setups tend to not vary much. This motivates us to block for various hardware setups. We also ensured that the machines are all operating on the same operating system, as we had later found out in the pilot experiment.
+Whilst the exact runtimes on machines of the same hardware setups tend to not vary much. This motivates us to block for various hardware setups. We also ensured that the machines are all operating on the same operating system, as we had later found out in the pilot experiment.
 
 ## Experimental Units: 
 As mentioned earlier, we would like to avoid pseudo replication as much as possible. Therefore, we deviated from the tradition of running all programming languages on the same machine, and test only one language per machine. Our experimental units are therefore the individual machines we ran each test on.
 
 ## Sampling Procedure
-Since existing literature tend to suggest that execution times of programming languages are not normally distributed, we perform a priori tests to confirm that none of our languages has normally distributed runtime. This imposed an issue as it prevented us to apply anova models. To address this, we applied the Central Limit Theorem(CLT) to obtain a normal distribution for the average execution times. We ran the program 15 times per sample for each programming language, and repeated the process 30 times. Applying CLT, it is relatively safe to assume the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we take as a single observation. 
+Since existing literature tend to suggest that execution times of programming languages are not normally distributed, we perform a priori tests to confirm that none of our languages has normally distributed runtime. This imposed an issue as it prevented us to apply anova models. To address this, we applied the Central Limit Theorem(CLT) to obtain a normal distribution for the average execution times. We ran the program 15 times per sample for each programming language, and repeated the process 30 times. Applying CLT, it is relatively safe to assume the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we will take as a single observation. (Note: We arrived at the number 15 through trial and error, and 30 from [8])
 
 ## Randomisation Procedure
-We first order from 1 to 6 for the computers belonging to each block. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same number.
+We first order the computers belonging to each block from 1 to 6. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same assigned number.
 
 ## Pilot Experiment
-We follow this direction and perform an pilot study to obtain the following data
+We follow this direction and perform an pilot study on 4 differnt hardware setups to obtain the following data
 ```{r echo=FALSE, figPilot, figPilot.cap="Interaction Graph of Programming Languages and Blocks"}
 setwd("./speed-comparison-master/data/")
 
@@ -176,66 +177,70 @@ From the data collected, we observed that the results collected from Ishango do 
 
 After further investigation, we learned that programming languages perform differently on various operating systems [4]. We hypothesised that this is likely the reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system). Therefore, we added another constraint for selecting suitable machines: the machines must all run on Windows 10, as these machines are the most widely available.
 
-Besides the observation mentioned above, we can also see that there is relatively little execution times on the other hardware setups. This motivates us to employ an Randomised Block Design(RBD)
-## Design
+Besides the observation mentioned above, we can also see that there is relatively little difference in execution times on the other hardware setups. This motivates us to employ an Randomised Block Design(RBD)
 
+## Design
+We assume that:
+$$
+e_{ij} \sim \mathcal{N}(0, \sigma^2)
+$$ 
+We use the following anova model for our response variables:
+
+$$
+Y_{ij} = \mu + \alpha_i + \beta_j+ e_{ij}
+$$
+$$
+i = 1 ...a
+$$
+$$
+j = 1 ...b
+$$
+With the following constraints:
+$$
+\sum_{i=1}^a \alpha_i = \sum_{j=1}^b \beta_i =0 
+$$
+Where:
+$$
+\begin{aligned}
+&\mu\hspace{35pt}  \text{overall mean} \\
+&\alpha_i\hspace{35pt} \text{effect of }\, i^{th}\, \text{treatment}\\
+&\beta_j\hspace{35pt} \text{effect of }\, j^{th}\, \text{block}\\
+&e_{ij}\hspace{35pt} \text{random error of the observation}\\
+\end{aligned}
+$$
+
+We also assume that each $e_{ij}$ is independent to each other, which allows us to assume that each $Y_{ij}$ is also independent to each other, and are normally distributed. If there are no blocking and treatment effects, then:
+$$
+Y_{ij} \sim \mathcal{N}(\mu, \sigma^2)
+$$
+Otherwise, if there are blocking and treatment effects, then:
+$$
+Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
+$$
 
 ```{r include FALSE}
 #This equation can be referenced as follows: Eq. \ref{eq:eq1}
 ```
-## A subsection
-
-A numbered list:
-
-1) First point
-2) Second point
-    - Subpoint
-    
-A bullet list:
-
-* First point
-* Second point
-
+\newpage
 # Results
-computers of different specifications are harder to come by, we will only use 3 different hardware setup for this pilot study.
+We performed the experiment described above on 7 different hardware setups and applied all 6 treatments. The table for data and details of each hardware setups can be found in the appendix. The Analysis of Variance (ANOVA) table is shown below:
 
+```{r, tableAnova, tableAnova.cap="The ANOVA table", results='asis'}
+setwd("./speed-comparison-master/data/")
 
+analysis <- read.csv("analysis.csv")
+#analysis.long <- pivot_longer(analysis, cols=C:R, names_to = "language", values_to = "runtime")
+analysis.long <- pivot_longer(analysis, cols=C:R, names_to = "Language", values_to = "Runtime")
+anova_log <- aov(log(Runtime)~Language + Hardware, analysis.long)
+frame <- data.frame(summary(anova_log)[[1]])
+colnames(frame) <- c("Df", "Sum sq", "Mean sq", "F value", "Pr(>F)")
+frame$'Pr(>F)' <- ifelse(is.na(frame$'Pr(>F)'), "", '< 0.0001')
+frame$'F value' <- as.numeric(frame$'F value')
+frame$'F value' <- ifelse(is.na(frame$'F value'), "", round(frame$'F value', digits=4) )
 
-You can reference this figure as follows: Fig. \ref{fig:fig1}.
-
-```{r fig2, fig.cap="This is the second figure.",echo=TRUE}
-plot(1:5, pch = 19, main = "Some data", xlab = "Distance (cm)", ylab = "Time (hours)")
+kable(frame, format="pandoc", escape=FALSE, digits=4, align=c("r", "r", "r", "r", "r", "r"))
 ```
-
-Reference to second figure: Fig. \ref{fig:fig2}
-
-## Generate a table using `xtable`
-
-```{r tab1, results="asis", echo=TRUE}
-df <- data.frame(ID = 1:3, code = letters[1:3])
-
-# Creates tables that follow OUP guidelines using xtable
-library(xtable)
-print(xtable(df, caption = "This is the table caption", label = "tab:tab1"),
-  comment = FALSE
-)
-```
-
-You can reference this table as follows: Table \ref{tab:tab1}.
-
-## Generate a table using `kable`
-
-```{r anothertable, echo=TRUE}
-df <- data.frame(ID = 1:3, code = letters[1:3])
-
-# kable can alse be used for creating tables
-knitr::kable(df,
-  caption = "This is the table caption", format = "latex",
-  booktabs = TRUE, label = "tab2"
-)
-```
-
-You can reference this table as follows: Table \ref{tab:tab2}.
+We verified our assumptions by performing Shapiro Wilk test on the residuals. We obtained
 
 # Discussion
 
