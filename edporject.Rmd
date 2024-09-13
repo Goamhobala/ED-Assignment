@@ -39,20 +39,14 @@ LT &  9th Gen Intel(R) Core(TM) i5-9400f &  8,0 GB  &  Windows 10\\
 HP (i5-7200) &  7th Gen Intel(R) Core(TM) i5-7200 &  8,0 GB  &  Windows 10\\
 \end{tabular}
 
-\
-```{r eval=FALSE, include=FALSE}
-treatment <- sample(treat)
-PC = c("Ishango PC","HP (i5-7200)","LT","ASUS (i7-5500u)","ScilabB","ScilabD","MiddleTRNew","MiddleTROld")
-xtable(PC,type= 'Latex')
+
+# DIAGRAM
+```{r echo=FALSE, results='asis'}
+df <- read.csv('diagram.csv',header = TRUE)
+print(xtable(df, type = "latex"))
 ```
 
 
-# DIAGRAM
-\begin{tabular}{l|r|r}
- PC SPEC & TREATMENT\\
-\hline
-Ishango PC & random.shuffle([c, cpp, java, python, ruby, r])\\
-\end{tabular}
 
 _things need to change and edit_
 \

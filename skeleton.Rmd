@@ -9,7 +9,7 @@ author:
     email: yhxjin001@myuct.ac.za
     affiliation: University of Cape Town
   - name: Saurav Sathnarayan
-    email: yhxjin001@myuct.ac.za
+    email: sthsau01001@myuct.ac.za
     affiliation: University of Cape Town
 
 abstract: |
@@ -57,22 +57,35 @@ library(tidyverse)
 library(scales)
 library(gridExtra)
 library(knitr)
-library(kableExtra)
-
+library(xtable)
 ```
 \newpage
 
 # Introduction
-Computation has played a major role in human history ever since people began living in cities. The need to calculate taxes motivated the invention of various computing devices that aided such computations, such as the Sumerian abacus, invented in Babylon at around 2500BC[7]. In the 21st century, the capability our digital computing devices have vastly surpassed the capacity of those proto-computers, but so has our need for computational power. Everything in our daily life requires some form of computers: from our phones, cars, to even our refrigerators (side note: initially, Java was invented for refrigerators).
+Computation has played a major role in human history ever since people
+began living in cities. The need to calculate taxes motivated the
+invention of various computing devices that aided such computations,
+such as the Sumerian abacus, invented in Babylon at around
+2500BC [7]. In the 21st century, the capability our digital computing
+devices have vastly surpassed the capacity of those proto-computers, but
+so has our need for computational power. Everything in our daily life
+requires some form of computers: from our phones, cars, to even our
+refrigerators (side note: initially, Java was invented for
+refrigerators).
 
-However, with large computation capability comes complexity in the design of these devices: to speak plainly, they are damn difficult to use. Computer scientists have therefore invented numerous _programming languages_ that allow us to harness the power of these devices more easily.
+However, with large computation capability comes complexity in the
+design of these devices: to speak plainly, they are damn difficult to
+use. Computer scientists have therefore invented numerous
+\emph{programming languages} that allow us to harness the power of these
+devices more easily.
 
-Eventually, programming languages have become the primary medium for instructing computers to perform our increasingly complex tasks. Understanding which programming languages offer superior execution speed is therefore crucial for developers, especially in domains requiring real-time processing, large-scale data analysis, and other resource-intensive computations. The goal of this experiment is to identify such languages that deliver the fastest execution time.
-
-__when calculating a value of $\pi$ with respect to Leibiniz formula. $$\sum_{n=0}^{\infty} (-1)^n/(2n+1)$$__
-
-This problem will focus on evaluating a selection of popular programming languages, including but not limited to C++, C, R, Python, Java, and Ruby. The evaluation will consider how quickly a value of pi can be calculated by applying leibiniz formula up to 100000000 terms.
-\
+Eventually, programming languages have become the primary medium for
+instructing computers to perform our increasingly complex tasks.
+Understanding which programming languages offer superior execution speed
+is therefore crucial for developers, especially in domains requiring
+real-time processing, large-scale data analysis, and other
+resource-intensive computations. The goal of this experiment is to
+identify such languages that deliver the fastest execution time.
 
 ## Compiled vs Interpreted Languages
 #### Compiled Language:
@@ -100,7 +113,7 @@ Some languages, like Java, use a combination of both techniques, where the code 
 \
 
 ## A Priori Analysis
-Since existing literature on the execution times of programming languages when applying Leibniz's formula is limited, we performed an a priori test to gauge the execution time for the programming languages we planned on experimenting with. We performed 500 approximations of $pi$ ,using the algorithm described in the Method section, for each programming language. We obtained the following jittered graph.
+Since existing literature on the execution times of programming languages when applying Leibniz's formula is limited, we performed an a priori test to gauge the execution time for the programming languages we planned on experimenting with. We performed 500 approximations using the algorithm for each programming language and obtained the following jittered graph.
 \
 \
 ```{r echo=FALSE, figPrior, figPrior.cap="Runtimes of Programming Languages of Interest When Applying Leibniz's Formula up to 100 million terms", fig.width=8.5}
@@ -112,34 +125,23 @@ jitter <- ggplot(middleTRNew.before.long, aes(x=language, y=log(runtime), color=
   labs(x="language", y="runtime (log(ms))", title="Jittered Graph of Execution Time", size=8)
 
 qq <- ggplot(middleTRNew.before.long, aes(sample=log(runtime)))+
-  stat_qq(col="green")+
-  stat_qq_line(col="blue")+
+  geom_qq(col="green")+
+  geom_qq_line(col="blue")+
   facet_wrap(~language, scales="free")+
   labs(x="quantiles", y="runtime (log(ms))", title="Quantile-Quantile Plots of Execution Time",
        size=8)
-grid.arrange(jitter, qq, ncol=2, nrow=1, widths=c(1.15 , 1))
+grid.arrange(jitter, qq, ncol=2, nrow=1)
 ```
-We can observe that C and C++ seem to be the fastest languages, though further analyses are needed. We can also see from the Quantile-Quantile(QQ) plots that the execution times are clearly not normally distributed.
+We can observe that C and C++ seem to be the fastest languages, though
+further analyses are needed. We can also see from the Quantile-Quantile(Q-Q) plots that the execution times are clearly not normally distributed.
 
 \newpage
 
+# Reference example
+
+Here are two sample references:. Bibliography will appear at the end of the document.
+
 # Methods
-## Setting
-This study was mostly conducted at the University of Cape Town, utilising the computers available on campus. We found that there are only 5 different hardware setups available. Thus, to supplement the range of our hardware setups, we also borrowed machines of 2 more hardware setups from our friends.
-
-## Approximation of $\pi$
-The number $\pi$, the ubiquitous and equally mysterious irrational number, has been fascinating the humankind since time immemorial. Mathematicians from 4000 years ago to the present time have devised various methods attempting to get closer to the true value of $\pi$. One such method is using Leibniz's formula:
-$$
-4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}
-$$
-Leibniz, whom the formula is named after, proved that the series above eventually converges to $\pi$. That is:
-$$
-\pi = 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}.
-$$
-We applied this algorithm in 6 programming languages, including 3 compiled languages: C, C++, Java, and 3 interpreted languages: Python, R, Ruby, up to a billion terms.
-
-## Sources of Variation
-
 #### Treatments:
 We have 6 treatment factors, which are the programming languages we applied algorithm to. Each treatment has one level (applying the formula up to $100 \times 10^6$ terms). We selected this particular level because it is the largest, practical number of terms we could apply with our hardware setups (For some setups, it may take up to 4 hours to arrive at a single observation), and fewer terms imply larger relative measurement error [7]. We cannot include more levels because in the existing literature, most studies of such kind choose to run all languages on the same machine. However, since we would like to avoid pseudo replication as much as possible we use one machine per observation. The downside of this approach is that we do not have sufficient machines to perform more than one levels.
 
@@ -157,28 +159,28 @@ As mentioned earlier, we would like to avoid pseudo replication as much as possi
 Since existing literature tend to suggest that execution times of programming languages are not normally distributed, we perform a priori tests to confirm that none of our languages has normally distributed runtime. This imposed an issue as it prevented us to apply anova models. To address this, we applied the Central Limit Theorem(CLT) to obtain a normal distribution for the average execution times. We ran the program 15 times per sample for each programming language, and repeated the process 30 times. Applying CLT, it is relatively safe to assume the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we will take as a single observation. (Note: We arrived at the number 15 through trial and error, and 30 from [8])
 
 ## Randomisation Procedure
-We first order the computers belonging to each block from 1 to 6. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same assigned number.
+We first ordered the computers belonging to each block from 1 to 6. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same assigned number.
 
 ## Pilot Experiment
-We follow this direction and perform an pilot study on 4 differnt hardware setups to obtain the following data
-```{r echo=FALSE, figPilot, figPilot.cap="Interaction Graph of Programming Languages and Blocks"}
+We followed this direction and performed an pilot study to obtain the following execution times of programming languages on 4 hardware setups
+```{r echo=FALSE, figPilot, figPilot.cap="Interaction Graph of Programming Languages and Blocks", fig.height=2}
 setwd("./speed-comparison-master/data/")
 
 pilot <- read.csv("pilotData.csv")
 pilot.long <- pivot_longer(pilot, cols=C:R, names_to = "language", values_to = "runtime")
-ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardware))+
+plot <- ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardware))+
   geom_point()+
   geom_line()+
   labs(title= "Interaction Graph",
        x= "Progamming Language",
        y= "Runtime (log(ms))")
+plot
 ```
-From the data collected, we observed that the results collected from Ishango do not follow the general trends established by the other three setups. The hardware setup in Ishango lab is significantly less advance than MiddleTRNew; yet, most programming languages tend to perform better on the Ishango machine. Secondly, to add to the first observation, not all programming languages perform better on the Ishango machine.
+From the data collected, we observed that the results collected from Ishango do not follow the general trends established by the other three setups. Firstly, the hardware setup in Ishango lab is significantly less advance than MiddleTRNew. Yet, most programming languages tend to perform better on the Ishango machine. Secondly, to add to the first observation, not all programming languages perform better on the Ishango machine.
 
-After further investigation, we learned that programming languages perform differently on various operating systems [4]. We hypothesised that this is likely the reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system). Therefore, we added another constraint for selecting suitable machines: the machines must all run on Windows 10, as these machines are the most widely available.
+After further investigation, we learned that programming languages perform differently on various operating systems [4]. We hypothesised that this is likely the reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system).
 
-Besides the observation mentioned above, we can also see that there is relatively little difference in execution times on the other hardware setups. This motivated us to employ an Randomised Block Design(RBD)
-
+Therefore, we added another constraint for selecting suitable machines: the machines must all run on Windows 10, as these machines are the most widely available.
 ## Design
 We assume that:
 $$
@@ -217,10 +219,15 @@ Otherwise, if there are blocking and treatment effects, then:
 $$
 Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
 $$
-
+Below is the layout of the design
+```{r echo=FALSE, results='asis'}
+df <- read.csv('diagram.csv',header = TRUE)
+print(xtable(df, type = "latex", comment = FALSE, caption = 'placeholder'))
+```
 ```{r include FALSE}
 #This equation can be referenced as follows: Eq. \ref{eq:eq1}
 ```
+
 \newpage
 # Results
 We performed the experiment described above on 7 different hardware setups and applied all 6 treatments. The table for data and details of each hardware setups can be found in the appendix. The Analysis of Variance (ANOVA) table is shown below:
@@ -254,39 +261,18 @@ anova_residuals_fitted <- ggplot(anova_log,aes(x=fitted(anova_log), y=anova_log.
 
 grid.arrange(anova_qq, anova_residuals_fitted,ncol=1, nrow=2)
 ```
-We can observe from the Fitted vs Residuals graph that the residuals seem to spread out haphazardly, with no obvious patterns to be discerned. Also, the Quantile-Quatile graph offers a fairly good fit, suggesting that residuals 
+We verified our model by observing the Fitted vs Residuals graph: the residuals seem to spread out haphazardly, with no obvious patterns to be discerned. This suggests homoscedasticity [7]. Also, the Quantile-Quantile graph offers a fairly good fit.
 
-We further verified our assumptions by performing Shapiro Wilk test on the residuals. We obtained a fairly large p-value of 0.7521, indicating that there we have little evidence that the residuals are not normally distributed. Further, we also got that the mean of the residuals is approximately zero ($ < 10^{-15}$), indicating that it is feasible to assume $e_{ij} \sim \mathcal{N}(0, \sigma^2)$
-
-
-# Discussion
-
-You can cross-reference sections and subsections as follows: Section \ref{materials-and-methods} and Section \ref{a-subsection}.
-
-***Note:*** the last section in the document will be used as the section title for the bibliography.
+We further verified our assumptions by performing Shapiro Wilk test on the residuals. We obtained a fairly large p-value of 0.7521, indicating that we have little evidence for residuals not being normally distributed. Further, we also got that the mean of the residuals is approximately zero ($ < 10^{-15}$), indicating that it is sensible to assume $e_{ij} \sim \mathcal{N}(0, \sigma^2)$
 
 # References
 
+\newpage
 
 # Appendix
 #### PC Specificiations
 \
-\begin{tabular}{l|r|r|r}
-\hline
-  & CPU & MEMORY & OPERATING SYSTEM\\
-\hline
-Ishango PC &  9th Gen Intel® Core™ i3-9100  & 8,0 GB &  Ubuntu 22.04\\
-\hline
-MidddleTROld & 9th Gen Intel(R) Core(TM) i5-9500 CPU & 8,0 GB &  Windows 10\\
-\hline
-MiddleTRNew & 12th Gen Intel(R) Core(TM) i5-13400 & 16,0 GB &  Windows 10\\
-\hline
-ScilabB &  12th Gen Intel(R) Core(TM) i5-12400 &  16,0 GB  &  Windows 10\\
-\hline
-Surface &  9th Gen Intel(R) Core(TM) i5-8250 CPU &  16,0 GB  &  Windows 10\\
-\hline
-ASUS laptop &  5th Gen Intel(R) Core(TM) i7-5500U CPU &  6,0 GB  &  Windows 10\\
-\end{tabular}
-
-\
-
+```{r echo=FALSE, results='asis'}
+dfpc <- read.csv('pcSpecs.csv',header = TRUE)
+print(xtable(dfpc, type = "latex", comment = FALSE, caption = 'Table of Pcs used and their respective specifications'))
+```
