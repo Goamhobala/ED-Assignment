@@ -62,8 +62,8 @@ library(xtable)
 \newpage
 
 # Introduction
-The goal of this experiment is to identify the programming language that delivers the fastest execution time when calculating a value of $\pi$ with respect to Leibiniz formula. $$\sum_{n=0}^{\infty} (-1)^n/(2n+1)$$
-
+The goal of this experiment is to identify the programming language that delivers the fastest execution time when calculating a value of $\pi$ with respect to Leibiniz formula.
+\
 With the increasing demand for high-performance applications, understanding which programming languages offer superior speed in terms of execution is crucial for developers, especially in domains requiring real-time processing, large-scale data analysis, and resource-intensive computations.
 \
 This problem will focus on evaluating a selection of popular programming languages, including but not limited to C++, C, R, Python, Java, and Ruby. The evaluation will consider how quickly a value of pi can be calculated by applying leibiniz formula up to 100000000 terms.
@@ -158,11 +158,13 @@ Since existing literature tend to suggest that execution times of programming la
 ## Randomisation Procedure
 We first order from 1 to 6 for the computers belonging to each block. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same number.
 
-# diagram
-```{r echo=FALSE, results='asis'}
-df <- read.csv('diagram.csv',header = TRUE)
-print(xtable(df, type = "latex", comment = FALSE, caption = 'placeholder'))
+# Diagram
+
+```{r, out.width = "400px"}
+knitr::include_graphics("diagram.png")
 ```
+
+
 
 ## Pilot Experiment
 We follow this direction and perform an pilot study to obtain the following data
@@ -264,3 +266,10 @@ You can cross-reference sections and subsections as follows: Section \ref{materi
 dfpc <- read.csv('pcSpecs.csv',header = TRUE)
 print(xtable(dfpc, type = "latex", comment = FALSE, caption = 'Table of Pcs used and their respective specifications'))
 ```
+
+```{r echo=FALSE, results='asis'}
+dfdata <- read.csv('analysis.csv', header = TRUE)
+print(xtable(dfdata, type = "latex", comment = FALSE, caption = 'Table data used for analysis'))
+
+```
+
