@@ -142,7 +142,7 @@ We applied this algorithm in 6 programming languages, including 3 compiled langu
 #### Treatments:
 We have 6 treatment factors, which are the programming languages that the algorithm is applied to. Each treatment has one level (applying the formula up to $100 \times 10^6$ terms). We selected this particular level because it is the largest, practical number of terms we could apply with our hardware setups (For some setups, it may take up to 4 hours to arrive at a single observation), and fewer terms imply larger relative measurement error [7]. We cannot include more levels because in the existing literature, most studies of such kind choose to run all languages on the same machine. However, since we would like to avoid pseudo replication and use one machine per observation. The downside of this approach is that we do not have sufficient machines to perform more than one levels.
 
-### #Blocks: 
+#### Blocks: 
 From our a priori analysis, we noticed that the execution times of the 6 programming languages we tested on various hardware setups seem to follow the same order:
 \begin{equation}
 t(C) \approx t(C++) < t(Java) < t(R) < t(Python) < t(Ruby)
