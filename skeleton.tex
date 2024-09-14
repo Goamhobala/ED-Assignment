@@ -73,6 +73,35 @@
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
 
+% Pandoc citation processing
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+% for Pandoc 2.8 to 2.10.1
+\newenvironment{cslreferences}%
+  {}%
+  {\par}
+% For Pandoc 2.11+
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \usepackage{float} \floatplacement{figure}{H} \usepackage{caption} \captionsetup[figure]{font=scriptsize}
 
@@ -106,11 +135,11 @@
 %
 }
 
-\abstract{Test}
+\abstract{}
 
 \date{2024-09-14}
 
-\keywords{key; dictionary; word}
+\keywords{}
 
 \maketitle
 
@@ -118,7 +147,8 @@
 
 \newpage
 
-\section{Introduction}\label{introduction}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
 Computation has played a major role in human history ever since people
 began living in cities. The need to calculate taxes motivated the
@@ -145,10 +175,12 @@ real-time processing, large-scale data analysis, and other
 resource-intensive computations. The goal of this experiment is to
 identify such languages that deliver the fastest execution time.
 
+\hypertarget{compiled-vs-interpreted-languages}{%
 \subsection{Compiled vs Interpreted
-Languages}\label{compiled-vs-interpreted-languages}
+Languages}\label{compiled-vs-interpreted-languages}}
 
-\paragraph{Compiled Language:}\label{compiled-language}
+\hypertarget{compiled-language}{%
+\paragraph{Compiled Language:}\label{compiled-language}}
 
 \hfill\break
 In a compiled language, the source code is translated into machine code
@@ -158,7 +190,8 @@ Compiled programs typically run faster since they are already in machine
 language, which the computer's processor can execute directly.\\
 Examples: C, C++, Rust, and Java are examples of compiled languages.
 
-\paragraph{Interpreted Language:}\label{interpreted-language}
+\hypertarget{interpreted-language}{%
+\paragraph{Interpreted Language:}\label{interpreted-language}}
 
 \hfill\break
 In an interpreted language, the source code is executed line-by-line by
@@ -169,7 +202,8 @@ translation happens during execution.\\
 Examples: Python, JavaScript, Ruby, and R are examples of interpreted
 languages.
 
-\paragraph{Key Differences:}\label{key-differences}
+\hypertarget{key-differences}{%
+\paragraph{Key Differences:}\label{key-differences}}
 
 Compiled languages require a compilation step that produces an
 executable, while interpreted languages are executed directly by an
@@ -178,8 +212,9 @@ Compiled languages tend to have better performance due to the
 pre-compiled nature of the code, whereas interpreted languages are more
 flexible but slower due to the runtime translation.
 
+\hypertarget{distribution-of-execution-times}{%
 \subsection{Distribution of Execution
-Times:}\label{distribution-of-execution-times}
+Times:}\label{distribution-of-execution-times}}
 
 Since existing literature on the execution times of programming
 languages when applying Leibniz's formula is limited, we performed an a
@@ -197,9 +232,11 @@ further analyses are needed. We can also see from the
 Quantile-Quantile(Q-Q) plots that the execution times are clearly not
 normally distributed. \newpage
 
-\section{Methods}\label{methods}
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
 
-\subsection{Setting}\label{setting}
+\hypertarget{setting}{%
+\subsection{Setting}\label{setting}}
 
 This study was mostly conducted at the University of Cape Town,
 utilising the computers available on campus. We found that there are
@@ -207,8 +244,9 @@ only 5 different hardware setups available. Thus, to supplement the
 range of our hardware setups, we also borrowed machines of 2 more
 hardware setups from our friends.
 
+\hypertarget{approximation-of-pi}{%
 \subsection{\texorpdfstring{Approximation of
-\(\pi\)}{Approximation of \textbackslash pi}}\label{approximation-of-pi}
+\(\pi\)}{Approximation of \textbackslash pi}}\label{approximation-of-pi}}
 
 The number \(\pi\), the ubiquitous and equally mysterious irrational
 number, has been fascinating the humankind since time immemorial.
@@ -223,7 +261,8 @@ above eventually converges to \(\pi\). That is: \[
 compiled languages: C, C++, Java, and 3 interpreted languages: Python,
 R, Ruby, up to a \(100 \times 10^6\) terms.
 
-\subsection{Sampling Procedure}\label{sampling-procedure}
+\hypertarget{sampling-procedure}{%
+\subsection{Sampling Procedure}\label{sampling-procedure}}
 
 Since existing literature tend to suggest that execution times of
 programming languages are not normally distributed, we perform a priori
@@ -240,9 +279,11 @@ run time of each programming language{[}2{]}, which we will take as a
 single observation. (Note: We arrived at the number 15 through trial and
 error, and 30 from {[}8{]})
 
-\subsection{Sources of Variation}\label{sources-of-variation}
+\hypertarget{sources-of-variation}{%
+\subsection{Sources of Variation}\label{sources-of-variation}}
 
-\paragraph{Treatments:}\label{treatments}
+\hypertarget{treatments}{%
+\paragraph{Treatments:}\label{treatments}}
 
 We have 6 treatment factors, which are the programming languages we
 applied the algorithm to. Each treatment has one level (applying the
@@ -257,7 +298,8 @@ avoid pseudo replication as much as possible we used one machine per
 observation. The downside of this approach is that we do not have
 sufficient machines to perform more than one levels.
 
-\paragraph{Blocks:}\label{blocks}
+\hypertarget{blocks}{%
+\paragraph{Blocks:}\label{blocks}}
 
 We know that the hardware setup of a computer can significantly affect
 its speed, and there fore the execution time of our algorithm. We also
@@ -266,7 +308,8 @@ relatively the same, provided that they run on the same operating
 system, and no major damage has been done. This motivated us to block
 for the hardware setup of computers, our experimental units.
 
-\subsection{Experimental Units:}\label{experimental-units}
+\hypertarget{experimental-units}{%
+\subsection{Experimental Units:}\label{experimental-units}}
 
 As mentioned earlier, we would like to avoid pseudo replication as much
 as possible. Therefore, we deviated from the tradition of running all
@@ -274,7 +317,8 @@ programming languages on the same machine, and test only one language
 per machine. Our experimental units are therefore the individual
 machines we ran each test on.
 
-\subsection{Randomisation Procedure}\label{randomisation-procedure}
+\hypertarget{randomisation-procedure}{%
+\subsection{Randomisation Procedure}\label{randomisation-procedure}}
 
 We first ordered the computers belonging to each block from 1 to 6. We
 then used the random number generator from Python's \emph{random} module
@@ -283,7 +327,8 @@ C++, Java, Python, Ruby, R{]}. The index of each programming language in
 the permutation would then be paired to the computer with the same
 assigned number.
 
-\subsection{Planned Comparisons}\label{planned-comparisons}
+\hypertarget{planned-comparisons}{%
+\subsection{Planned Comparisons}\label{planned-comparisons}}
 
 We planned to conduct pairwise comparisons on all treatments. That is, a
 total of \(6 \choose 2 = 15\) comparisons. It would also serve our
@@ -291,7 +336,8 @@ objective by comparing the efficiency of compiled languages (C, C++,
 Java) and interpreted languages (Python, Ruby, R), as the latter are
 oftentimes easier to program with.
 
-\subsection{Pilot Experiment}\label{pilot-experiment}
+\hypertarget{pilot-experiment}{%
+\subsection{Pilot Experiment}\label{pilot-experiment}}
 
 We followed this direction and performed an pilot study to obtain the
 following execution times of programming languages on 4 hardware setups
@@ -356,7 +402,8 @@ Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
 \end{figure}
 \newpage
 
-\section{Results}\label{results}
+\hypertarget{results}{%
+\section{Results}\label{results}}
 
 We performed the experiment described above on 7 different hardware
 setups and applied all 6 treatments. Detailed tables for data and for
@@ -379,7 +426,8 @@ Residuals & 30 & 1.3683 & 0.0456 & & \\
 \includegraphics[width=1\linewidth]{skeleton_files/figure-latex/figAnova-1} \caption{The ANOVA table and Relavent Plots}\label{fig:figAnova}
 \end{figure}
 
-\subsection{Verifying Model}\label{verifying-model}
+\hypertarget{verifying-model}{%
+\subsection{Verifying Model}\label{verifying-model}}
 
 We verified our model by observing the Fitted vs Residuals graph: the
 residuals seem to spread out haphazardly, with no obvious patterns to be
@@ -394,7 +442,8 @@ distributed. Further, we also got that the mean of the residuals is
 approximately zero ( \(< 10^{-15}\) ), indicating that it is sensible to
 assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
 
-\subsection{Pairwise Comparisons}\label{pairwise-comparisons}
+\hypertarget{pairwise-comparisons}{%
+\subsection{Pairwise Comparisons}\label{pairwise-comparisons}}
 
 \begin{longtable}[]{@{}cccccc@{}}
 \toprule\noalign{}
@@ -435,7 +484,8 @@ t(C) \approx t(C++) < t(Java) < t(R) < t(Python) < t(Ruby)
 - R vs Python: 0.0173\\
 - R vs Java: 0.0080
 
-\subsection{Compiled vs Interpreted}\label{compiled-vs-interpreted}
+\hypertarget{compiled-vs-interpreted}{%
+\subsection{Compiled vs Interpreted}\label{compiled-vs-interpreted}}
 
 We were also interested in comparing the execution times of compiled
 languages and interpreted languages. The contrast, \emph{L}, can be
@@ -462,18 +512,17 @@ The mean log execution time of compiled languages is estimated to be
 -1.05 log(ms) to -0.79 log(ms) shorter than the mean log execution time
 of interpreted languages at 95\% confidence. We therefore have strong
 evidence to suggests that compiled languages have shorter execution
-times when applying Leibniz's formula up to a very large term. \#
-References
+times when applying Leibniz's formula up to a very large term. \newpage
 
-\newpage
+\hypertarget{appendix}{%
+\section{Appendix}\label{appendix}}
 
-\section{Appendix}\label{appendix}
-
-\paragraph{PC Specificiations}\label{pc-specificiations}
+\hypertarget{pc-specificiations}{%
+\paragraph{PC Specificiations}\label{pc-specificiations}}
 
 \hfill\break
-\% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Sat Sep
-14 17:51:42 2024
+\% latex table generated in R 4.3.1 by xtable 1.8-4 package \% Sat Sep
+14 23:08:31 2024
 
 \begin{table}[ht]
 \centering
@@ -495,8 +544,8 @@ References
 \caption{Table of Pcs used and their respective specifications} 
 \end{table}
 
-\% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Sat Sep
-14 17:51:42 2024
+\% latex table generated in R 4.3.1 by xtable 1.8-4 package \% Sat Sep
+14 23:08:31 2024
 
 \begin{table}[ht]
 \centering
@@ -516,12 +565,37 @@ References
 \caption{Table of data used for analysis} 
 \end{table}
 
+\newpage
 
-\begin{notes}[Acknowledgements]
-This is an acknowledgement.
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
 
-It consists of two paragraphs.
-\end{notes}
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-braun_2022_is}{}}%
+Braun, Javen. 2022. {``Is Linux Faster Than Windows? Speed Comparison \&
+Analysis.''} Linux JournalDigital.
+\url{https://www.linuxjournaldigital.com/is-linux-faster-than-windows/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-dean_2006_design}{}}%
+Dean, Angela M, and Daniel Voss. 2006. \emph{Design and Analysis of
+Experiments}. Springer Science \& Business Media.
+
+\leavevmode\vadjust pre{\hypertarget{ref-greenwood_2021_intermediate}{}}%
+Greenwood, Mark C. 2021. \emph{Intermediate Statistics with r}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-juritz_2023_design}{}}%
+Juritz, J, F Little, and B Erni. 2023. \emph{Design of Experiment:
+Course Notes for STA2005S}. University of Cape Town.
+
+\leavevmode\vadjust pre{\hypertarget{ref-mavuso_2019_order}{}}%
+Mavuso, Melusi, and Yuri Robbertze. 2019. \emph{Order Out of Chaos i and
+II: STA2004F Notes}. University of Cape Town.
+
+\end{CSLReferences}
+
+
 
 
 

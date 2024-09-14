@@ -12,18 +12,8 @@ author:
     email: sthsau01001@myuct.ac.za
     affiliation:  University of Cape Town'
 
-
-abstract: |
-  Test
-acknowledgements: |
-  This is an acknowledgement.
-
-  It consists of two paragraphs.
-keywords:
-  - key
-  - dictionary
-  - word
 bibliography: mybibfile.bib
+nocite: '@*'
 
   
 # Use a CSL when `citation_package = "default"`
@@ -329,11 +319,6 @@ We first note that \(t_{0.025}^{30} = 2.0422\). We will then construct a 95\% co
 \end{align*}
 
 The mean log execution time of compiled languages is estimated to be -1.05 log(ms) to -0.79 log(ms) shorter than the mean log execution time of interpreted languages at 95% confidence. We therefore have strong evidence to suggests that compiled languages have shorter execution times when applying Leibniz's formula up to a very large term.
-# References
-```{r, include = FALSE}
-knitr::write_bib(x = c("rmarkdown", "knitr"), file = "mybib.bib")
-```
-
 \newpage
 
 
@@ -350,6 +335,12 @@ print(xtable(dfpc, type = "latex", comment = FALSE, caption = 'Table of Pcs used
 setwd("./speed-comparison-master/data/")
 dfdata <- read.csv('analysis_log.csv',header = TRUE)
 print(xtable(dfdata, type = "latex", comment = FALSE, caption = 'Table of data used for analysis'))
+```
+
+\newpage
+# References
+```{r, include = FALSE}
+knitr::write_bib(x = c("rmarkdown", "knitr"), file = "mybib.bib")
 ```
 
 
