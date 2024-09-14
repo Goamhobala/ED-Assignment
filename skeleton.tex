@@ -137,7 +137,7 @@ use. Computer scientists have therefore invented numerous
 \emph{programming languages} that allow us to harness the power of these
 devices more easily.
 
-Eventually, programming languages have become the primary medium for
+Nowadays, programming languages have become the primary medium for
 instructing computers to perform our increasingly complex tasks.
 Understanding which programming languages offer superior execution speed
 is therefore crucial for developers, especially in domains requiring
@@ -156,7 +156,7 @@ by a compiler before execution. This machine code, often called an
 executable, can be run directly by the computer's hardware.\\
 Compiled programs typically run faster since they are already in machine
 language, which the computer's processor can execute directly.\\
-Examples: C, C++, Rust, and Go are examples of compiled languages.
+Examples: C, C++, Rust, and Java are examples of compiled languages.
 
 \paragraph{Interpreted Language:}\label{interpreted-language}
 
@@ -166,7 +166,7 @@ an interpreter at runtime. The interpreter reads the code, translates it
 into machine code, and executes it on the fly.\\
 Interpreted programs generally run slower than compiled ones because the
 translation happens during execution.\\
-Examples: Python, JavaScript, Ruby, and PHP are examples of interpreted
+Examples: Python, JavaScript, Ruby, and R are examples of interpreted
 languages.
 
 \paragraph{Key Differences:}\label{key-differences}
@@ -176,12 +176,10 @@ executable, while interpreted languages are executed directly by an
 interpreter.\\
 Compiled languages tend to have better performance due to the
 pre-compiled nature of the code, whereas interpreted languages are more
-flexible but slower due to the runtime translation.\\
-Some languages, like Java, use a combination of both techniques, where
-the code is first compiled into an intermediate form (bytecode) and then
-interpreted just-in-time (JIT) at runtime.\\
+flexible but slower due to the runtime translation.
 
-\subsection{A Priori Analysis}\label{a-priori-analysis}
+\subsection{Distribution of Execution
+Times:}\label{distribution-of-execution-times}
 
 Since existing literature on the execution times of programming
 languages when applying Leibniz's formula is limited, we performed an a
@@ -199,11 +197,6 @@ further analyses are needed. We can also see from the
 Quantile-Quantile(Q-Q) plots that the execution times are clearly not
 normally distributed. \newpage
 
-\section{Reference example}\label{reference-example}
-
-Here are two sample references:. Bibliography will appear at the end of
-the document.
-
 \section{Methods}\label{methods}
 
 \subsection{Setting}\label{setting}
@@ -219,16 +212,16 @@ hardware setups from our friends.
 
 The number \(\pi\), the ubiquitous and equally mysterious irrational
 number, has been fascinating the humankind since time immemorial.
-Mathematicians from 4000 years ago to the present time have devised
-various methods attempting to get closer to the true value of \(\pi\).
-One such method is using Leibniz's formula: \[
+Mathematicians from 4000 years ago to the present day have devised
+various methods to get closer to the true value of \(\pi\). One such
+method is using Leibniz's formula: \[
 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}
 \] Leibniz, whom the formula is named after, proved that the series
 above eventually converges to \(\pi\). That is: \[
 \pi = 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}.
 \] We applied this algorithm in 6 programming languages, including 3
 compiled languages: C, C++, Java, and 3 interpreted languages: Python,
-R, Ruby, up to a billion terms.
+R, Ruby, up to a \(100 \times 10^6\) terms.
 
 \subsection{Sampling Procedure}\label{sampling-procedure}
 
@@ -252,29 +245,26 @@ error, and 30 from {[}8{]})
 \paragraph{Treatments:}\label{treatments}
 
 We have 6 treatment factors, which are the programming languages we
-applied algorithm to. Each treatment has one level (applying the formula
-up to \(100 \times 10^6\) terms). We selected this particular level
-because it is the largest, practical number of terms we could apply with
-our hardware setups (For some setups, it may take up to 4 hours to
-arrive at a single observation), and fewer terms imply larger relative
-measurement error {[}7{]}. We cannot include more levels because in the
-existing literature, most studies of such kind choose to run all
-languages on the same machine. However, since we would like to avoid
-pseudo replication as much as possible we use one machine per
+applied the algorithm to. Each treatment has one level (applying the
+formula up to \(100 \times 10^6\) terms). We selected this particular
+level because it is the largest, practical number of terms we could
+apply with our hardware setups (For some setups, it may take up to 4
+hours to arrive at a single observation), and fewer terms imply larger
+relative measurement error {[}7{]}. We cannot include more levels
+because in the existing literature, most studies of such kind choose to
+run all languages on the same machine. However, since we would like to
+avoid pseudo replication as much as possible we used one machine per
 observation. The downside of this approach is that we do not have
 sufficient machines to perform more than one levels.
 
 \paragraph{Blocks:}\label{blocks}
 
-From our a priori analysis, we noticed that the execution times of the 6
-programming languages we tested seem to follow the same order on various
-hardware setups: \begin{equation}
-t(C) \approx t(C++) < t(Java) < t(R) < t(Python) < t(Ruby)
-\end{equation} Whilst the exact runtimes on machines of the same
-hardware setups tend to not vary much. This motivates us to block for
-various hardware setups. We also ensured that the machines are all
-operating on the same operating system, as we had later found out in the
-pilot experiment.
+We know that the hardware setup of a computer can significantly affect
+its speed, and there fore the execution time of our algorithm. We also
+know that, two computers with the same hardware setup should perform
+relatively the same, provided that they run on the same operating
+system, and no major damage has been done. This motivated us to block
+for the hardware setup of computers, our experimental units.
 
 \subsection{Experimental Units:}\label{experimental-units}
 
@@ -483,7 +473,7 @@ References
 
 \hfill\break
 \% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Sat Sep
-14 16:46:43 2024
+14 17:51:42 2024
 
 \begin{table}[ht]
 \centering
@@ -506,7 +496,7 @@ References
 \end{table}
 
 \% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Sat Sep
-14 16:46:43 2024
+14 17:51:42 2024
 
 \begin{table}[ht]
 \centering
