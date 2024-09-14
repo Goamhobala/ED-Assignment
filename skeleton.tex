@@ -514,6 +514,48 @@ of interpreted languages at 95\% confidence. We therefore have strong
 evidence to suggests that compiled languages have shorter execution
 times when applying Leibniz's formula up to a very large term. \newpage
 
+\hypertarget{discussion-and-conclusion}{%
+\section{Discussion and Conclusion}\label{discussion-and-conclusion}}
+
+The experiment aimed to analyze the execution time of different
+programming languages when applying Leibniz's formula across 7 hardware
+setups and 6 treatments. The ANOVA results indicate significant
+differences between the execution times of various languages, supporting
+the hypothesis that compiled languages generally perform faster than
+interpreted languages.\\
+From the Tukey's HSD post-hoc tests, it is clear that C and C++ have the
+fastest execution times, as reflected by their significantly lower mean
+execution times compared to other languages. The compiled languages (C,
+C++) outperformed Java, R, Python, and Ruby, suggesting a performance
+gap that favors compiled over interpreted languages. Java, a
+semi-compiled language, performed moderately well, trailing behind C and
+C++ but significantly ahead of interpreted languages like Python and
+Ruby.\\
+The p-values between R and Python (0.0173) and R and Java (0.0080)
+highlight some variability in performance across different language
+types, although these differences are less significant than those
+between compiled and interpreted languages. Moreover, the estimated log
+execution times show a distinct advantage for compiled languages, with a
+difference of -1.05 log(ms) to -0.79 log(ms), further validating that
+compiled languages tend to be faster.\\
+The ANOVA diagnostic plots (quantile-quantile and residuals vs.~fitted)
+indicate a well-fitted model, with residuals demonstrating no major
+deviations from normality and homoscedasticity, supporting the
+robustness of the analysis.\\
+Conclusion: The results of this experiment confirm that compiled
+languages (C and C++) exhibit significantly faster execution times
+compared to both semi-compiled (Java) and interpreted languages (R,
+Python, Ruby). The performance gap between compiled and interpreted
+languages becomes particularly evident with large-scale computations,
+such as Leibniz's formula for a billion terms. Based on the ANOVA and
+post-hoc analysis, we can conclude with 95\% confidence that compiled
+languages provide a substantial performance advantage over interpreted
+languages for this computational task. These findings can be useful for
+developers when choosing a programming language for performance-critical
+applications, especially those involving large iterative computations.
+
+\newpage
+
 \hypertarget{appendix}{%
 \section{Appendix}\label{appendix}}
 
@@ -522,7 +564,7 @@ times when applying Leibniz's formula up to a very large term. \newpage
 
 \hfill\break
 \% latex table generated in R 4.3.1 by xtable 1.8-4 package \% Sat Sep
-14 23:08:31 2024
+14 23:31:40 2024
 
 \begin{table}[ht]
 \centering
@@ -545,7 +587,7 @@ times when applying Leibniz's formula up to a very large term. \newpage
 \end{table}
 
 \% latex table generated in R 4.3.1 by xtable 1.8-4 package \% Sat Sep
-14 23:08:31 2024
+14 23:31:40 2024
 
 \begin{table}[ht]
 \centering
