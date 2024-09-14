@@ -3,6 +3,7 @@ library(tidyverse)
 library(gridExtra)
 library(kableExtra)
 library(qqplotr)
+library(formattable)
 this.dir <- dirname(parent.frame(2)$ofile)
 setwd(this.dir)
 
@@ -81,6 +82,39 @@ ggplot(middleTRNew.before.long, aes(x=language, y=log(runtime), color=language))
 
 shapiro = c()
 
+# pairwise comparisons
+analysis_mean = read.csv("analysis_mean.csv")
+kable(data.frame(analysis_mean), format="pandoc")
+
+analysis_tukey = read.csv("analysis_tukey.csv")
+HSD = 0.2535
+# Ensure analysis_tukey is a data frame
+analysis_tukey <- data.frame(analysis_tukey)
+
+# Define a colour formatter function
+colour_cell <- formatter("span", 
+                         style = x ~ style(
+                           background = ifelse(x < HSD & x > 0, "#a10505","#025c78"),
+                           background = ifelse(x == 0,"white" , "" ),
+                           color = "white",
+                           text_align="right"
+                         ))
+
+# Apply formattable with correct syntax
+table_tukey <- formattable(analysis_tukey, 
+                           list(DIFFERENCE = formatter("span",style= x~ style("font-weight" = "bold")),
+                                C = colour_cell,
+                                CPP = colour_cell,
+                                Java = colour_cell,
+                                Python = colour_cell,
+                                Ruby = colour_cell,
+                                R = colour_cell))
+
+# Display the formatted table
+table_tukey
+
+# Display the formatted table
+table_tukey
 
 #for (i in 1:7):
   #shapiro <- c(shapiro.test(pilot))

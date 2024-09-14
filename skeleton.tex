@@ -74,6 +74,7 @@
 \makesavenoteenv{longtable}
 
 
+\usepackage{float} \floatplacement{figure}{H} \usepackage{caption} \captionsetup[figure]{font=scriptsize}
 
 \begin{document}
 
@@ -117,14 +118,13 @@
 
 \newpage
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+\section{Introduction}\label{introduction}
 
 Computation has played a major role in human history ever since people
 began living in cities. The need to calculate taxes motivated the
 invention of various computing devices that aided such computations,
 such as the Sumerian abacus, invented in Babylon at around 2500BC
-{[}7{]}. In the 21st century, the capability our digital computing
+{[}7{]}. In the 21st century, the capability of our digital computing
 devices have vastly surpassed the capacity of those proto-computers, but
 so has our need for computational power. Everything in our daily life
 requires some form of computers: from our phones, cars, to even our
@@ -145,12 +145,10 @@ real-time processing, large-scale data analysis, and other
 resource-intensive computations. The goal of this experiment is to
 identify such languages that deliver the fastest execution time.
 
-\hypertarget{compiled-vs-interpreted-languages}{%
 \subsection{Compiled vs Interpreted
-Languages}\label{compiled-vs-interpreted-languages}}
+Languages}\label{compiled-vs-interpreted-languages}
 
-\hypertarget{compiled-language}{%
-\paragraph{Compiled Language:}\label{compiled-language}}
+\paragraph{Compiled Language:}\label{compiled-language}
 
 \hfill\break
 In a compiled language, the source code is translated into machine code
@@ -160,8 +158,7 @@ Compiled programs typically run faster since they are already in machine
 language, which the computer's processor can execute directly.\\
 Examples: C, C++, Rust, and Go are examples of compiled languages.
 
-\hypertarget{interpreted-language}{%
-\paragraph{Interpreted Language:}\label{interpreted-language}}
+\paragraph{Interpreted Language:}\label{interpreted-language}
 
 \hfill\break
 In an interpreted language, the source code is executed line-by-line by
@@ -172,8 +169,7 @@ translation happens during execution.\\
 Examples: Python, JavaScript, Ruby, and PHP are examples of interpreted
 languages.
 
-\hypertarget{key-differences}{%
-\paragraph{Key Differences:}\label{key-differences}}
+\paragraph{Key Differences:}\label{key-differences}
 
 Compiled languages require a compilation step that produces an
 executable, while interpreted languages are executed directly by an
@@ -185,36 +181,32 @@ Some languages, like Java, use a combination of both techniques, where
 the code is first compiled into an intermediate form (bytecode) and then
 interpreted just-in-time (JIT) at runtime.\\
 
-\hypertarget{a-priori-analysis}{%
-\subsection{A Priori Analysis}\label{a-priori-analysis}}
+\subsection{A Priori Analysis}\label{a-priori-analysis}
 
 Since existing literature on the execution times of programming
 languages when applying Leibniz's formula is limited, we performed an a
 priori test to gauge the execution time for the programming languages we
 planned on experimenting with. We performed 500 approximations using the
 algorithm for each programming language and obtained the following
-jittered graph.\\
-\strut \\
+jittered graph.
 
-\includegraphics[width=1\linewidth]{skeleton_files/figure-latex/figPrior-1}
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{skeleton_files/figure-latex/figPrior-1} \caption{Runtimes of Programming Languages of Interest When Applying Leibniz's Formula up to 100 million terms}\label{fig:figPrior}
+\end{figure}
+
 We can observe that C and C++ seem to be the fastest languages, though
 further analyses are needed. We can also see from the
 Quantile-Quantile(Q-Q) plots that the execution times are clearly not
-normally distributed.
+normally distributed. \newpage
 
-\newpage
-
-\hypertarget{reference-example}{%
-\section{Reference example}\label{reference-example}}
+\section{Reference example}\label{reference-example}
 
 Here are two sample references:. Bibliography will appear at the end of
 the document.
 
-\hypertarget{methods}{%
-\section{Methods}\label{methods}}
+\section{Methods}\label{methods}
 
-\hypertarget{setting}{%
-\subsection{Setting}\label{setting}}
+\subsection{Setting}\label{setting}
 
 This study was mostly conducted at the University of Cape Town,
 utilising the computers available on campus. We found that there are
@@ -222,9 +214,8 @@ only 5 different hardware setups available. Thus, to supplement the
 range of our hardware setups, we also borrowed machines of 2 more
 hardware setups from our friends.
 
-\hypertarget{approximation-of-pi}{%
 \subsection{\texorpdfstring{Approximation of
-\(\pi\)}{Approximation of \textbackslash pi}}\label{approximation-of-pi}}
+\(\pi\)}{Approximation of \textbackslash pi}}\label{approximation-of-pi}
 
 The number \(\pi\), the ubiquitous and equally mysterious irrational
 number, has been fascinating the humankind since time immemorial.
@@ -239,11 +230,26 @@ above eventually converges to \(\pi\). That is: \[
 compiled languages: C, C++, Java, and 3 interpreted languages: Python,
 R, Ruby, up to a billion terms.
 
-\hypertarget{sources-of-variation}{%
-\subsection{Sources of Variation}\label{sources-of-variation}}
+\subsection{Sampling Procedure}\label{sampling-procedure}
 
-\hypertarget{treatments}{%
-\paragraph{Treatments:}\label{treatments}}
+Since existing literature tend to suggest that execution times of
+programming languages are not normally distributed, we perform a priori
+tests to confirm that none of our languages has normally distributed
+runtime. This is an issue as it prevented us to apply anova models. To
+address this, we applied the Central Limit Theorem(CLT) to obtain a
+normal distribution for the average execution times. We ran the program
+15 times per sample for each programming language, and repeated the
+process 30 times. Applying CLT, it is relatively safe to assume the
+distribution of sample means is approximately normal {[}2{]}. If we
+assume sample means to be normally distributed, the mean of the
+distribution of sample means is then an unbiased estimator for the true
+run time of each programming language{[}2{]}, which we will take as a
+single observation. (Note: We arrived at the number 15 through trial and
+error, and 30 from {[}8{]})
+
+\subsection{Sources of Variation}\label{sources-of-variation}
+
+\paragraph{Treatments:}\label{treatments}
 
 We have 6 treatment factors, which are the programming languages we
 applied algorithm to. Each treatment has one level (applying the formula
@@ -258,8 +264,7 @@ pseudo replication as much as possible we use one machine per
 observation. The downside of this approach is that we do not have
 sufficient machines to perform more than one levels.
 
-\hypertarget{blocks}{%
-\paragraph{Blocks:}\label{blocks}}
+\paragraph{Blocks:}\label{blocks}
 
 From our a priori analysis, we noticed that the execution times of the 6
 programming languages we tested seem to follow the same order on various
@@ -271,8 +276,7 @@ various hardware setups. We also ensured that the machines are all
 operating on the same operating system, as we had later found out in the
 pilot experiment.
 
-\hypertarget{experimental-units}{%
-\subsection{Experimental Units:}\label{experimental-units}}
+\subsection{Experimental Units:}\label{experimental-units}
 
 As mentioned earlier, we would like to avoid pseudo replication as much
 as possible. Therefore, we deviated from the tradition of running all
@@ -280,36 +284,24 @@ programming languages on the same machine, and test only one language
 per machine. Our experimental units are therefore the individual
 machines we ran each test on.
 
-\hypertarget{sampling-procedure}{%
-\subsection{Sampling Procedure}\label{sampling-procedure}}
+\subsection{Randomisation Procedure}\label{randomisation-procedure}
 
-Since existing literature tend to suggest that execution times of
-programming languages are not normally distributed, we perform a priori
-tests to confirm that none of our languages has normally distributed
-runtime. This imposed an issue as it prevented us to apply anova models.
-To address this, we applied the Central Limit Theorem(CLT) to obtain a
-normal distribution for the average execution times. We ran the program
-15 times per sample for each programming language, and repeated the
-process 30 times. Applying CLT, it is relatively safe to assume the
-distribution of sample means is approximately normal {[}2{]}. If we
-assume sample means to be normally distributed, the mean of the
-distribution of sample means is then an unbiased estimator for the true
-run time of each programming language{[}2{]}, which we will take as a
-single observation. (Note: We arrived at the number 15 through trial and
-error, and 30 from {[}8{]})
-
-\hypertarget{randomisation-procedure}{%
-\subsection{Randomisation Procedure}\label{randomisation-procedure}}
-
-We first order the computers belonging to each block from 1 to 6. We
+We first ordered the computers belonging to each block from 1 to 6. We
 then used the random number generator from Python's \emph{random} module
 to randomly shuffle, and thus producing a permutation of the list, {[}C,
 C++, Java, Python, Ruby, R{]}. The index of each programming language in
 the permutation would then be paired to the computer with the same
 assigned number.
 
-\hypertarget{pilot-experiment}{%
-\subsection{Pilot Experiment}\label{pilot-experiment}}
+\subsection{Planned Comparisons}\label{planned-comparisons}
+
+We planned to conduct pairwise comparisons on all treatments. That is, a
+total of \(6 \choose 2 = 15\) comparisons. It would also serve our
+objective by comparing the efficiency of compiled languages (C, C++,
+Java) and interpreted languages (Python, Ruby, R), as the latter are
+oftentimes easier to program with.
+
+\subsection{Pilot Experiment}\label{pilot-experiment}
 
 We followed this direction and performed an pilot study to obtain the
 following execution times of programming languages on 4 hardware setups
@@ -319,7 +311,10 @@ following execution times of programming languages on 4 hardware setups
 ## incomplete final line found by readTableHeader on 'pilotData.csv'
 \end{verbatim}
 
-\includegraphics[width=1\linewidth]{skeleton_files/figure-latex/figPilot-1}
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{skeleton_files/figure-latex/figPilot-1} \caption{Interaction Graph of Programming Languages and Blocks}\label{fig:figPilot}
+\end{figure}
+
 From the data collected, we observed that the results collected from
 Ishango do not follow the general trends established by the other three
 setups. Firstly, the hardware setup in Ishango lab is significantly less
@@ -366,16 +361,16 @@ Y_{ij} \sim \mathcal{N}(\mu, \sigma^2)
 Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
 \] Below is the layout of the design
 
-\includegraphics[width=1\linewidth]{diagram}
-
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{diagram} \caption{Diagram of the Design}\label{fig:unnamed-chunk-1}
+\end{figure}
 \newpage
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+\section{Results}\label{results}
 
 We performed the experiment described above on 7 different hardware
-setups and applied all 6 treatments. The table for data and details of
-each hardware setups can be found in the appendix. The Analysis of
+setups and applied all 6 treatments. Detailed tables for data and for
+each hardware setup can be found in the appendix. The Analysis of
 Variance (ANOVA) table is shown below:
 
 \begin{longtable}[]{@{}lrrrrr@{}}
@@ -390,11 +385,12 @@ Hardware & 6 & 6.5717 & 1.0953 & 24.0136 & \textless{} 0.0001 \\
 Residuals & 30 & 1.3683 & 0.0456 & & \\
 \end{longtable}
 
-\begin{verbatim}
-## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
-\end{verbatim}
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{skeleton_files/figure-latex/figAnova-1} \caption{The ANOVA table and Relavent Plots}\label{fig:figAnova}
+\end{figure}
 
-\includegraphics[width=1\linewidth]{skeleton_files/figure-latex/tableAnova-1}
+\subsection{Verifying Model}\label{verifying-model}
+
 We verified our model by observing the Fitted vs Residuals graph: the
 residuals seem to spread out haphazardly, with no obvious patterns to be
 discerned. This suggests homoscedasticity {[}7{]}. Also, the
@@ -407,32 +403,48 @@ distributed. Further, we also got that the mean of the residuals is
 approximately zero (\$ \textless{} 10\^{}\{-15\}\$), indicating that it
 is sensible to assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
 
-\hypertarget{contrasts}{%
-\section{Contrasts}\label{contrasts}}
+\subsection{Pairwise Comparisons}\label{pairwise-comparisons}
 
-Planned comparsions:\\
-1. Which language is the fastest?\\
-2. Comparsions between C and C++ and other languages\\
-3. Do complied languages run faster than interpreted languages ?\\
-4. Is R (vectorised Language) faster than non-vectorised language when
-performing calculations?
+\begin{longtable}[]{@{}cccccc@{}}
+\toprule\noalign{}
+C & CPP & Java & Python & Ruby & R \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+2.7381 & 2.72 & 3.118 & 3.7273 & 4.198 & 3.4101 \\
+\end{longtable}
 
-\hypertarget{references}{%
-\section{References}\label{references}}
+Given that we know our response variables are normally distributed, we
+used Tukey's Method to construct 95\% confidence intervals that compare
+the execution time of every possible pair of our 6 programming
+languages. Sine we know the estimate of the standard deviation of
+residuals, we can estimate the standard error (SE) of our treatment
+means, and then find Tukey's Honestly Significant Difference(HSD):
 
-nocite: '
+\begin{align}
+SE &= \frac{s}{\sqrt{b}}\\
+&= \frac{0.0456}{\sqrt{13}}\\\\
+HSD &= q_{6,30}^{0.05} \frac{s}{\sqrt{b}}\\
+&= 4.3015 \times \frac{\sqrt{0.0456}}{\sqrt{13}}\\
+&= 0.2535
+\end{align}
+
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{skeleton_files/tableTukey} \caption{Results of Tukey's Honestly Significance Difference Test. Values Greater than HSD are Highlighted in Blue}\label{fig:tableTukey}
+\end{figure}
+
+\section{References}\label{references}
 
 \newpage
 
-\hypertarget{appendix}{%
-\section{Appendix}\label{appendix}}
+\section{Appendix}\label{appendix}
 
-\hypertarget{pc-specificiations}{%
-\paragraph{PC Specificiations}\label{pc-specificiations}}
+\paragraph{PC Specificiations}\label{pc-specificiations}
 
 \hfill\break
-\% latex table generated in R 4.3.1 by xtable 1.8-4 package \% Sat Sep
-14 00:26:15 2024
+\% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Sat Sep
+14 14:07:10 2024
 
 \begin{table}[ht]
 \centering
@@ -454,8 +466,8 @@ nocite: '
 \caption{Table of Pcs used and their respective specifications} 
 \end{table}
 
-\% latex table generated in R 4.3.1 by xtable 1.8-4 package \% Sat Sep
-14 00:26:15 2024
+\% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Sat Sep
+14 14:07:10 2024
 
 \begin{table}[ht]
 \centering
@@ -463,13 +475,13 @@ nocite: '
   \hline
  & Hardware & C & CPP & Java & Python & Ruby & R \\ 
   \hline
-1 & MiddleTROld & 1344.99 & 1344.35 & 2653.21 & 8990.56 & 24232.89 & 4155.19 \\ 
-  2 & MiddleTRNew & 352.17 & 362.36 & 721.46 & 3173.96 & 8095.87 & 1788.42 \\ 
-  3 & ScilabB & 384.04 & 371.15 & 762.21 & 3261.89 & 8531.15 & 1839.14 \\ 
-  4 & Mahdi & 411.32 & 412.62 & 864.80 & 3678.19 & 11866.37 & 2137.39 \\ 
-  5 & ScilabD & 475.20 & 459.99 & 1041.89 & 4609.02 & 14993.05 & 2317.36 \\ 
-  6 & LT & 581.21 & 577.66 & 1219.27 & 6573.98 & 16182.81 & 2485.59 \\ 
-  7 & Surface & 528.63 & 517.32 & 1121.52 & 5312.52 & 14784.52 & 2271.11 \\ 
+1 & MiddleTROld & 3.13 & 3.13 & 3.53 & 3.90 & 4.42 & 3.75 \\ 
+  2 & MiddleTRNew & 2.40 & 2.41 & 2.88 & 3.50 & 3.91 & 3.26 \\ 
+  3 & ScilabB & 2.61 & 2.57 & 2.86 & 3.51 & 3.93 & 3.25 \\ 
+  4 & ASUS(i5) & 2.61 & 2.61 & 3.09 & 3.82 & 4.35 & 3.30 \\ 
+  5 & HP(i5-7200) & 2.56 & 2.56 & 3.07 & 3.82 & 4.30 & 3.29 \\ 
+  6 & ScilabD & 2.68 & 2.66 & 2.96 & 3.66 & 4.08 & 3.37 \\ 
+  7 & LT & 2.76 & 2.68 & 3.01 & 3.71 & 4.12 & 3.40 \\ 
    \hline
 \end{tabular}
 \caption{Table of data used for analysis} 

@@ -7,11 +7,10 @@ date: "`r Sys.Date()`"
 author:
   - name: Jing Yeh
     email: yhxjin001@myuct.ac.za
-    affiliation:  'University of Cape Town'
+    affiliation: University of Cape Town
   - name: Saurav Sathnarayan
     email: sthsau01001@myuct.ac.za
-    affiliation:  University of Cape Town'
-
+    affiliation: University of Cape Town
 
 abstract: |
   Test
@@ -24,8 +23,6 @@ keywords:
   - dictionary
   - word
 bibliography: mybibfile.bib
-
-  
 # Use a CSL when `citation_package = "default"`
 #csl: https://www.zotero.org/styles/oxford-university-press-note
 
@@ -38,36 +35,29 @@ bibliography: mybibfile.bib
 #urlcolor: orange
 #linkcolor: green
 #citecolor: red
-header-includes:
- \usepackage{float}
- \floatplacement{figure}{H}
-  \usepackage{caption}
-  \captionsetup[figure]{font=scriptsize}
+#header-includes:
 #  - \usepackage[nomarkers,tablesfirst]{endfloat} # For figures and tables at end
 #  - \usepackage{lineno} # For line numbering
 #  - \linenumbers # For line numbering
 
-output:
-    rticles::oup_article:
+output: 
+  rticles::oup_article:
     oup_version: 0 # 1 = 2020 CTAN OUP CLS package; 0 = 2009 OUP CLS package
     extra_dependencies: booktabs # for kable example
-    
 ---
 
 ```{r setup, include = FALSE, warning=FALSE}
 knitr::opts_chunk$set(
   echo = FALSE, # By default, hide code; set to TRUE to see code
-  fig.pos = 'H', 
+  fig.pos = 'p', # Places figures on pages separate from text
   out.width = '100%', dpi = 300, # Figure resolution and size
-  fig.env = "figure", # Latex figure environment,
-  warining=FALSE,
-  message = FALSE)
+  fig.env = "figure" # Latex figure environment
+)
 library(tidyverse)
 library(scales)
 library(gridExtra)
 library(knitr)
 library(xtable)
-library(formattable)
 ```
 \newpage
 
@@ -76,7 +66,7 @@ Computation has played a major role in human history ever since people
 began living in cities. The need to calculate taxes motivated the
 invention of various computing devices that aided such computations,
 such as the Sumerian abacus, invented in Babylon at around
-2500BC [7]. In the 21st century, the capability of our digital computing
+2500BC [7]. In the 21st century, the capability our digital computing
 devices have vastly surpassed the capacity of those proto-computers, but
 so has our need for computational power. Everything in our daily life
 requires some form of computers: from our phones, cars, to even our
@@ -124,7 +114,9 @@ Some languages, like Java, use a combination of both techniques, where the code 
 
 ## A Priori Analysis
 Since existing literature on the execution times of programming languages when applying Leibniz's formula is limited, we performed an a priori test to gauge the execution time for the programming languages we planned on experimenting with. We performed 500 approximations using the algorithm for each programming language and obtained the following jittered graph.
-```{r echo=FALSE, figPrior, fig.cap="Runtimes of Programming Languages of Interest When Applying Leibniz's Formula up to 100 million terms", fig.width=8.5}
+\
+\
+```{r echo=FALSE, figPrior, figPrior.cap="Runtimes of Programming Languages of Interest When Applying Leibniz's Formula up to 100 million terms", fig.width=8.5}
 setwd("./speed-comparison-master/data/")
 middleTRNew.before <-read.csv("middleTRNew/middleTRNewBefore.csv")
 middleTRNew.before.long <- pivot_longer(middleTRNew.before, cols=everything(), names_to="language", values_to="runtime")
@@ -142,12 +134,14 @@ grid.arrange(jitter, qq, ncol=2, nrow=1)
 ```
 We can observe that C and C++ seem to be the fastest languages, though
 further analyses are needed. We can also see from the Quantile-Quantile(Q-Q) plots that the execution times are clearly not normally distributed.
+
 \newpage
 
 # Reference example
 
 Here are two sample references:. Bibliography will appear at the end of the document.
 
+# Methods
 # Methods
 ## Setting
 This study was mostly conducted at the University of Cape Town, utilising the computers available on campus. We found that there are only 5 different hardware setups available. Thus, to supplement the range of our hardware setups, we also borrowed machines of 2 more hardware setups from our friends.
@@ -162,10 +156,6 @@ $$
 \pi = 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}.
 $$
 We applied this algorithm in 6 programming languages, including 3 compiled languages: C, C++, Java, and 3 interpreted languages: Python, R, Ruby, up to a billion terms.
-
-
-## Sampling Procedure
-Since existing literature tend to suggest that execution times of programming languages are not normally distributed, we perform a priori tests to confirm that none of our languages has normally distributed runtime. This is an issue as it prevented us to apply anova models. To address this, we applied the Central Limit Theorem(CLT) to obtain a normal distribution for the average execution times. We ran the program 15 times per sample for each programming language, and repeated the process 30 times. Applying CLT, it is relatively safe to assume the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we will take as a single observation. (Note: We arrived at the number 15 through trial and error, and 30 from [8])
 
 ## Sources of Variation
 
@@ -182,15 +172,15 @@ Whilst the exact runtimes on machines of the same hardware setups tend to not va
 ## Experimental Units: 
 As mentioned earlier, we would like to avoid pseudo replication as much as possible. Therefore, we deviated from the tradition of running all programming languages on the same machine, and test only one language per machine. Our experimental units are therefore the individual machines we ran each test on.
 
-## Randomisation Procedure
-We first ordered the computers belonging to each block from 1 to 6. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same assigned number.
+## Sampling Procedure
+Since existing literature tend to suggest that execution times of programming languages are not normally distributed, we perform a priori tests to confirm that none of our languages has normally distributed runtime. This imposed an issue as it prevented us to apply anova models. To address this, we applied the Central Limit Theorem(CLT) to obtain a normal distribution for the average execution times. We ran the program 15 times per sample for each programming language, and repeated the process 30 times. Applying CLT, it is relatively safe to assume the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we will take as a single observation. (Note: We arrived at the number 15 through trial and error, and 30 from [8])
 
-## Planned Comparisons
-We planned to conduct pairwise comparisons on all treatments. That is, a total of $6 \choose 2 = 15$ comparisons. It would also serve our objective by comparing the efficiency of compiled languages (C, C++, Java) and interpreted languages (Python, Ruby, R), as the latter are oftentimes easier to program with.
+## Randomisation Procedure
+We first order the computers belonging to each block from 1 to 6. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same assigned number.
 
 ## Pilot Experiment
 We followed this direction and performed an pilot study to obtain the following execution times of programming languages on 4 hardware setups
-```{r echo=FALSE, figPilot, fig.cap="Interaction Graph of Programming Languages and Blocks", fig.height=2}
+```{r echo=FALSE, figPilot, figPilot.cap="Interaction Graph of Programming Languages and Blocks", fig.height=2}
 setwd("./speed-comparison-master/data/")
 
 pilot <- read.csv("pilotData.csv")
@@ -203,8 +193,6 @@ plot <- ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color
        y= "Runtime (log(ms))")
 plot
 ```
-
-
 From the data collected, we observed that the results collected from Ishango do not follow the general trends established by the other three setups. Firstly, the hardware setup in Ishango lab is significantly less advance than MiddleTRNew. Yet, most programming languages tend to perform better on the Ishango machine. Secondly, to add to the first observation, not all programming languages perform better on the Ishango machine.
 
 After further investigation, we learned that programming languages perform differently on various operating systems [4]. We hypothesised that this is likely the reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system).
@@ -249,13 +237,20 @@ $$
 Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
 $$
 Below is the layout of the design
-```{r echo=FALSE, results='asis', fig.cap="Diagram of the Design"}
-knitr::include_graphics("diagram.png")
+```{r echo=FALSE, results='asis'}
+df <- read.csv('diagram.csv',header = TRUE)
+print(xtable(df, type = "latex", comment = FALSE, caption = 'placeholder'))
 ```
+```{r include FALSE}
+#This equation can be referenced as follows: Eq. \ref{eq:eq1}
+```
+
 \newpage
 # Results
-We performed the experiment described above on 7 different hardware setups and applied all 6 treatments. Detailed tables for data and for each hardware setup can be found in the appendix. The Analysis of Variance (ANOVA) table is shown below:
-```{r, figAnova, fig.cap="The ANOVA table and Relavent Plots", results='asis', warning=FALSE}
+We performed the experiment described above on 7 different hardware setups and applied all 6 treatments. The table for data and details of each hardware setups can be found in the appendix. The Analysis of Variance (ANOVA) table is shown below:
+
+```{r, tableAnova, figAnova.cap="The ANOVA table and Relavent Plots", results='asis', warning=FALSE}
+```{r, tableAnova, figAnova.cap="The ANOVA table and Relavent Plots", results='asis', warning=FALSE}
 setwd("./speed-comparison-master/data/")
 
 analysis <- read.csv("analysis.csv")
@@ -284,36 +279,11 @@ anova_residuals_fitted <- ggplot(anova_log,aes(x=fitted(anova_log), y=anova_log.
 
 grid.arrange(anova_qq, anova_residuals_fitted,ncol=1, nrow=2)
 ```
-## Verifying Model
 We verified our model by observing the Fitted vs Residuals graph: the residuals seem to spread out haphazardly, with no obvious patterns to be discerned. This suggests homoscedasticity [7]. Also, the Quantile-Quantile graph offers a fairly good fit.
 
 We further verified our assumptions by performing Shapiro Wilk test on the residuals. We obtained a fairly large p-value of 0.7521, indicating that we have little evidence for residuals not being normally distributed. Further, we also got that the mean of the residuals is approximately zero ($ < 10^{-15}$), indicating that it is sensible to assume $e_{ij} \sim \mathcal{N}(0, \sigma^2)$
 
-## Pairwise Comparisons
-```{r, tableMeans, tableMeans.cap="Treatment Means in log(ms)", results='asis', warning=FALSE}
-setwd("./speed-comparison-master/data/")
-analysis_mean = read.csv("analysis_mean.csv")
-kable(data.frame(analysis_mean), format="pandoc", align=c("c","c","c","c","c","c"), digits=4)
-```
-
-Given that we know our response variables are normally distributed, we used Tukey's Method to construct 95% confidence intervals that compare the execution time of every possible pair of our 6 programming languages. Sine we know the estimate of the standard deviation of residuals, we can estimate the standard error (SE) of our treatment means, and then find Tukey's Honestly Significant Difference(HSD): 
-
-\begin{align}
-SE &= \frac{s}{\sqrt{b}}\\
-&= \frac{0.0456}{\sqrt{13}}\\\\
-HSD &= q_{6,30}^{0.05} \frac{s}{\sqrt{b}}\\
-&= 4.3015 \times \frac{\sqrt{0.0456}}{\sqrt{13}}\\
-&= 0.2535
-\end{align}
-```{r echo=FALSE, tableTukey, fig.cap="Results of Tukey's Honestly Significance Difference Test. Values Greater than HSD are Highlighted in Blue",figTukey.align = "center"}
-knitr::include_graphics("skeleton_files/table_tukey.png")
-```
-
-
 # References
-```{r, include = FALSE}
-knitr::write_bib(x = c("rmarkdown", "knitr"), file = "mybib.bib")
-```
 
 \newpage
 
@@ -324,12 +294,3 @@ knitr::write_bib(x = c("rmarkdown", "knitr"), file = "mybib.bib")
 dfpc <- read.csv('pcSpecs.csv',header = TRUE)
 print(xtable(dfpc, type = "latex", comment = FALSE, caption = 'Table of Pcs used and their respective specifications'))
 ```
-
-
-```{r echo=FALSE, results='asis', warning=FALSE}
-setwd("./speed-comparison-master/data/")
-dfdata <- read.csv('analysis_log.csv',header = TRUE)
-print(xtable(dfdata, type = "latex", comment = FALSE, caption = 'Table of data used for analysis'))
-```
-
-
