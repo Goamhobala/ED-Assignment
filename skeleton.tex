@@ -394,14 +394,15 @@ Residuals & 30 & 1.3683 & 0.0456 & & \\
 We verified our model by observing the Fitted vs Residuals graph: the
 residuals seem to spread out haphazardly, with no obvious patterns to be
 discerned. This suggests homoscedasticity {[}7{]}. Also, the
-Quantile-Quantile graph offers a fairly good fit.
+Quantile-Quantile graph offers a fairly good fit, hinting that residuals
+are normally distributed.
 
 We further verified our assumptions by performing Shapiro Wilk test on
 the residuals. We obtained a fairly large p-value of 0.7521, indicating
 that we have little evidence for residuals not being normally
 distributed. Further, we also got that the mean of the residuals is
-approximately zero (\$ \textless{} 10\^{}\{-15\}\$), indicating that it
-is sensible to assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
+approximately zero ( \(< 10^{-15}\) ), indicating that it is sensible to
+assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
 
 \subsection{Pairwise Comparisons}\label{pairwise-comparisons}
 
@@ -420,21 +421,59 @@ used Tukey's Method to construct 95\% confidence intervals that compare
 the execution time of every possible pair of our 6 programming
 languages. Sine we know the estimate of the standard deviation of
 residuals, we can estimate the standard error (SE) of our treatment
-means, and then find Tukey's Honestly Significant Difference(HSD):
-
-\begin{align}
+means, and then find Tukey's Honestly Significant Difference(HSD): \[
+\begin{aligned}
 SE &= \frac{s}{\sqrt{b}}\\
 &= \frac{0.0456}{\sqrt{13}}\\\\
 HSD &= q_{6,30}^{0.05} \frac{s}{\sqrt{b}}\\
 &= 4.3015 \times \frac{\sqrt{0.0456}}{\sqrt{13}}\\
 &= 0.2535
-\end{align}
+\end{aligned}
+\]
 
 \begin{figure}[H]
-\includegraphics[width=1\linewidth]{skeleton_files/tableTukey} \caption{Results of Tukey's Honestly Significance Difference Test. Values Greater than HSD are Highlighted in Blue}\label{fig:tableTukey}
+\includegraphics[width=1\linewidth]{skeleton_files/table_tukey} \caption{Results of Tukey's Honestly Significance Difference Test. Values Greater than HSD are Highlighted in Blue}\label{fig:tableTukey}
 \end{figure}
 
-\section{References}\label{references}
+We can see, with 95\% confidence, that from the table of Tukey's HSD
+tests that C and C++ have the fastest execution times than others when
+performing the algorithm up to \(100 \times 10^6\) terms. The results
+can be summarised as follows: \[
+t(C) \approx t(C++) < t(Java) < t(R) < t(Python) < t(Ruby)
+\] The p-values for relatively less significant results (p-value
+\textgreater{} 0.005) are given below:\\
+- R vs Python: 0.0173\\
+- R vs Java: 0.0080
+
+\subsection{Compiled vs Interpreted}\label{compiled-vs-interpreted}
+
+We were also interested in comparing the execution times of compiled
+languages and interpreted languages. The contrast, \emph{L}, can be
+stated as follows: \begin{align*}
+L &= \frac{1}{3} (\mu_C + \mu_{C++} + \mu_{Java}) - \frac{1}{3}(\mu_{Python} + \mu_{Ruby} + \mu_{R})\\
+\intertext{We can estimate the values relevant to the contrast as follows:}
+\hat{L} &= \frac{1}{3} (\bar{y}_C + \bar{y}_{C++} + \bar{y}_{Java}) - \frac{1}{3}(\bar{y}_{Python} + \bar{y}_{Ruby} + \bar{y}_{R})\\
+&= -0.9198 \\
+\widehat{Var(\hat{L})} &= s^{2} \sum_{i=1}^{6} \frac{{h_i}^2}{n}\\
+&= 0.0456\sum_{i=1}^{6}\frac{\frac{1}{9}}{7}\\
+&= 0.004343\\
+SE(\hat{L}) &= \sqrt{\widehat{Var(\hat{L})}}\\
+ &= \sqrt{0.004343}\\
+ &= 0.0659
+\end{align*} We first note that \(t_{0.025}^{30} = 2.0422\). We will
+then construct a 95\% confidence interval as follows: \begin{align*}
+\hat{L}&\pm SE(\hat{L})\times t_{0.025}^{30}\\
+-0.9198 &\pm 0.0659 \times 2.0422\\
+\intertext{Thus, the 95\% Confidence interval is as follows: }
+95\%C.I. &= (-1.0544 ,-0.7852)
+\end{align*}
+
+The mean log execution time of compiled languages is estimated to be
+-1.05 log(ms) to -0.79 log(ms) shorter than the mean log execution time
+of interpreted languages at 95\% confidence. We therefore have strong
+evidence to suggests that compiled languages have shorter execution
+times when applying Leibniz's formula up to a very large term. \#
+References
 
 \newpage
 
@@ -444,7 +483,7 @@ HSD &= q_{6,30}^{0.05} \frac{s}{\sqrt{b}}\\
 
 \hfill\break
 \% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Sat Sep
-14 14:07:10 2024
+14 16:46:43 2024
 
 \begin{table}[ht]
 \centering
@@ -467,7 +506,7 @@ HSD &= q_{6,30}^{0.05} \frac{s}{\sqrt{b}}\\
 \end{table}
 
 \% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Sat Sep
-14 14:07:10 2024
+14 16:46:43 2024
 
 \begin{table}[ht]
 \centering
