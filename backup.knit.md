@@ -3,7 +3,7 @@
 # The two fields that are not in the elsevier format are:
 #      `corresponding_author` and `acknowledgements`
 title: STA2005S - Experimental Design Assignment
-date: "`r Sys.Date()`"
+date: "2024-09-15"
 author:
   - name: Jing Yeh
     email: yhxjin001@myuct.ac.za
@@ -43,23 +43,7 @@ output:
     
 ---
 
-```{r setup, include = FALSE, warning=FALSE}
-knitr::opts_chunk$set(
-  echo = FALSE, # By default, hide code; set to TRUE to see code
-  fig.pos = 'H', 
-  out.width = '100%', dpi = 300, # Figure resolution and size
-  fig.env = "figure", # Latex figure environment,
-  warining=FALSE,
-  message = FALSE)
-library(tidyverse)
-library(scales)
-library(gridExtra)
-library(knitr)
-library(kableExtra)
-library(xtable)
-library(formattable)
-options(xtable.comment = FALSE)
-```
+
 \newpage
 
 # Introduction
@@ -96,22 +80,9 @@ Examples: C, C++, Rust, and Java are examples of compiled languages. Python, Jav
 
 ## Distribution of Execution Times (Pilot Experiment Part 1):
 Since existing literature on the execution times of programming languages when applying Leibniz's formula is limited, we conducted a mini pilot experiment on a single machine to gauge the execution times for the programming languages we planned on experimenting with. We performed 500 approximations using the algorithm for each programming language and obtained the following jittered graph.
-```{r echo=FALSE, figPrior, fig.cap="Runtimes of Programming Languages of Interest When Applying Leibniz's Formula up to 100 million terms", fig.width=8.5}
-setwd("./speed-comparison-master/data/")
-middleTRNew.before <-read.csv("middleTRNew/middleTRNewBefore.csv")
-middleTRNew.before.long <- pivot_longer(middleTRNew.before, cols=everything(), names_to="language", values_to="runtime")
-jitter <- ggplot(middleTRNew.before.long, aes(x=language, y=log(runtime), color=language))+
-  geom_point(alpha=0.3, position=position_jitter(height=1, width=0.3))+
-  labs(x="language", y="runtime (log(ms))", title="Jittered Graph of Execution Time", size=8)
-
-qq <- ggplot(middleTRNew.before.long, aes(sample=log(runtime)))+
-  geom_qq(col="green")+
-  geom_qq_line(col="blue")+
-  facet_wrap(~language, scales="free")+
-  labs(x="quantiles", y="runtime (log(ms))", title="Quantile-Quantile Plots of Execution Time",
-       size=8)
-grid.arrange(jitter, qq, ncol=2, nrow=1)
-```
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{backup_files/figure-latex/figPrior-1} \caption{Runtimes of Programming Languages of Interest When Applying Leibniz's Formula up to 100 million terms}\label{fig:figPrior}
+\end{figure}
 We can observe that C and C++ seem to be the fastest languages on this particular machine, though further analyses are needed. We can also see from the Quantile-Quantile(Q-Q) plots that the execution times are clearly not normally distributed.
 \newpage
 
@@ -153,19 +124,9 @@ We planned to conduct pairwise comparisons on all treatments. That is, a total o
 
 ## Pilot Experiment Part II
 We followed this direction and performed part II of our pilot study to obtain the following execution times of programming languages on 4 hardware setups
-```{r echo=FALSE, figPilot, fig.cap="Interaction Graph of Programming Languages and Blocks", fig.height=2, warning=FALSE}
-setwd("./speed-comparison-master/data/")
-
-pilot <- read.csv("pilotData.csv")
-pilot.long <- pivot_longer(pilot, cols=C:R, names_to = "language", values_to = "runtime")
-plot <- ggplot(pilot.long, aes(x=language, y=log(runtime), group=Hardware, color=Hardware))+
-  geom_point()+
-  geom_line()+
-  labs(title= "Interaction Graph",
-       x= "Progamming Language",
-       y= "Runtime (log(ms))")
-plot
-```
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{backup_files/figure-latex/figPilot-1} \caption{Interaction Graph of Programming Languages and Blocks}\label{fig:figPilot}
+\end{figure}
 
 From the data collected, we observed that the results collected from Ishango do not follow the general trends established by the other three setups. Firstly, the hardware setup in Ishango lab is significantly less advance than MiddleTRNew. Yet, most programming languages tend to perform better on the Ishango machine. Secondly, to add to the first observation, not all programming languages perform better on the Ishango machine.
 
@@ -212,68 +173,29 @@ $$
 Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
 $$
 Below is the layout of the design
-```{r echo=FALSE, results='asis', fig.cap="Diagram of the Design"}
-knitr::include_graphics("diagram.png")
-```
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{diagram} \caption{Diagram of the Design}\label{fig:unnamed-chunk-1}
+\end{figure}
 \newpage
 # Results
 We performed the experiment described above on 7 different hardware setups and applied all 6 treatments. Detailed tables for data and for hardware setups can be found in the appendix. The Analysis of Variance (ANOVA) table is shown below:
-```{r, figAnova, fig.cap="Diagnostic Plots", results='asis', warning=FALSE, out.width="400px", fig.height=4, fig.align="center"}
-setwd("./speed-comparison-master/data/")
 
-analysis <- read.csv("analysis.csv")
-#analysis.long <- pivot_longer(analysis, cols=C:R, names_to = "language", values_to = "runtime")
-analysis.long <- pivot_longer(analysis, cols=C:R, names_to = "Language", values_to = "Runtime")
-anova_log <- aov(log(Runtime)~Language + Hardware, analysis.long)
-frame <- data.frame(summary(anova_log)[[1]])
-colnames(frame) <- c("Df", "Sum sq", "Mean sq", "F value", "Pr(>F)")
-frame$'Pr(>F)' <- ifelse(is.na(frame$'Pr(>F)'), "", '< 0.0001')
-frame$'F value' <- as.numeric(frame$'F value')
-frame$'F value' <- ifelse(is.na(frame$'F value'), "", round(frame$'F value', digits=4) )
+Table: Analysis of Variance Table
 
-kable(frame, format="pandoc", escape=FALSE, digits=4, align=c("r", "r", "r", "r", "r", "r"), caption="Analysis of Variance Table")
+             Df    Sum sq   Mean sq    F value     Pr(>F)
+----------  ---  --------  --------  ---------  ---------
+Language      5   65.2112   13.0422   285.9459   < 0.0001
+Hardware      6    6.5717    1.0953    24.0136   < 0.0001
+Residuals    30    1.3683    0.0456                      
 
-analysis_interaction <- ggplot(analysis.long, aes(x=Language, y=log(Runtime), group=Hardware, color=Hardware))+
-  geom_point()+
-  geom_line()+
-  labs(title= "Interaction Graph",
-       x= "Language",
-       y= "Runtime (log(ms))")+
-  theme(
-    legend.text = element_text(size = 5),
-    legend.title = element_text(size = 0),
-    legend.key.size = unit(0.1, "cm"),
-    legend.position = "bottom",
-    legend.margin=unit(-1,"cm"),
-    axis.title = element_text(size=8)
-    )+
-  guides(color = guide_legend(override.aes = list(size = 0.5)))
-  
-  
+\begin{figure}[H]
 
-anova_log.residauls <- resid(anova_log)
-anova_qq <- ggplot(data.frame(anova_log.residauls), aes(sample=(anova_log.residauls)))+
-  geom_qq(col="firebrick", size=2)+
-  geom_qq_line(col="deepskyblue4", alpha=0.75)+
-  labs(x="Quantile", y="Runtime log(ms)", title="Quantile-Quantile")
-  
+{\centering \includegraphics[width=400px]{backup_files/figure-latex/figAnova-1} 
 
-anova_residuals_fitted <- ggplot(anova_log,aes(x=fitted(anova_log), y=anova_log.residauls))+
-  geom_point(col="firebrick")+
-  geom_smooth(col="deepskyblue4",alpha=0 )+
-  labs(x="Fitted", y="Residuals (log(ms))", title="Residuals vs Fitted")
+}
 
-analysis_box <- ggplot(analysis.long, aes(x=Language, y=log(Runtime)))+
-  theme_minimal()+
-  geom_boxplot(color="red3", fill = "deepskyblue4", lwd=0.4)+
-  labs(x="Language", y="Runtime (log(ms))", title="Box Plot of Execution Time")+
-  theme(
-    axis.title = element_text(size=8)
-  )
-
-
-grid.arrange(anova_qq, anova_residuals_fitted, analysis_box, analysis_interaction, layout_matrix = rbind(c(1,1, 1,3, 3), c(2,2,2,4 ,4)))
-```
+\caption{Diagnostic Plots}\label{fig:figAnova}
+\end{figure}
 ## Verifying Model
 We verified our model by observing the Fitted vs Residuals graph: the residuals seem to be randomly spread, with no obvious patterns to be discerned. This shows that assuming homoscedasticity (equal variance) is not non-sensical [7]. Also, the Quantile-Quantile graph offers a fairly good fit, providing evidence for residuals being normally distributed.
 
@@ -281,16 +203,15 @@ We further verified our assumptions by performing Shapiro Wilk test to test agai
 
 ## Pairwise Comparisons
 
-```{r, tableMeans, fig.cap="Table of Treatment Means in log(ms)", warning=FALSE}
-setwd("./speed-comparison-master/data/")
-analysis_mean = read.csv("analysis_mean.csv")
-kable(data.frame(analysis_mean), format="pandoc", align=c("c","c","c","c","c","c"), digits=4, caption = "Table of Logarithmic Mean Execution Time")
-```
+
+Table: Table of Logarithmic Mean Execution Time
+
+   C        CPP       Java     Python     Ruby       R    
+--------  --------  --------  --------  --------  --------
+ 2.6786    2.6586    3.0568    3.7041    4.1582    3.3732 
 
 Given that we knew our response variables are normally distributed, we opted for the more powerful Tukey's Method, rather than Scheffe's ,to construct 95% confidence intervals that compare the execution time of every possible pair of our 6 programming languages. We use the following R function to achieve this. (The full table of the output can be found in the appendix.)
-```{r eval=FALSE}
-TukeyHSD(anova_model$Language)
-```
+
 
 We can observe that we have strong evidence to suggest that the efficiency of various programming languages when approximating $\pi$ is ranked as followed.
 
@@ -338,23 +259,71 @@ The results of this experiment confirmed that compiled languages (C and C++) exh
 \newpage
 
 # Appendix
-```{r echo=FALSE, results='asis'}
-dfpc <- read.csv('pcSpecs.csv',header = TRUE)
-print(xtable(dfpc, type = "latex", comment = FALSE, caption = 'Table of Pcs used and their respective specifications'))
-```
+\begin{table}[ht]
+\centering
+\begin{tabular}{rllll}
+  \hline
+ & PC & CPU & RAM & OS \\ 
+  \hline
+1 & Ishango PC &  9th Gen Intel® Core™ i3-9100  &  8.0 GB  & Ubuntu 22.04 \\ 
+  2 & MidddleTROld &  9th Gen Intel(R) Core(TM) i5-9500 CPU  &  8.0 GB  &   Windows 10 \\ 
+  3 & MiddleTRNew  &  12th Gen Intel(R) Core(TM) i5-13400  &  16.0 GB  &   Windows 10 \\ 
+  4 & ScilabB  &   12th Gen Intel(R) Core(TM) i5-12400  &   16.0 GB   &   Windows 10 \\ 
+  5 & Surface  &   9th Gen Intel(R) Core(TM) i5-8250 CPU  &   16.0 GB   &   Windows 10 \\ 
+  6 & ASUS (i7-5500u)  &   5th Gen Intel(R) Core(TM) i7-5500U CPU  &   6.0 GB   &   Windows 10 \\ 
+  7 & ScilabD  &   10th Gen Intel(R) Core(TM) i5-10500  &   16.0 GB   &   Windows 10 \\ 
+  8 & LT  &   9th Gen Intel(R) Core(TM) i5-9400f  &   8.0 GB   &   Windows 10 \\ 
+  9 & HP (i5-7200)  &   7th Gen Intel(R) Core(TM) i5-7200  &   8.0 GB   &   Windows 10 \\ 
+   \hline
+\end{tabular}
+\caption{Table of Pcs used and their respective specifications} 
+\end{table}
 
 
-```{r echo=FALSE, results='asis', warning=FALSE}
-setwd("./speed-comparison-master/data/")
-dfdata <- read.csv('analysis_log.csv',header = TRUE)
-print(xtable(dfdata, type = "latex", comment = FALSE, caption = 'Table of data used for analysis'))
-```
-```{r echo=FALSE}
-TK <- TukeyHSD(anova_log)
-kable(TK$Language, digits = 6) |>
-  kable_styling(font_size=9) |>
-  footnote(general="Table 5: Table of Differences in Log Execution Time with Tukey's Method", general_title = "")
-```
+\begin{table}[ht]
+\centering
+\begin{tabular}{rlrrrrrr}
+  \hline
+ & Hardware & C & CPP & Java & Python & Ruby & R \\ 
+  \hline
+1 & MiddleTROld & 3.13 & 3.13 & 3.53 & 3.90 & 4.42 & 3.75 \\ 
+  2 & MiddleTRNew & 2.40 & 2.41 & 2.88 & 3.50 & 3.91 & 3.26 \\ 
+  3 & ScilabB & 2.61 & 2.57 & 2.86 & 3.51 & 3.93 & 3.25 \\ 
+  4 & ASUS(i5) & 2.61 & 2.61 & 3.09 & 3.82 & 4.35 & 3.30 \\ 
+  5 & HP(i5-7200) & 2.56 & 2.56 & 3.07 & 3.82 & 4.30 & 3.29 \\ 
+  6 & ScilabD & 2.68 & 2.66 & 2.96 & 3.66 & 4.08 & 3.37 \\ 
+  7 & LT & 2.76 & 2.68 & 3.01 & 3.71 & 4.12 & 3.40 \\ 
+   \hline
+\end{tabular}
+\caption{Table of data used for analysis} 
+\end{table}
+\begingroup\fontsize{9}{11}\selectfont
+
+\begin{longtable}[t]{lrrrr}
+\toprule
+ & diff & lwr & upr & p adj\\
+\midrule
+CPP-C & -0.046023 & -0.393240 & 0.301194 & 0.998485\\
+Java-C & 0.870722 & 0.523505 & 1.217939 & 0.000000\\
+Python-C & 2.361294 & 2.014077 & 2.708512 & 0.000000\\
+R-C & 1.599346 & 1.252129 & 1.946563 & 0.000000\\
+Ruby-C & 3.407019 & 3.059802 & 3.754236 & 0.000000\\
+\addlinespace
+Java-CPP & 0.916745 & 0.569528 & 1.263962 & 0.000000\\
+Python-CPP & 2.407317 & 2.060100 & 2.754534 & 0.000000\\
+R-CPP & 1.645369 & 1.298152 & 1.992586 & 0.000000\\
+Ruby-CPP & 3.453042 & 3.105824 & 3.800259 & 0.000000\\
+Python-Java & 1.490572 & 1.143355 & 1.837789 & 0.000000\\
+\addlinespace
+R-Java & 0.728624 & 0.381407 & 1.075841 & 0.000007\\
+Ruby-Java & 2.536297 & 2.189079 & 2.883514 & 0.000000\\
+R-Python & -0.761948 & -1.109166 & -0.414731 & 0.000003\\
+Ruby-Python & 1.045724 & 0.698507 & 1.392942 & 0.000000\\
+Ruby-R & 1.807673 & 1.460456 & 2.154890 & 0.000000\\
+\bottomrule
+\multicolumn{5}{l}{\rule{0pt}{1em}Table 5: Table of Differences in Log Execution Time with Tukey's Method}\\
+\end{longtable}
+\endgroup{}
 
 \newpage
 # Reference
