@@ -7,6 +7,8 @@ author:
     email: yhxjin001@myuct.ac.za
   - name: Saurav Sathnarayan
     email: sthsau01001@myuct.ac.za
+
+    
 bibliography: mybibfile.bib
 nocite: '@*'
   
@@ -196,7 +198,7 @@ the existing literature, most studies of such kind choose to run all
 languages on the same machine. However, since we would like to avoid
 pseudo replication as much as possible we used one machine per
 observation. The downside of this approach is that we do not have
-sufficient machines to perform more than one levels.
+sufficient machines to perform more than one level.
 
 #### Blocks:
 
@@ -228,7 +230,7 @@ number.
 ## Planned Comparisons
 
 We planned to conduct pairwise comparisons on all treatments. That is, a
-total of $6 \choose 2 = 15$ comparisons. It would also serve our
+total of $6 \choose 2$$=15$ comparisons. It would also serve our
 objective by comparing the efficiency of compiled languages (C, C++,
 Java) and interpreted languages (Python, Ruby, R), as the latter are
 oftentimes easier to program with. This allows us to better asses the
@@ -239,7 +241,7 @@ time-cost trade off of these programming languages.
 We followed this direction and performed an pilot study to obtain the
 following execution times of programming languages on 4 hardware setups
 
-```{r echo=FALSE, figPilot, fig.cap="Interaction Graph of Programming Languages and Blocks", fig.height=2}
+```{r echo=FALSE, fig.height=2, message=FALSE, warning=FALSE, figPilot, fig.cap="Interaction Graph of Programming Languages and Blocks"}
 setwd("./speed-comparison-master/data/")
 
 pilot <- read.csv("pilotData.csv")
