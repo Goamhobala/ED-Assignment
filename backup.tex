@@ -136,9 +136,14 @@ Compuations}
 
 
 
+\newpage 
+\tableofcontents 
 \newpage
 
-\section{Introduction}\label{introduction}
+\newpage
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
 Computation has played a major role in human history ever since people
 began living in cities. The need to calculate taxes motivated the
@@ -165,8 +170,9 @@ real-time processing, large-scale data analysis, and other
 resource-intensive computations. The goal of this experiment is to
 identify such languages that deliver the fastest execution time.
 
+\hypertarget{compiled-vs-interpreted-languages}{%
 \subsection{Compiled vs Interpreted
-Languages}\label{compiled-vs-interpreted-languages}
+Languages}\label{compiled-vs-interpreted-languages}}
 
 In a compiled language, the source code is translated into machine code
 by a compiler before execution, which produces an executable that can be
@@ -183,8 +189,9 @@ Examples: C, C++, Rust, and Java are examples of compiled languages.
 Python, JavaScript, Ruby, and R are examples of interpreted languages.
 \newpage
 
+\hypertarget{distribution-of-execution-times-pilot-experiment-part-1}{%
 \subsection{Distribution of Execution Times (Pilot Experiment Part
-1):}\label{distribution-of-execution-times-pilot-experiment-part-1}
+1):}\label{distribution-of-execution-times-pilot-experiment-part-1}}
 
 Since existing literature on the execution times of programming
 languages when applying Leibniz's formula is limited, we conducted a
@@ -202,9 +209,11 @@ particular machine, though further analyses are needed. We can also see
 from the Quantile-Quantile(Q-Q) plots that the execution times are
 clearly not normally distributed. \newpage
 
-\section{Methods}\label{methods}
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
 
-\subsection{Setting}\label{setting}
+\hypertarget{setting}{%
+\subsection{Setting}\label{setting}}
 
 This study was mostly conducted at the University of Cape Town,
 utilising the computers available on campus. We found that there are
@@ -212,8 +221,9 @@ only 5 different hardware setups available. Thus, to supplement the
 range of our hardware setups, we also borrowed machines of 2 more
 hardware setups from our friends.
 
+\hypertarget{approximation-of-pi}{%
 \subsection{\texorpdfstring{Approximation of
-\(\pi\)}{Approximation of \textbackslash pi}}\label{approximation-of-pi}
+\(\pi\)}{Approximation of \textbackslash pi}}\label{approximation-of-pi}}
 
 The number \(\pi\), the ubiquitous and equally mysterious irrational
 number, has been fascinating the humankind since time immemorial.
@@ -228,7 +238,8 @@ above eventually converges to \(\pi\). That is: \[
 compiled languages: C, C++, Java, and 3 interpreted languages: Python,
 R, Ruby, up to a \(100 \times 10^6\) terms.
 
-\subsection{Sampling Procedure}\label{sampling-procedure}
+\hypertarget{sampling-procedure}{%
+\subsection{Sampling Procedure}\label{sampling-procedure}}
 
 Existing literature suggests that execution times of programming
 languages are typically not normally distributed {[}10{]}. We confirmed
@@ -245,9 +256,11 @@ then an unbiased estimator for the true run time of each programming
 language{[}2{]}, which we will take as a single observation. (Note: We
 arrived at the number 15 through trial and error, and 30 from {[}8{]})
 
-\subsection{Sources of Variation}\label{sources-of-variation}
+\hypertarget{sources-of-variation}{%
+\subsection{Sources of Variation}\label{sources-of-variation}}
 
-\paragraph{Treatments:}\label{treatments}
+\hypertarget{treatments}{%
+\paragraph{Treatments:}\label{treatments}}
 
 We have 6 treatment factors, which are the programming languages we
 applied the algorithm to. Each treatment has one level (applying the
@@ -262,7 +275,8 @@ avoid pseudo replication as much as possible we used one machine per
 observation. The downside of this approach is that we do not have
 sufficient machines to perform more than one levels.
 
-\paragraph{Blocks:}\label{blocks}
+\hypertarget{blocks}{%
+\paragraph{Blocks:}\label{blocks}}
 
 We know that the hardware setup of a computer can significantly affect
 its speed, and therefore the execution time of our algorithm. We also
@@ -272,7 +286,8 @@ system, and no major damage has been done to either of them. This
 motivated us to block for the hardware setup of computers, our
 experimental units.
 
-\subsection{Experimental Units:}\label{experimental-units}
+\hypertarget{experimental-units}{%
+\subsection{Experimental Units:}\label{experimental-units}}
 
 As mentioned earlier, we would like to avoid pseudo replication as much
 as possible. Therefore, we deviated from the tradition of running all
@@ -280,7 +295,8 @@ programming languages on the same machine, and test only one language
 per machine. Our experimental units are therefore the individual
 machines we ran each test on.
 
-\subsection{Randomisation Procedure}\label{randomisation-procedure}
+\hypertarget{randomisation-procedure}{%
+\subsection{Randomisation Procedure}\label{randomisation-procedure}}
 
 We first ordered the computers belonging to each block from 1 to 6. We
 then used the random number generator from Python's \emph{random} module
@@ -289,7 +305,8 @@ C++, Java, Python, Ruby, R{]}. The index of each programming language in
 the permutation would then be paired to the computer with the same
 assigned number.
 
-\subsection{Planned Comparisons}\label{planned-comparisons}
+\hypertarget{planned-comparisons}{%
+\subsection{Planned Comparisons}\label{planned-comparisons}}
 
 We planned to conduct pairwise comparisons on all treatments. That is, a
 total of \(6 \choose 2 = 15\) comparisons. We assume this would help us
@@ -299,7 +316,8 @@ interpreted languages (Python, Ruby, R), as the latter are oftentimes
 easier to program with. This allows us to better asses the time-cost
 trade off of these programming languages.
 
-\subsection{Pilot Experiment Part II}\label{pilot-experiment-part-ii}
+\hypertarget{pilot-experiment-part-ii}{%
+\subsection{Pilot Experiment Part II}\label{pilot-experiment-part-ii}}
 
 We followed this direction and performed part II of our pilot study to
 obtain the following execution times of programming languages on 4
@@ -328,7 +346,8 @@ the machines must all run on Windows 10, as these machines are the most
 widely available. Other than than that, the results verified our
 motivation for blocking various hardware setups.
 
-\subsection{Design}\label{design}
+\hypertarget{design}{%
+\subsection{Design}\label{design}}
 
 We assume that: \[
 e_{ij} \sim \mathcal{N}(0, \sigma^2)
@@ -365,7 +384,8 @@ Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
 \end{figure}
 \newpage
 
-\section{Results}\label{results}
+\hypertarget{results}{%
+\section{Results}\label{results}}
 
 We performed the experiment described above on 7 different hardware
 setups and applied all 6 treatments. Detailed tables for data and for
@@ -398,7 +418,8 @@ Residuals & 30 & 1.3683 & 0.0456 & & \\
 \caption{Diagnostic Plots}\label{fig:figAnova}
 \end{figure}
 
-\subsection{Verifying Model}\label{verifying-model}
+\hypertarget{verifying-model}{%
+\subsection{Verifying Model}\label{verifying-model}}
 
 We verified our model by observing the Fitted vs Residuals graph: the
 residuals seem to be randomly spread, with no obvious patterns to be
@@ -414,7 +435,8 @@ suggest otherwise. Further, we also got that the mean of the residuals
 is extremely closed to zero ( \(< 10^{-15}\) ), indicating that it is
 sensible to assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
 
-\subsection{Pairwise Comparisons}\label{pairwise-comparisons}
+\hypertarget{pairwise-comparisons}{%
+\subsection{Pairwise Comparisons}\label{pairwise-comparisons}}
 
 \begin{longtable}[]{@{}cccccc@{}}
 \caption{Table of Logarithmic Mean Execution Time}\tabularnewline
@@ -457,7 +479,8 @@ R?''. We will attempt to present an answer here from the perspective of
 efficiency: R is estimated to be between 2.01 to 4.03 times faster than
 Python when performing our algorithm.
 
-\subsection{Compiled vs Interpreted}\label{compiled-vs-interpreted}
+\hypertarget{compiled-vs-interpreted}{%
+\subsection{Compiled vs Interpreted}\label{compiled-vs-interpreted}}
 
 We were also interested in comparing the execution times of compiled
 languages and interpreted languages. The contrast, \emph{L}, can be
@@ -485,7 +508,8 @@ than that of the interpreted languages . We therefore have strong
 evidence to suggest that compiled languages have shorter execution times
 when applying Leibniz's formula up to a very large term. \newpage
 
-\section{Discussion}\label{discussion}
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
 
 The experiment aimed to analyze the execution time of different
 programming languages when applying Leibniz's formula across 7 hardware
@@ -496,8 +520,7 @@ supporting the robustness of the analysis. The ANOVA results indicate
 significant differences amongst the execution times of various
 languages. The p value for hardware is also very low (\textless{}
 0.0001) which indicates that hardware setup does have an effect on the
-execution time of different programming languages.
-
+execution time of different programming languages.\\
 From the Tukey's HSD post-hoc tests, it is clear that C and C++ have the
 fastest execution times, as reflected by their significantly lower mean
 execution times compared to other languages. Java, a semi-compiled
@@ -506,8 +529,7 @@ significantly ahead of interpreted languages like Python and Ruby. We
 compared languages that serve similar purpose, such as R and Python in
 data analysis, and we found, at 95\% confidence level, that R is around
 2 to 4 times faster than Python when performing large amount of simple
-mathematical multiplication and addition.
-
+mathematical multiplication and addition.\\
 We also collected strong evidence to suggest differences in the
 performance of compiled and interpreted languages. The compiled
 languages (C, C++, Java) outperformed interpreted languages (R, Python,
@@ -519,7 +541,8 @@ final programs produced. We thus strongly recommend programmers to take
 the efficiency of various programming languages into account when
 selecting one for their project.
 
-\section{Conclusion:}\label{conclusion}
+\hypertarget{conclusion}{%
+\section{Conclusion:}\label{conclusion}}
 
 The results of this experiment confirmed that compiled languages (C and
 C++) exhibit significantly faster execution times compared to both
@@ -533,12 +556,12 @@ languages, followed by Java, R, Python,and then Ruby, in order.
 \emph{2.}Compiled languages provide a substantial performance advantage
 over interpreted languages. These findings can be useful for developers
 when selecting a programming language for performance-critical
-applications, especially those involving large-scale iterative
-computations.
+applications, and large-scale iterative computations.
 
 \newpage
 
-\section{Appendix}\label{appendix}
+\hypertarget{appendix}{%
+\section{Appendix}\label{appendix}}
 
 \begin{table}[ht]
 \centering
@@ -607,7 +630,8 @@ Ruby-R & 1.807673 & 1.460456 & 2.154890 & 0.000000\\
 
 \newpage
 
-\section{Reference}\label{reference}
+\hypertarget{reference}{%
+\section{Reference}\label{reference}}
 
 {[}1{]} Juritz J, Little F, Erni B. Design of Experiment: Course Notes
 for STA2005S. University of Cape Town; 2023.\\
