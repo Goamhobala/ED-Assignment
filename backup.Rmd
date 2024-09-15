@@ -43,6 +43,11 @@ output:
     extra_dependencies: booktabs # for kable example
     
 ---
+\
+\
+```{r echo=FALSE, out.width="100px", fig.align='center'}
+knitr::include_graphics("pi.png")
+```
 \newpage 
 \tableofcontents 
 \newpage
@@ -214,10 +219,9 @@ Otherwise, if there are blocking and treatment effects, then:
 $$
 Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
 $$
-Below is the layout of the design
-```{r echo=FALSE, results='asis', fig.cap="Diagram of the Design"}
-knitr::include_graphics("diagram.png")
-```
+Below is the layout of the design:\
+![Layout of the Design](diagram.png){width=500, height=200}
+
 \newpage
 # Results
 We performed the experiment described above on 7 different hardware setups and applied all 6 treatments. Detailed tables for data and for hardware setups can be found in the appendix. The Analysis of Variance (ANOVA) table is shown below:
@@ -318,7 +322,7 @@ SE(\hat{L}) &= \sqrt{\widehat{Var(\hat{L})}}\\
  &= \sqrt{0.004343}\\
  &= 0.0659
 \end{align*}
-We first note that \(t_{0.025}^{30} = 2.0422\). We can then construct a 95\% confidence interval as follows:
+We first note that \(t_{0.025}^{30} = 2.0422\). We will then construct a 95\% confidence interval as follows:
 \begin{align*}
 \hat{L}&\pm SE(\hat{L})\times t_{0.025}^{30}\\
 -0.9198 &\pm 0.0659 \times 2.0422\\
@@ -337,7 +341,6 @@ We also collected strong evidence to suggest differences in the performance of c
 
 # Conclusion:
 The results of this experiment confirmed that compiled languages (C and C++) exhibit significantly faster execution times compared to both semi-compiled (Java) and interpreted languages (R, Python, Ruby). The performance gap between compiled and interpreted languages becomes particularly evident with large-scale computations, such as, in our case, applying Leibniz’s formula up to 100 million terms. Based on the ANOVA and post-hoc analysis, we found , for large-scale simple mathematical operations, that: *1.*C and C++ are the most efficient languages, followed by Java, R, Python,and then Ruby, in order. *2.*Compiled languages provide a substantial performance advantage over interpreted languages. These findings can be useful for developers when selecting a programming language for performance-critical applications.
-
 \newpage
 
 # Appendix

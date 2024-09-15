@@ -74,29 +74,35 @@
 \makesavenoteenv{longtable}
 
 % Pandoc citation processing
+%From Pandoc 3.1.8
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-% for Pandoc 2.8 to 2.10.1
-\newenvironment{cslreferences}%
-  {}%
-  {\par}
-% For Pandoc 2.11+
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
   % turn on hanging indent if param 1 is 1
   \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
   \fi
   % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
 \usepackage{calc}
 \newcommand{\CSLBlock}[1]{#1\hfill\break}
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
@@ -151,8 +157,7 @@
 
 \newpage
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+\section{Introduction}\label{introduction}
 
 Computation has played a major role in human history ever since people
 began living in cities. The need to calculate taxes motivated the
@@ -179,9 +184,8 @@ real-time processing, large-scale data analysis, and other
 resource-intensive computations. The goal of this experiment is to
 identify such languages that deliver the fastest execution time.
 
-\hypertarget{compiled-vs-interpreted-languages}{%
 \subsection{Compiled vs Interpreted
-Languages}\label{compiled-vs-interpreted-languages}}
+Languages}\label{compiled-vs-interpreted-languages}
 
 In a compiled language, the source code is translated into machine code
 by a compiler before execution. In an interpreted language, however, the
@@ -196,17 +200,15 @@ runtime translation
 Examples: C, C++, Rust, and Java are examples of compiled languages.
 Python, JavaScript, Ruby, and R are examples of interpreted languages.
 
-\hypertarget{key-differences}{%
-\paragraph{Key Differences:}\label{key-differences}}
+\paragraph{Key Differences:}\label{key-differences}
 
 Compiled languages require a compilation step that produces an
 executable, while interpreted languages are executed directly by an
 interpreter.\\
 .
 
-\hypertarget{distribution-of-execution-times}{%
 \subsection{Distribution of Execution
-Times:}\label{distribution-of-execution-times}}
+Times:}\label{distribution-of-execution-times}
 
 Since existing literature on the execution times of programming
 languages when applying Leibniz's formula is limited, we performed an a
@@ -224,11 +226,9 @@ further analyses are needed. We can also see from the
 Quantile-Quantile(Q-Q) plots that the execution times are clearly not
 normally distributed. \newpage
 
-\hypertarget{methods}{%
-\section{Methods}\label{methods}}
+\section{Methods}\label{methods}
 
-\hypertarget{setting}{%
-\subsection{Setting}\label{setting}}
+\subsection{Setting}\label{setting}
 
 This study was mostly conducted at the University of Cape Town,
 utilising the computers available on campus. We found that there are
@@ -236,9 +236,8 @@ only 5 different hardware setups available. Thus, to supplement the
 range of our hardware setups, we also borrowed machines of 2 more
 hardware setups from our friends.
 
-\hypertarget{approximation-of-pi}{%
 \subsection{\texorpdfstring{Approximation of
-\(\pi\)}{Approximation of \textbackslash pi}}\label{approximation-of-pi}}
+\(\pi\)}{Approximation of \textbackslash pi}}\label{approximation-of-pi}
 
 The number \(\pi\), the ubiquitous and equally mysterious irrational
 number, has been fascinating the humankind since time immemorial.
@@ -253,8 +252,7 @@ above eventually converges to \(\pi\). That is: \[
 compiled languages: C, C++, Java, and 3 interpreted languages: Python,
 R, Ruby, up to a \(100 \times 10^6\) terms.
 
-\hypertarget{sampling-procedure}{%
-\subsection{Sampling Procedure}\label{sampling-procedure}}
+\subsection{Sampling Procedure}\label{sampling-procedure}
 
 Since existing literature tend to suggest that execution times of
 programming languages are not normally distributed, we perform a priori
@@ -271,11 +269,9 @@ run time of each programming language{[}2{]}, which we will take as a
 single observation. (Note: We arrived at the number 15 through trial and
 error, and 30 from {[}8{]})
 
-\hypertarget{sources-of-variation}{%
-\subsection{Sources of Variation}\label{sources-of-variation}}
+\subsection{Sources of Variation}\label{sources-of-variation}
 
-\hypertarget{treatments}{%
-\paragraph{Treatments:}\label{treatments}}
+\paragraph{Treatments:}\label{treatments}
 
 We have 6 treatment factors, which are the programming languages we
 applied the algorithm to. Each treatment has one level (applying the
@@ -290,8 +286,7 @@ avoid pseudo replication as much as possible we used one machine per
 observation. The downside of this approach is that we do not have
 sufficient machines to perform more than one level.
 
-\hypertarget{blocks}{%
-\paragraph{Blocks:}\label{blocks}}
+\paragraph{Blocks:}\label{blocks}
 
 We know that the hardware setup of a computer can significantly affect
 its speed, and therefore the execution time of our algorithm. We also
@@ -301,8 +296,7 @@ system, and no major damage has been done to either of them. This
 motivated us to block for the hardware setup of computers, our
 experimental units.
 
-\hypertarget{experimental-units}{%
-\subsection{Experimental Units:}\label{experimental-units}}
+\subsection{Experimental Units:}\label{experimental-units}
 
 As mentioned earlier, we would like to avoid pseudo replication as much
 as possible. Therefore, we deviated from the tradition of running all
@@ -310,8 +304,7 @@ programming languages on the same machine, and test only one language
 per machine. Our experimental units are therefore the individual
 machines we ran each test on.
 
-\hypertarget{randomisation-procedure}{%
-\subsection{Randomisation Procedure}\label{randomisation-procedure}}
+\subsection{Randomisation Procedure}\label{randomisation-procedure}
 
 We first ordered the computers belonging to each block from 1 to 6. We
 then used the random number generator from Python's \emph{random} module
@@ -320,8 +313,7 @@ C++, Java, Python, Ruby, R{]}. The index of each programming language in
 the permutation would then be paired to the computer with the same
 assigned number.
 
-\hypertarget{planned-comparisons}{%
-\subsection{Planned Comparisons}\label{planned-comparisons}}
+\subsection{Planned Comparisons}\label{planned-comparisons}
 
 We planned to conduct pairwise comparisons on all treatments. That is, a
 total of \(6 \choose 2\)\(=15\) comparisons. It would also serve our
@@ -330,8 +322,7 @@ Java) and interpreted languages (Python, Ruby, R), as the latter are
 oftentimes easier to program with. This allows us to better asses the
 time-cost trade off of these programming languages.
 
-\hypertarget{pilot-experiment}{%
-\subsection{Pilot Experiment}\label{pilot-experiment}}
+\subsection{Pilot Experiment}\label{pilot-experiment}
 
 We followed this direction and performed an pilot study to obtain the
 following execution times of programming languages on 4 hardware setups
@@ -358,8 +349,7 @@ Therefore, we added another constraint for selecting suitable machines:
 the machines must all run on Windows 10, as these machines are the most
 widely available.
 
-\hypertarget{design}{%
-\subsection{Design}\label{design}}
+\subsection{Design}\label{design}
 
 We assume that: \[
 e_{ij} \sim \mathcal{N}(0, \sigma^2)
@@ -397,8 +387,7 @@ Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j, \sigma^2)
 
 \newpage
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+\section{Results}\label{results}
 
 We performed the experiment described above on 7 different hardware
 setups and applied all 6 treatments. Detailed tables for data and for
@@ -421,8 +410,7 @@ Residuals & 30 & 1.3683 & 0.0456 & & \\
 \includegraphics[width=1\linewidth]{skeleton_files/figure-latex/figAnova-1} \caption{The ANOVA table and Relavent Plots}\label{fig:figAnova}
 \end{figure}
 
-\hypertarget{verifying-model}{%
-\subsection{Verifying Model}\label{verifying-model}}
+\subsection{Verifying Model}\label{verifying-model}
 
 We verified our model by observing the Fitted vs Residuals graph: the
 residuals seem to be randomly spread, with no obvious patterns to be
@@ -437,8 +425,7 @@ suggest otherwise. Further, we also got that the mean of the residuals
 is approximately zero ( \(< 10^{-15}\) ), indicating that it is sensible
 to assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
 
-\hypertarget{pairwise-comparisons}{%
-\subsection{Pairwise Comparisons}\label{pairwise-comparisons}}
+\subsection{Pairwise Comparisons}\label{pairwise-comparisons}
 
 \begin{longtable}[]{@{}cccccc@{}}
 \toprule\noalign{}
@@ -480,8 +467,7 @@ t(C) \approx t(C++) < t(Java) < t(R) < t(Python) < t(Ruby)
 - R vs Python: 0.0173\\
 - R vs Java: 0.0080
 
-\hypertarget{compiled-vs-interpreted}{%
-\subsection{Compiled vs Interpreted}\label{compiled-vs-interpreted}}
+\subsection{Compiled vs Interpreted}\label{compiled-vs-interpreted}
 
 We were also interested in comparing the execution times of compiled
 languages and interpreted languages. The contrast, \emph{L}, can be
@@ -511,8 +497,7 @@ strong evidence to suggests that compiled languages have shorter
 execution times when applying Leibniz's formula up to a very large term.
 \newpage
 
-\hypertarget{discussion}{%
-\section{Discussion}\label{discussion}}
+\section{Discussion}\label{discussion}
 
 The experiment aimed to analyze the execution time of different
 programming languages when applying Leibniz's formula across 7 hardware
@@ -539,8 +524,7 @@ indicate a well-fitted model, with residuals demonstrating no major
 deviations from normality and homoscedasticity, supporting the
 robustness of the analysis.\\
 
-\hypertarget{conclusion}{%
-\section{Conclusion}\label{conclusion}}
+\section{Conclusion}\label{conclusion}
 
 The results of this experiment confirm that compiled languages (C and
 C++) exhibit significantly faster execution times compared to both
@@ -556,16 +540,14 @@ especially those involving large iterative computations.
 
 \newpage
 
-\hypertarget{appendix}{%
-\section{Appendix}\label{appendix}}
+\section{Appendix}\label{appendix}
 
-\hypertarget{pc-specificiations}{%
-\paragraph{PC Specificiations}\label{pc-specificiations}}
+\paragraph{PC Specificiations}\label{pc-specificiations}
 
 \hfill\break
 
-\% latex table generated in R 4.3.1 by xtable 1.8-4 package \% Sun Sep
-15 21:11:05 2024
+\% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Sun Sep
+15 22:15:51 2024
 
 \begin{table}[ht]
 \centering
@@ -587,8 +569,8 @@ especially those involving large iterative computations.
 \caption{Table of Pcs used and their respective specifications} 
 \end{table}
 
-\% latex table generated in R 4.3.1 by xtable 1.8-4 package \% Sun Sep
-15 21:11:05 2024
+\% latex table generated in R 4.4.1 by xtable 1.8-4 package \% Sun Sep
+15 22:15:51 2024
 
 \begin{table}[ht]
 \centering
@@ -610,59 +592,58 @@ especially those involving large iterative computations.
 
 \newpage
 
-\hypertarget{references}{%
-\section*{References}\label{references}}
+\section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
 
-\hypertarget{refs}{}
+\phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-braun_2022_is}{}}%
+\bibitem[\citeproctext]{ref-braun_2022_is}
 Braun, Javen. 2022. {``Is Linux Faster Than Windows? Speed Comparison \&
 Analysis.''} Linux JournalDigital.
 \url{https://www.linuxjournaldigital.com/is-linux-faster-than-windows/}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-a2018_chapter}{}}%
+\bibitem[\citeproctext]{ref-a2018_chapter}
 {``Chapter 16 - Anova.''} 2018. University of South Carolina.
 \url{https://www.biostat.jhsph.edu/~iruczins/teaching/jf/ch16.pdf}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-dean_2006_design}{}}%
+\bibitem[\citeproctext]{ref-dean_2006_design}
 Dean, Angela M, and Daniel Voss. 2006. \emph{Design and Analysis of
 Experiments}. Springer Science \& Business Media.
 
-\leavevmode\vadjust pre{\hypertarget{ref-fourment_2008_a}{}}%
+\bibitem[\citeproctext]{ref-fourment_2008_a}
 Fourment, Mathieu, and Michael R Gillings. 2008. {``A Comparison of
 Common Programming Languages Used in Bioinformatics.''} \emph{BMC
 Bioinformatics} 9 (February).
 \url{https://doi.org/10.1186/1471-2105-9-82}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-greenwood_2021_intermediate}{}}%
+\bibitem[\citeproctext]{ref-greenwood_2021_intermediate}
 Greenwood, Mark C. 2021. \emph{Intermediate Statistics with r}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-juritz_2023_design}{}}%
+\bibitem[\citeproctext]{ref-juritz_2023_design}
 Juritz, J, F Little, and B Erni. 2023. \emph{Design of Experiment:
 Course Notes for STA2005S}. University of Cape Town.
 
-\leavevmode\vadjust pre{\hypertarget{ref-matheus_2021_determining}{}}%
+\bibitem[\citeproctext]{ref-matheus_2021_determining}
 Matheus, and Adriano Kamimura Suzuki. 2021. {``Determining the
 Probability Distribution of Execution Times.''} \emph{2021 IEEE
 Symposium on Computers and Communications (ISCC)}, September.
 \url{https://doi.org/10.1109/iscc53001.2021.9631411}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-mavuso_2019_order}{}}%
+\bibitem[\citeproctext]{ref-mavuso_2019_order}
 Mavuso, Melusi, and Yuri Robbertze. 2019. \emph{Order Out of Chaos i and
 II: STA2004F Notes}. University of Cape Town.
 
-\leavevmode\vadjust pre{\hypertarget{ref-residuals}{}}%
+\bibitem[\citeproctext]{ref-residuals}
 {``Residuals Vs. Fits Plot \textbar{} STAT 501.''} n.d. PennState:
 Statistics Online Courses; University of Pennsylvania.
 \url{https://online.stat.psu.edu/stat501/lesson/4/4.2}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-rhodes_2020_computing}{}}%
+\bibitem[\citeproctext]{ref-rhodes_2020_computing}
 Rhodes, Benjamin. 2020. {``Computing Is Born: The Sumerian Abacus.''}
 \#TechIsATool.
 \url{https://medium.com/tech-is-a-tool/the-dawn-of-computing-sumerian-abacus-83bdefb697ba}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-underhill_2007_introstat}{}}%
+\bibitem[\citeproctext]{ref-underhill_2007_introstat}
 Underhill, L G, and Dave Bradfield. 2007. \emph{Introstat}. University
 of Cape Town.
 
