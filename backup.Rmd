@@ -42,7 +42,11 @@ output:
     extra_dependencies: booktabs # for kable example
     
 ---
-
+\newpage 
+\tableofcontents 
+\listoffigures
+\listoftables
+\newpage
 ```{r setup, include = FALSE, warning=FALSE}
 knitr::opts_chunk$set(
   echo = FALSE, # By default, hide code; set to TRUE to see code
@@ -149,7 +153,7 @@ As mentioned earlier, we would like to avoid pseudo replication as much as possi
 We first ordered the computers belonging to each block from 1 to 6. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same assigned number.
 
 ## Planned Comparisons
-We planned to conduct pairwise comparisons on all treatments. That is, a total of $6 \choose 2 = 15$ comparisons. We assume this would help us find the most efficient language(s). It would also serve our interest by comparing the efficiency of compiled languages (C, C++, Java) and interpreted languages (Python, Ruby, R), as the latter are oftentimes easier to program with. This allows us to better asses the time-cost trade off of these programming languages.
+We planned to conduct pairwise comparisons on all treatments. That is, a total of $6 \choose 2$ $= 15$ comparisons. We assume this would help us find the most efficient language(s). It would also serve our interest by comparing the efficiency of compiled languages (C, C++, Java) and interpreted languages (Python, Ruby, R), as the latter are oftentimes easier to program with. This allows us to better asses the time-cost trade off of these programming languages.
 
 ## Pilot Experiment Part II
 We followed this direction and performed part II of our pilot study to obtain the following execution times of programming languages on 4 hardware setups
@@ -324,14 +328,15 @@ We first note that \(t_{0.025}^{30} = 2.0422\). We will then construct a 95\% co
 \end{align*}\
 The means that, at 95% confidence level, the average execution times of compiled languages is estimated to be between 2.19 to 2.87 times shorter than that of the interpreted languages . We therefore have strong evidence to suggest that compiled languages have shorter execution times when applying Leibniz's formula up to a very large term.
 \newpage
-# Discussion
+
+## Discussion
 The experiment aimed to analyze the execution time of different programming languages when applying Leibniz’s formula across 7 hardware setups and 6 treatments. The ANOVA diagnostic plots (quantile-quantile and residuals vs. fitted) indicate a well-fitted model, with residuals demonstrating no major deviations from normality and homoscedasticity, supporting the robustness of the analysis. The ANOVA results indicate significant differences amongst the execution times of various languages. The p value for hardware is also very low (< 0.0001) which indicates that hardware setup does have an effect on the execution time of different programming languages.
 
 From the Tukey's HSD post-hoc tests, it is clear that C and C++ have the fastest execution times, as reflected by their significantly lower mean execution times compared to other languages.  Java, a semi-compiled language, performed moderately well, trailing behind C and C++ but significantly ahead of interpreted languages like Python and Ruby. We compared languages that serve similar purpose, such as R and Python in data analysis, and we found, at 95% confidence level, that R is around 2 to 4 times faster than Python when performing large amount of simple mathematical multiplication and addition.
 
 We also collected strong evidence to suggest differences in the performance of compiled and interpreted languages. The compiled languages (C, C++, Java) outperformed interpreted languages (R, Python, and Ruby) by 200% to 300% in our results. Interpreted languages are typically easier to program in than compiled languages and are thus favoured by some programmers. However, our results suggest that less difficulty in the coding stage often implies less efficiency in the final programs produced. We thus strongly recommend programmers to take the efficiency of various programming languages into account when selecting one for their project.
 
-# Conclusion:
+## Conclusion:
 The results of this experiment confirmed that compiled languages (C and C++) exhibit significantly faster execution times compared to both semi-compiled (Java) and interpreted languages (R, Python, Ruby). The performance gap between compiled and interpreted languages becomes particularly evident with large-scale computations, such as, in our case, applying Leibniz’s formula up to 100 million terms. Based on the ANOVA and post-hoc analysis, we found , for large-scale simple mathematical operations, that: *1.*C and C++ are the most efficient languages, followed by Java, R, Python,and then Ruby, in order. *2.*Compiled languages provide a substantial performance advantage over interpreted languages. These findings can be useful for developers when selecting a programming language for performance-critical applications, especially those involving large-scale iterative computations.
 
 \newpage
