@@ -11,7 +11,7 @@ author:
     email: sthsau01001@myuct.ac.za
 nocite: '@*'
 
-abstract: In this report, we explored the efficiency of 6 programming languages through the approximation of $\pi$. We found that efficiency of various programming languages can vary widely, with C and C++ being the most efficient programming languages. We also presented evidence for compiled languages having better performance than interpreted languages. Our results suggest that programmers can benefit from taking the efficiency of various programming languages into account, rather than simply opting for simplicity in the syntax of these languages .
+abstract: In this report, we explored the efficiency of 6 programming languages through the approximation of $\pi$. We found that efficiency of various programming languages can vary widely, with C and C++ being the most efficient programming languages. We also demonstrated evidence for compiled languages having better performance than interpreted languages. Our results suggest that programmers can benefit from taking the efficiency of various programming languages into account, rather than simply opting for simplicity in the syntax of these languages .
   
 keywords: Programming Languages, Efficieny, Large-Scaled Iterative Compuations 
   
@@ -77,7 +77,7 @@ invention of various computing devices that aided such computations,
 such as the Sumerian abacus, invented in Babylon at around
 2500BC [7]. In the 21st century, the capability of our digital computing
 devices have vastly surpassed the capacity of those proto-computers, but
-so has our need for computational power. Most things in our daily life
+so has our need for computational power. Everything in our daily life
 requires some form of computers: from our phones, cars, to even our
 refrigerators (side note: initially, Java was invented for
 refrigerators).
@@ -103,7 +103,7 @@ Examples: C, C++, Rust, and Java are examples of compiled languages. Python, Jav
 \newpage
 
 ## Distribution of Execution Times (Pilot Experiment Part 1):
-Since existing literature on the execution times of programming languages when applying Leibniz's formula is limited, we conducted a mini pilot experiment on a single machine to gauge the execution times for the programming languages we planned on experimenting with. We performed 500 approximations, with the same algorithm, for each programming language and obtained the following jittered graph.
+Since existing literature on the execution times of programming languages when applying Leibniz's formula is limited, we conducted a mini pilot experiment on a single machine to gauge the execution times for the programming languages we planned on experimenting with. We performed 500 approximations using the algorithm for each programming language and obtained the following jittered graph.
 ```{r echo=FALSE, figPrior, fig.cap="Runtimes of Programming Languages of Interest When Applying Leibniz's Formula up to 100 million terms", fig.width=8.5}
 setwd("./speed-comparison-master/data/")
 middleTRNew.before <-read.csv("middleTRNew/middleTRNewBefore.csv")
@@ -125,7 +125,7 @@ We can observe that C and C++ seem to be the fastest languages on this particula
 
 # Methods
 ## Setting
-This study was mostly conducted at the University of Cape Town, utilising the computers available on its campus. We found that there are only 5 different hardware setups available. Thus, to supplement the range of our hardware setups, we also borrowed machines of 2 more hardware setups from our friends.
+This study was mostly conducted at the University of Cape Town, utilising the computers available on campus. We found that there are only 5 different hardware setups available. Thus, to supplement the range of our hardware setups, we also borrowed machines of 2 more hardware setups from our friends.
 
 ## Approximation of $\pi$
 The number $\pi$, the ubiquitous and equally mysterious irrational number, has been fascinating the humankind since time immemorial. Mathematicians from 4000 years ago to the present day have devised various methods to get closer to the true value of $\pi$. One such method is using Leibniz's formula:
@@ -136,27 +136,28 @@ Leibniz, whom the formula is named after, proved that the series above eventuall
 $$
 \pi = 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} ±... \right) = \sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}.
 $$
-We implemented this algorithm in 6 programming languages including 3 compiled languages: C, C++, Java, and 3 interpreted languages: Python, R, Ruby, up to a $100 \times 10^6$ terms. We maintained the consistency amongst the 6 programs to the best of our ability.
+We applied this algorithm in 6 programming languages, including 3 compiled languages: C, C++, Java, and 3 interpreted languages: Python, R, Ruby, up to a $100 \times 10^6$ terms.
+
 
 ## Sampling Procedure
-Existing literature suggests that execution times of programming languages are not normally distributed [10]. We confirmed this in part I of our pilot experiment. This is an issue as it prevented us to apply anova models. To address this, we applied the Central Limit Theorem(CLT) to obtain a normal distribution for the average execution times. We ran the program 15 times per sample for each programming language, and repeated the process 30 times. Applying CLT, it is relatively safe to assume the distribution of sample means is approximately normal [8]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language [2], which we will take as a single observation. (Note: We arrived at the number 15 through trial and error, and 30 from [8])
+Existing literature suggests that execution times of programming languages are typically not normally distributed [10]. We confirmed this in part I of our pilot experiment that none of our languages has normally distributed runtime when performing the algorithm. This is an issue as it prevented us to apply anova models. To address this, we applied the Central Limit Theorem(CLT) to obtain a normal distribution for the average execution times. We ran the program 15 times per sample for each programming language, and repeated the process 30 times. Applying CLT, it is relatively safe to assume the distribution of sample means is approximately normal [2]. If we assume sample means to be normally distributed, the mean of the distribution of sample means is then an unbiased estimator for the true run time of each programming language[2], which we will take as a single observation. (Note: We arrived at the number 15 through trial and error, and 30 from [8])
 
 ## Sources of Variation
 
 #### Treatments:
-We have 6 treatment factors, which are the programming languages we applied the algorithm to. Each treatment has one level (applying the formula up to $100 \times 10^6$ terms). We selected this particular level because it is the largest, practical number of terms we could apply with our hardware setups (For some setups, it may take up to 4 hours to arrive at a single observation), and having fewer terms implies larger relative measurement error [7]. We cannot include more levels because in the existing literature, most studies of such kind chose to run all languages on the same machine. However, since we would like to avoid pseudo replication as much as possible we used one machine per observation. The downside of this approach is that we do not have sufficient machines to test for more than one levels.
+We have 6 treatment factors, which are the programming languages we applied the algorithm to. Each treatment has one level (applying the formula up to $100 \times 10^6$ terms). We selected this particular level because it is the largest, practical number of terms we could apply with our hardware setups (For some setups, it may take up to 4 hours to arrive at a single observation), and fewer terms imply larger relative measurement error [7]. We cannot include more levels because in the existing literature, most studies of such kind choose to run all languages on the same machine. However, since we would like to avoid pseudo replication as much as possible we used one machine per observation. The downside of this approach is that we do not have sufficient machines to perform more than one levels.
 
 #### Blocks: 
-We know that the hardware setup of a computer can significantly affect its speed, and therefore the execution time of our algorithm. We also know that, two computers with the same hardware setup should run at relatively the same speed, provided that they run on the same operating system, and no major damage has been done to either of them. This motivated us to block for the hardware setup of computers, our experimental units.
+We know that the hardware setup of a computer can significantly affect its speed, and therefore the execution time of our algorithm. We also know that, two computers with the same hardware setup should have relatively the speed, provided that they run on the same operating system, and no major damage has been done to either of them. This motivated us to block for the hardware setup of computers, our experimental units.
 
 ## Experimental Units: 
 As mentioned earlier, we would like to avoid pseudo replication as much as possible. Therefore, we deviated from the tradition of running all programming languages on the same machine, and test only one language per machine. Our experimental units are therefore the individual machines we ran each test on.
 
 ## Randomisation Procedure
-We first ordered the computers belonging to each block from 1 to 6. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same assigned number.
+We first ordered the computers belonging to each block from 1 to 6. We then used the random number generator from Python's _random_ module to randomly shuffle, and thus producing a permutation of the list, [C, C++, Java, Python, Ruby, R]. The index of each programming language in the permutation would then be paired to the computer with the same assigned number.
 
 ## Planned Comparisons
-We planned to conduct pairwise comparisons on all treatments. That is, a total of ${6 \choose 2} = 15$ comparisons. We postulated that this would help us find the most efficient language(s). It would also serve our interest by comparing the efficiency of compiled languages (C, C++, Java) and interpreted languages (Python, Ruby, R), as the latter are oftentimes easier to program with. This allows us to better asses the time-cost trade off of these programming languages.
+We planned to conduct pairwise comparisons on all treatments. That is, a total of $6 \choose 2 = 15$ comparisons. We assume this would help us find the most efficient language(s). It would also serve our interest by comparing the efficiency of compiled languages (C, C++, Java) and interpreted languages (Python, Ruby, R), as the latter are oftentimes easier to program with. This allows us to better asses the time-cost trade off of these programming languages.
 
 ## Pilot Experiment Part II
 We followed this direction and performed part II of our pilot study to obtain the following execution times of programming languages on 4 hardware setups
@@ -176,7 +177,7 @@ plot
 
 From the data collected, we observed that the results collected from Ishango do not follow the general trends established by the other three setups. Firstly, the hardware setup in Ishango lab is significantly less advance than MiddleTRNew. Yet, most programming languages tend to perform better on the Ishango machine. Secondly, to add to the first observation, not all programming languages perform better on the Ishango machine.
 
-After further investigation, we learned that programming languages perform differently across various operating systems [4]. We hypothesised that this is the main reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system).
+After further investigation, we learned that programming languages perform differently on various operating systems [4]. We hypothesised that this is the main reason for the deviation, though further studies are needed to confirm this (we lack access to machines with the same hardware setup but run on different operating system).
 
 Therefore, we added another constraint for selecting suitable machines: the machines must all run on Windows 10, as these machines are the most widely available. Other than than that, the results verified our motivation for blocking various hardware setups.
 
@@ -293,14 +294,17 @@ analysis_mean = read.csv("analysis_mean.csv")
 kable(data.frame(analysis_mean), format="pandoc", align=c("c","c","c","c","c","c"), digits=4, caption = "Table of Logarithmic Mean Execution Time")
 ```
 
-Given that we knew our response variables are normally distributed, we opted for the more powerful Tukey's Method, rather than Scheffe's ,to construct 95% confidence intervals that compare the execution time of every possible pair of our 6 programming languages. We use the _TukeyHSD()_ function in R to achieve this. (The full table of the output can be found in the appendix.)
+Given that we knew our response variables are normally distributed, we opted for the more powerful Tukey's Method, rather than Scheffe's ,to construct 95% confidence intervals that compare the execution time of every possible pair of our 6 programming languages. We use the following R function to achieve this. (The full table of the output can be found in the appendix.)
+```{r eval=FALSE}
+TukeyHSD(anova_model$Language)
+```
 
-We can observe that we have strong evidence to suggest that the efficiency of various programming languages when approximating $\pi$ is ranked as follows.
+We can observe that we have strong evidence to suggest that the efficiency of various programming languages when approximating $\pi$ is ranked as followed.
 
 $$
 t(C) \approx t(C++) < t(Java) < t(R) < t(Python) < t(Ruby)
 $$
-We can also see that the efficiency of programming languages can vary significantly, with the 95% confidence interval of the estimated difference in execution time being between C++ and Ruby being: $(e^{3.1058}, e^{3.4530}) = (22.32, 31.60)$. That is, C++ is between 22.32 to 31.60 times faster than Ruby at 95% confidence level!
+We can also see that the efficiency of programming languages can vary siginificantly, with the 95% confidence interval of the estimated difference in execution time between C++ and Ruby being: $(e^{3.1058}, e^{3.4530}) = (22.32, 31.60)$. That is, C++ is between 22.32 to 31.60 times faster than Ruby at 95% Confidence!
 
 It would also be interesting to see, from a statistician's point of view, which of the two most widely used languages in data analysis is more efficient. That is, an answer to the age old question: "Python or R?". We will attempt to present an answer here from the perspective of efficiency: R is estimated to be between 2.01 to 4.03 times faster than Python when performing our algorithm.
 
@@ -329,14 +333,14 @@ The means that, at 95% confidence level, the average execution times of compiled
 \newpage
 
 # Discussion
-The experiment aimed to analyze the execution time of different programming languages when applying Leibniz’s formula across 7 hardware setups and 6 treatments. The ANOVA diagnostic plots (quantile-quantile and residuals vs. fitted) indicate a well-fitted model, with residuals demonstrating no major deviations from our normality and homoscedasticity assumptions, supporting the robustness of the analysis. The ANOVA results indicate significant differences amongst the execution times of various languages. The p value for hardware is also very low (< 0.0001) which indicates that hardware setup does have an effect on the execution time of different programming languages.
+The experiment aimed to analyze the execution time of different programming languages when applying Leibniz’s formula across 7 hardware setups and 6 treatments. The ANOVA diagnostic plots (quantile-quantile and residuals vs. fitted) indicate a well-fitted model, with residuals demonstrating no major deviations from normality and homoscedasticity, supporting the robustness of the analysis. The ANOVA results indicate significant differences amongst the execution times of various languages. The p value for hardware is also very low (< 0.0001) which indicates that hardware setup does have an effect on the execution time of different programming languages.
 \
-From the Tukey's HSD post-hoc tests, it is clear that C and C++ have the fastest execution times, as reflected by their significantly lower mean execution times compared to other languages.  Java, a semi-compiled language, performed moderately well, trailing behind C and C++ but significantly ahead of interpreted languages like Python and Ruby. We analysed the difference in efficiency amongst languages that serve similar purposes, such as R and Python in data analysis, and we found, at 95% confidence level, that R is around 2 to 4 times faster than Python when performing large amount of simple real number multiplication and addition.
+From the Tukey's HSD post-hoc tests, it is clear that C and C++ have the fastest execution times, as reflected by their significantly lower mean execution times compared to other languages.  Java, a semi-compiled language, performed moderately well, trailing behind C and C++ but significantly ahead of interpreted languages like Python and Ruby. We compared languages that serve similar purpose, such as R and Python in data analysis, and we found, at 95% confidence level, that R is around 2 to 4 times faster than Python when performing large amount of simple mathematical multiplication and addition.
 \
 We also collected strong evidence to suggest differences in the performance of compiled and interpreted languages. The compiled languages (C, C++, Java) outperformed interpreted languages (R, Python, and Ruby) by 200% to 300% in our results. Interpreted languages are typically easier to program in than compiled languages and are thus favoured by some programmers. However, our results suggest that less difficulty in the coding stage often implies less efficiency in the final programs produced. We thus strongly recommend programmers to take the efficiency of various programming languages into account when selecting one for their project.
 
 # Conclusion:
-The results of this experiment confirmed that compiled languages (C and C++) exhibit significantly faster execution times compared to both semi-compiled (Java) and interpreted languages (R, Python, Ruby). The performance gap between compiled and interpreted languages becomes particularly evident with large-scale iterative computations, such as, in our case, applying Leibniz’s formula up to 100 million terms. Based on the ANOVA and post-hoc analysis, we found, for large-scale simple mathematical operations, that: *1.*C and C++ are the most efficient languages, followed by Java, R, Python,and then Ruby, in order. *2.*Compiled languages provide a substantial performance advantage over interpreted languages. These findings can be useful for developers when selecting a programming language for performance-critical applications.
+The results of this experiment confirmed that compiled languages (C and C++) exhibit significantly faster execution times compared to both semi-compiled (Java) and interpreted languages (R, Python, Ruby). The performance gap between compiled and interpreted languages becomes particularly evident with large-scale computations, such as, in our case, applying Leibniz’s formula up to 100 million terms. Based on the ANOVA and post-hoc analysis, we found , for large-scale simple mathematical operations, that: *1.*C and C++ are the most efficient languages, followed by Java, R, Python,and then Ruby, in order. *2.*Compiled languages provide a substantial performance advantage over interpreted languages. These findings can be useful for developers when selecting a programming language for performance-critical applications.
 \newpage
 
 # Appendix

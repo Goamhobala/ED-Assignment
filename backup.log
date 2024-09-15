@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.11)  15 SEP 2024 22:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.11)  15 SEP 2024 23:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -793,26 +793,26 @@ Package pdftex.def Info: backup_files/figure-latex/figAnova-1.pdf  used on input
 [9]
 
 [10]
-Overfull \hbox (33.90689pt too wide) in paragraph at lines 547--562
+Overfull \hbox (33.90689pt too wide) in paragraph at lines 548--563
  [][] 
  []
 
 
 
 [11]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 639.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 640.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 639.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 640.
 
-Overfull \hbox (25.77019pt too wide) in paragraph at lines 614--650
+Overfull \hbox (25.77019pt too wide) in paragraph at lines 615--651
 \OT1/cmr/m/n/12 Avail-able from: https://medium.com/tech-is-a-tool/the-dawn-of-computing-sumerian-abacus-
  []
 
 
-Overfull \hbox (22.38042pt too wide) in paragraph at lines 614--650
+Overfull \hbox (22.38042pt too wide) in paragraph at lines 615--651
 \OT1/cmr/m/n/12 Uni-ver-sity of Penn-syl-va-nia; Avail-able from: https://online.stat.psu.edu/stat501/lesson/4/4.2. 
  []
 
@@ -835,7 +835,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  75i,12n,79p,420b,560s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/youyasushi/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on backup.pdf (14 pages, 719834 bytes).
+Output written on backup.pdf (14 pages, 721655 bytes).
 PDF statistics:
  309 PDF objects out of 1000 (max. 8388607)
  248 compressed objects within 3 object streams
