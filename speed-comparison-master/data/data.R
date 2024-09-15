@@ -4,6 +4,7 @@ library(gridExtra)
 library(kableExtra)
 library(qqplotr)
 library(formattable)
+library(xtable)
 this.dir <- dirname(parent.frame(2)$ofile)
 setwd(this.dir)
 
@@ -47,21 +48,31 @@ analysis_interaction <- ggplot(analysis.long, aes(x=Language, y=log(Runtime), gr
   geom_point()+
   geom_line()+
   labs(title= "Interaction Graph",
-       x= "Progamming Language",
-       y= "Runtime")
+       x= "Language",
+       y= "Runtime (log(ms))")+
+  theme(
+    legend.text = element_text(size = 6),
+    legend.title = element_text(size = 0),
+    legend.key.size = unit(0.15, "cm"),
+    legend.position = "bottom"
+    )+
+  guides(color = guide_legend(override.aes = list(size = 0.5)))
+  
+  
 
 anova <- aov(Runtime~Language + Hardware, analysis.long)
 anova_log <- aov(log(Runtime)~Language + Hardware, analysis.long)
 anova_log.residauls = residuals(anova_log)
 anova_qq <- ggplot(data.frame(anova_log.residauls), aes(sample=(anova_log.residauls)))+
-  geom_qq(col="firebrick", size=2.5)+
-  geom_qq_line(col="deepskyblue4", size=1, alpha=0.75)+
-  labs(x="Quantile", y="Runtime log(ms)")
-  
+  geom_qq(col="firebrick", size=2)+
+  geom_qq_line(col="deepskyblue4", alpha=0.75)+
+  labs(x="Quantile", y="Runtime log(ms)", title="Quantile-Quantile")
+
 
 anova_residuals_fitted <- ggplot(anova_log,aes(x=fitted(anova_log), y=anova_log.residauls))+
   geom_point(col="firebrick")+
-  geom_smooth(col="deepskyblue4", size=1, alpha=0, )
+  geom_smooth(col="deepskyblue4",alpha=0 )+
+  labs(x="Fitted", y="Residuals (log(ms))", title="Residuals vs Fitted")
 
 frame <- data.frame(summary(anova_log)[[1]])
 colnames(frame) <- c("Df", "Sum sq", "Mean sq", "F value", "Pr(>F)")
@@ -77,7 +88,7 @@ middleTRNew.before <-read.csv("middleTRNew/middleTRNewBefore.csv")
 middleTRNew.before.long <- pivot_longer(middleTRNew.before, cols=everything(), names_to="language", values_to="runtime")
 ggplot(middleTRNew.before.long, aes(x=language, y=log(runtime), color=language))+
   geom_point(alpha=0.3, position=position_jitter(height=1, width=0.3))+
-  labs(x="Language", y="Runtime (log(ms))", title="Jittered Graph of Runtime for Programming Languages")
+  labs(x="Language", y="Runtime (log(ms))", title="Jittered Graph of Runtime for Programming Languages", size=0.5)
 
 
 shapiro = c()
@@ -116,5 +127,16 @@ table_tukey
 # Display the formatted table
 table_tukey
 
+analysis_box <- ggplot(analysis.long, aes(x=Language, y=log(Runtime)))+
+  theme_minimal()+
+  geom_boxplot(color="red3", fill = "deepskyblue4", lwd=0.6)+
+  labs(x="Language", y="Runtime (log(ms))", title="Box Plot of Exection Time")
+
+#grid.arrange(anova_qq, anova_residuals_fitted, analysis_box, analysis_interaction, layout_matrix= rbind(c(1, 1, 1,1, 1, 2,2, 2, 2, 2), c(1, 1, 1,1, 1, 2,2, 2, 2, 2),c(4, 4,4,4,4,4,3,3, 3,3),c(4, 4,4,4,4,4,3,3, 3,3),c(4, 4,4,4,4,4,3,3, 3,3)))
+
+
+
+TK <- TukeyHSD(anova_log)
+kable(TK$Language)
 #for (i in 1:7):
   #shapiro <- c(shapiro.test(pilot))
