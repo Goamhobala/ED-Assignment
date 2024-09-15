@@ -73,41 +73,6 @@
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
 
-% Pandoc citation processing
-%From Pandoc 3.1.8
-% definitions for citeproc citations
-\NewDocumentCommand\citeproctext{}{}
-\NewDocumentCommand\citeproc{mm}{%
-  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
-\makeatletter
- % allow citations to break across lines
- \let\@cite@ofmt\@firstofone
- % avoid brackets around text for \cite:
- \def\@biblabel#1{}
- \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
-\makeatother
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
- {\begin{list}{}{%
-  \setlength{\itemindent}{0pt}
-  \setlength{\leftmargin}{0pt}
-  \setlength{\parsep}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-   \setlength{\leftmargin}{\cslhangindent}
-   \setlength{\itemindent}{-1\cslhangindent}
-  \fi
-  % set entry spacing
-  \setlength{\itemsep}{#2\baselineskip}}}
- {\end{list}}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \usepackage{float} \floatplacement{figure}{H} \usepackage{caption} \captionsetup[figure]{font=scriptsize}
 \usepackage{booktabs}
@@ -153,17 +118,19 @@
 %
 }
 
-\abstract{In this report, we explore the efficiency of 6 programming
-languages through the approximation of \(\pi\). We found that C and C++
-are the most efficient programming languages, and show case evidence for
-compiled languages having better performance than interpreted languages.
-Our results suggest that programmers will benefit from taking the
-efficiency of various programming languages into account, rather than
-simply opting for simplicity in syntax .}
+\abstract{In this report, we explored the efficiency of 6 programming
+languages through the approximation of \(\pi\). We found that efficiency
+of various programming languages can vary widely, with C and C++ being
+the most efficient programming languages. We also demonstrated evidence
+for compiled languages having better performance than interpreted
+languages. Our results suggest that programmers can benefit from taking
+the efficiency of various programming languages into account, rather
+than simply opting for simplicity in the syntax of these languages .}
 
 \date{2024-09-15}
 
-\keywords{}
+\keywords{Programming Languages, Efficieny, Large-Scaled Iterative
+Compuations}
 
 \maketitle
 
@@ -450,7 +417,7 @@ sensible to assume \(e_{ij} \sim \mathcal{N}(0, \sigma^2)\)
 \subsection{Pairwise Comparisons}\label{pairwise-comparisons}
 
 \begin{longtable}[]{@{}cccccc@{}}
-\caption{Table of Treatment Means in log(ms)}\tabularnewline
+\caption{Table of Logarithmic Mean Execution Time}\tabularnewline
 \toprule\noalign{}
 C & CPP & Java & Python & Ruby & R \\
 \midrule\noalign{}
@@ -464,40 +431,31 @@ C & CPP & Java & Python & Ruby & R \\
 2.6786 & 2.6586 & 3.0568 & 3.7041 & 4.1582 & 3.3732 \\
 \end{longtable}
 
-Given that we know our response variables are normally distributed, we
-used Tukey's Method to construct 95\% confidence intervals that compare
-the execution time of every possible pair of our 6 programming
-languages. Sine we know the estimate of the standard deviation of
-residuals, we can estimate the standard error (SE) of our treatment
-means, and then use it to deduce Tukey's Honestly Significant
-Difference(HSD): \[
-\begin{aligned}
-SE &= \frac{s}{\sqrt{b}}\\
-&= \frac{0.0456}{\sqrt{13}}\\\\
-HSD &= q_{6,30}^{0.05} \frac{s}{\sqrt{b}}\\
-&= 4.3015 \times \frac{\sqrt{0.0456}}{\sqrt{13}}\\
-&= 0.2535
-\end{aligned}
-\]
+Given that we knew our response variables are normally distributed, we
+opted for the more powerful Tukey's Method, rather than Scheffe's ,to
+construct 95\% confidence intervals that compare the execution time of
+every possible pair of our 6 programming languages. We use the following
+R function to achieve this. (The full table of the output can be found
+in the appendix.)
 
-\begin{figure}[H]
+We can observe that we have strong evidence to suggest that the
+efficiency of various programming languages when approximating \(\pi\)
+is ranked as followed.
 
-{\centering \includegraphics[width=300px,height=150px]{skeleton_files/table_tukey} 
-
-}
-
-\caption{Results of Tukey's Honestly Significance Difference Test. Values Greater than HSD are Highlighted in Blue}\label{fig:tableTukey}
-\end{figure}
-
-We can see from the table of Tukey's HSD tests at 95\% confidence level
-that C and C++ have the fastest execution times than others when
-performing the algorithm up to \(100 \times 10^6\) terms. The results
-can be summarised as follows: \[
+\[
 t(C) \approx t(C++) < t(Java) < t(R) < t(Python) < t(Ruby)
-\] The p-values for comparatively more significant results (p-value
-\textgreater{} 0.005) are given below:\\
-- R vs Python: 0.0173\\
-- R vs Java: 0.0080
+\] We can also see that the efficiency of programming languages can vary
+siginificantly, with the 95\% confidence interval of the estimated
+difference in execution time between C++ and Ruby being:
+\((e^{3.1058}, e^{3.4530}) = (22.32, 31.60)\). That is, C++ is between
+22.32 to 31.60 times faster than Ruby at 95\% Confidence!
+
+It would also be interesting to see, from a statistician's point of
+view, which of the two most widely used languages in data analysis is
+more efficient. That is, an answer to the age old question: ``Python or
+R?''. We will attempt to present an answer here from the perspective of
+efficiency: R is estimated to be between 2.01 to 4.03 times faster than
+Python when performing our algorithm.
 
 \subsection{Compiled vs Interpreted}\label{compiled-vs-interpreted}
 
@@ -520,44 +478,43 @@ then construct a 95\% confidence interval as follows: \begin{align*}
 -0.9198 &\pm 0.0659 \times 2.0422\\
 \intertext{Thus, the 95\% Confidence interval is as follows: }
 95\%C.I. &= (-1.0544 ,-0.7852)
-\end{align*}
+\end{align*}\\
+The means that, at 95\% confidence level, the average execution times of
+compiled languages is estimated to be between 2.19 to 2.87 times shorter
+than that of the interpreted languages . We therefore have strong
+evidence to suggest that compiled languages have shorter execution times
+when applying Leibniz's formula up to a very large term. \newpage \#
+Discussion The experiment aimed to analyze the execution time of
+different programming languages when applying Leibniz's formula across 7
+hardware setups and 6 treatments. The ANOVA diagnostic plots
+(quantile-quantile and residuals vs.~fitted) indicate a well-fitted
+model, with residuals demonstrating no major deviations from normality
+and homoscedasticity, supporting the robustness of the analysis. The
+ANOVA results indicate significant differences amongst the execution
+times of various languages. The p value for hardware is also very low
+(\textless{} 0.0001) which indicates that hardware setup does have an
+effect on the execution time of different programming languages.
 
-The mean log execution time of compiled languages is estimated to be
--1.05 log(ms) to -0.79 log(ms) shorter than the mean log execution time
-of interpreted languages at 95\% confidence level. We therefore have
-strong evidence to suggests that compiled languages have shorter
-execution times when applying Leibniz's formula up to a very large term.
-\newpage
-
-\section{Discussion}\label{discussion}
-
-The experiment aimed to analyze the execution time of different
-programming languages when applying Leibniz's formula across 7 hardware
-setups and 6 treatments. The ANOVA results indicate significant
-differences amongst the execution times of various languages. The p
-value for hardware is also very low (\textless{} 0.0001) which indicates
-that hardware setup does have an effect on the execution time of
-different programming languages.\\
 From the Tukey's HSD post-hoc tests, it is clear that C and C++ have the
 fastest execution times, as reflected by their significantly lower mean
-execution times compared to other languages. The compiled languages (C,
-C++) outperformed Java, R, Python, and Ruby, suggesting a performance
-gap that favors compiled over interpreted languages. Java, a
-semi-compiled language, performed moderately well, trailing behind C and
-C++ but significantly ahead of interpreted languages like Python and
-Ruby.\\
+execution times compared to other languages. Java, a semi-compiled
+language, performed moderately well, trailing behind C and C++ but
+significantly ahead of interpreted languages like Python and Ruby. We
+compared languages that serve similar purpose, such as R and Python in
+data analysis, and we found, at 95\% confidence level, that R is around
+2 to 4 times faster than Python when performing large amount of simple
+mathematical multiplication and addition.
+
 We also collected strong evidence to suggest differences in the
-performance of compiled and interpreted languages. The estimated log
-execution times show a distinct advantage for compiled languages, with a
-difference of -1.05 log(ms) to -0.79 log(ms), further validating that
-compiled languages tend to be faster.\\
-The ANOVA diagnostic plots (quantile-quantile and residuals vs.~fitted)
-indicate a well-fitted model, with residuals demonstrating no major
-deviations from normality and homoscedasticity, supporting the
-robustness of the analysis.\\
-Based on the results, we strongly recommend programmers to take the
-efficiency of various programming languages into account when selecting
-one for their project.
+performance of compiled and interpreted languages. The compiled
+languages (C, C++, Java) outperformed interpreted languages (R, Python,
+and Ruby) by 200\% to 300\% in our results. Interpreted languages are
+typically easier to program in than compiled languages and are thus
+favoured by some programmers. However, our results suggest that less
+difficulty in the coding stage often implies less efficiency in the
+final programs produced. We thus strongly recommend programmers to take
+the efficiency of various programming languages into account when
+selecting one for their project.
 
 \section{Conclusion:}\label{conclusion}
 
@@ -565,21 +522,20 @@ The results of this experiment confirmed that compiled languages (C and
 C++) exhibit significantly faster execution times compared to both
 semi-compiled (Java) and interpreted languages (R, Python, Ruby). The
 performance gap between compiled and interpreted languages becomes
-particularly evident with large-scale computations, such as Leibniz's
-formula for a billion terms. Based on the ANOVA and post-hoc analysis,
-we can conclude with 95\% confidence that compiled languages provide a
-substantial performance advantage over interpreted languages for this
-computational task. These findings can be useful for developers when
-choosing a programming language for performance-critical applications,
-especially those involving large iterative computations.
+particularly evident with large-scale computations, such as, in our
+case, applying Leibniz's formula up to 100 million terms. Based on the
+ANOVA and post-hoc analysis, we found , for large-scale simple
+mathematical operations, that: \emph{1.} C and C++ are the most
+efficient languages, followed by Java, R, Python, then Ruby in order.
+\emph{2.} Compiled languages provide a substantial performance advantage
+over interpreted languages. These findings can be useful for developers
+when selecting a programming language for performance-critical
+applications, especially those involving large-scale iterative
+computations.
 
 \newpage
 
 \section{Appendix}\label{appendix}
-
-\paragraph{PC Specificiations}\label{pc-specificiations}
-
-\hfill\break
 
 \begin{table}[ht]
 \centering
@@ -642,38 +598,50 @@ R-Python & -0.761948 & -1.109166 & -0.414731 & 0.000003\\
 Ruby-Python & 1.045724 & 0.698507 & 1.392942 & 0.000000\\
 Ruby-R & 1.807673 & 1.460456 & 2.154890 & 0.000000\\
 \bottomrule
-\multicolumn{5}{l}{\rule{0pt}{1em}Table 5: Table of Differences in Execution Time with Tukey's Method}\\
+\multicolumn{5}{l}{\rule{0pt}{1em}Table 5: Table of Differences in Log Execution Time with Tukey's Method}\\
 \end{longtable}
 \endgroup{}
 
 \newpage
 
-\section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
+\section{Reference}\label{reference}
 
-\phantomsection\label{refs}
-\begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-braun_2022_is}
-Braun, Javen. 2022. {``Is Linux Faster Than Windows? Speed Comparison \&
-Analysis.''} Linux JournalDigital.
-\url{https://www.linuxjournaldigital.com/is-linux-faster-than-windows/}.
-
-\bibitem[\citeproctext]{ref-dean_2006_design}
-Dean, Angela M, and Daniel Voss. 2006. \emph{Design and Analysis of
-Experiments}. Springer Science \& Business Media.
-
-\bibitem[\citeproctext]{ref-greenwood_2021_intermediate}
-Greenwood, Mark C. 2021. \emph{Intermediate Statistics with r}.
-
-\bibitem[\citeproctext]{ref-juritz_2023_design}
-Juritz, J, F Little, and B Erni. 2023. \emph{Design of Experiment:
-Course Notes for STA2005S}. University of Cape Town.
-
-\bibitem[\citeproctext]{ref-mavuso_2019_order}
-Mavuso, Melusi, and Yuri Robbertze. 2019. \emph{Order Out of Chaos i and
-II: STA2004F Notes}. University of Cape Town.
-
-\end{CSLReferences}
+{[}1{]} Juritz J, Little F, Erni B. Design of Experiment: Course Notes
+for STA2005S. University of Cape Town; 2023.\\
+\strut \\
+{[}2{]} Mavuso M, Robbertze Y. Order Out of Chaos I and II: STA2004F
+Notes. University of Cape Town; 2019.\\
+\strut \\
+{[}3{]} Dean AM, Voss D. Design and Analysis of Experiments. Springer
+Science \& Business Media; 2006.\\
+\strut \\
+{[}4{]} Braun J. Is Linux Faster Than Windows? Speed Comparison \&
+Analysis {[}Internet{]}. Linux JournalDigital. 2022. Available from:
+https://www.linuxjournaldigital.com/is-linux-faster-than-windows/.\\
+\strut \\
+{[}5{]} Greenwood MC. Intermediate Statistics with R. 2021.\\
+\strut \\
+{[}6{]} Fourment M, Gillings MR. A comparison of common programming
+languages used in bioinformatics. BMC Bioinformatics. 2008;9.\\
+\strut \\
+{[}7{]} Rhodes B. Computing is Born: The Sumerian Abacus {[}Internet{]}.
+\#TechIsATool. 2020. Available from:
+https://medium.com/tech-is-a-tool/the-dawn-of-computing-sumerian-abacus-83bdefb697ba.\\
+\strut \\
+{[}8{]} Underhill LG, Bradfield D. Introstat. University of Cape Town;
+2007.\\
+\strut \\
+{[}9{]} Residuals vs.~Fits Plot \textbar{} STAT 501 {[}Internet{]}.
+PennState: Statistics Online Courses. University of Pennsylvania;
+Available from: https://online.stat.psu.edu/stat501/lesson/4/4.2.\\
+\strut \\
+{[}10{]} Chapter 16 - Anova {[}Internet{]}. University of South
+Carolina; 2018 {[}cited 2024 Sep 14{]}. Available from:
+https://www.biostat.jhsph.edu/\textasciitilde iruczins/teaching/jf/ch16.pdf.\\
+\strut \\
+{[}11{]} Matheus, Adriano Kamimura Suzuki. Determining the Probability
+Distribution of Execution Times. 2021 IEEE Symposium on Computers and
+Communications (ISCC). 2021;
 
 
 

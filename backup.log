@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.11)  15 SEP 2024 19:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.11)  15 SEP 2024 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -495,10 +495,7 @@ LaTeX Info: Redefining \addtolength on input line 81.
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \fn@notes=\box113
 \fn@width=\dimen262
-)
-\cslhangindent=\skip75
-\csllabelwidth=\skip76
-(/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+) (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
@@ -525,9 +522,9 @@ Package caption Info: rotating package is loaded.
 Package caption Info: subfigure package is loaded.
 ) (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip77
+\multirow@colwidth=\skip75
 \multirow@cntb=\count338
-\multirow@dima=\skip78
+\multirow@dima=\skip76
 \bigstrutjot=\dimen271
 ) (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen272
@@ -539,7 +536,7 @@ Package: wrapfig 2003/01/31  v 3.6
 ) (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
 \everycr=\toks35
-\minrowclearance=\skip79
+\minrowclearance=\skip77
 \rownum=\count340
 ) (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
@@ -579,7 +576,7 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@arstrutbox=\box117
 \tabu@hleads=\box118
 \tabu@vleads=\box119
-\tabu@cellskip=\skip80
+\tabu@cellskip=\skip78
 ) (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box120
@@ -590,11 +587,11 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\TPTL@width=\skip81
+\TPTL@width=\skip79
 ) (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box121
 \UL@hyphenbox=\box122
-\UL@skip=\skip82
+\UL@skip=\skip80
 \UL@hook=\toks38
 \UL@height=\dimen285
 \UL@pe=\count348
@@ -614,24 +611,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./backup.aux)
 \openout1 = `backup.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -672,7 +669,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 128.
+Package hyperref Info: Link coloring OFF on input line 93.
 (./backup.out) (./backup.out)
 \@outlinefile=\write5
 \openout5 = `backup.out'.
@@ -682,15 +679,15 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 136.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 136.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 169.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 136.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
@@ -701,26 +698,26 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 {/Users/youyasushi/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 [2]
-<backup_files/figure-latex/figPrior-1.pdf, id=106, 614.295pt x 325.215pt>
+<backup_files/figure-latex/figPrior-1.pdf, id=102, 614.295pt x 325.215pt>
 File: backup_files/figure-latex/figPrior-1.pdf Graphic file (type pdf)
 <use backup_files/figure-latex/figPrior-1.pdf>
-Package pdftex.def Info: backup_files/figure-latex/figPrior-1.pdf  used on input line 230.
+Package pdftex.def Info: backup_files/figure-latex/figPrior-1.pdf  used on input line 197.
 (pdftex.def)             Requested size: 452.9679pt x 239.80676pt.
 
 
 [3 <./backup_files/figure-latex/figPrior-1.pdf>]
 
-LaTeX Warning: Command \textpm invalid in math mode on input line 256.
+LaTeX Warning: Command \textpm invalid in math mode on input line 223.
 
 
-LaTeX Warning: Command \textpm invalid in math mode on input line 256.
+LaTeX Warning: Command \textpm invalid in math mode on input line 223.
 
 Missing character: There is no ± in font cmr12!
 
-LaTeX Warning: Command \textpm invalid in math mode on input line 259.
+LaTeX Warning: Command \textpm invalid in math mode on input line 226.
 
 
-LaTeX Warning: Command \textpm invalid in math mode on input line 259.
+LaTeX Warning: Command \textpm invalid in math mode on input line 226.
 
 Missing character: There is no ± in font cmr12!
 
@@ -729,65 +726,71 @@ Missing character: There is no ± in font cmr12!
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 328.
+(amsmath)                 on input line 295.
 
 
 
 [5]
-<backup_files/figure-latex/figPilot-1.pdf, id=137, 469.755pt x 144.54pt>
+<backup_files/figure-latex/figPilot-1.pdf, id=133, 469.755pt x 144.54pt>
 File: backup_files/figure-latex/figPilot-1.pdf Graphic file (type pdf)
 <use backup_files/figure-latex/figPilot-1.pdf>
-Package pdftex.def Info: backup_files/figure-latex/figPilot-1.pdf  used on input line 342.
+Package pdftex.def Info: backup_files/figure-latex/figPilot-1.pdf  used on input line 309.
 (pdftex.def)             Requested size: 452.9679pt x 139.37434pt.
 
 
 [6 <./backup_files/figure-latex/figPilot-1.pdf>]
-<diagram.png, id=148, 983.47424pt x 325.215pt>
+<diagram.png, id=144, 983.47424pt x 325.215pt>
 File: diagram.png Graphic file (type png)
 <use diagram.png>
-Package pdftex.def Info: diagram.png  used on input line 397.
+Package pdftex.def Info: diagram.png  used on input line 364.
 (pdftex.def)             Requested size: 452.9679pt x 149.78432pt.
 
 
 [7 <./diagram.png>]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 411.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 378.
 (/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 411.
-<backup_files/figure-latex/figAnova-1.pdf, id=157, 469.755pt x 289.08pt>
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 378.
+<backup_files/figure-latex/figAnova-1.pdf, id=153, 469.755pt x 289.08pt>
 File: backup_files/figure-latex/figAnova-1.pdf Graphic file (type pdf)
 <use backup_files/figure-latex/figAnova-1.pdf>
-Package pdftex.def Info: backup_files/figure-latex/figAnova-1.pdf  used on input line 427.
+Package pdftex.def Info: backup_files/figure-latex/figAnova-1.pdf  used on input line 394.
 (pdftex.def)             Requested size: 401.50146pt x 247.07774pt.
 
 
 [8 <./backup_files/figure-latex/figAnova-1.pdf>]
-<skeleton_files/table_tukey.png, id=173, 1042.89626pt x 491.8375pt>
-File: skeleton_files/table_tukey.png Graphic file (type png)
-<use skeleton_files/table_tukey.png>
-Package pdftex.def Info: skeleton_files/table_tukey.png  used on input line 485.
-(pdftex.def)             Requested size: 301.12727pt x 150.56181pt.
 
-
-[9 <./skeleton_files/table_tukey.png>]
+[9]
 
 [10]
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 582--583
-
- []
-
-
-Overfull \hbox (33.90689pt too wide) in paragraph at lines 586--601
+Overfull \hbox (33.90689pt too wide) in paragraph at lines 542--557
  [][] 
  []
 
 
 
 [12]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 634.
+(/Users/youyasushi/Library/TinyTeX/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 634.
+
+Overfull \hbox (25.77019pt too wide) in paragraph at lines 609--645
+\OT1/cmr/m/n/12 Avail-able from: https://medium.com/tech-is-a-tool/the-dawn-of-computing-sumerian-abacus-
+ []
+
+
+Overfull \hbox (22.38042pt too wide) in paragraph at lines 609--645
+\OT1/cmr/m/n/12 Uni-ver-sity of Penn-syl-va-nia; Avail-able from: https://online.stat.psu.edu/stat501/lesson/4/4.2. 
+ []
+
+
 
 [13] (./backup.aux)
  ***********
@@ -795,21 +798,21 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `backup.out' has not changed.
-(rerunfilecheck)             Checksum: 3BFC8FCD223657674D87D0EDEFCEA064;3047.
+(rerunfilecheck)             Checksum: 048525E160C74D90E3718108D20B32F7;2946.
  ) 
 Here is how much of TeX's memory you used:
- 16332 strings out of 475539
- 260704 string characters out of 5776321
- 675021 words of memory out of 5000000
- 38653 multiletter control sequences out of 15000+600000
- 570582 words of font info for 88 fonts, out of 8000000 for 9000
+ 16304 strings out of 475539
+ 260024 string characters out of 5776321
+ 674393 words of memory out of 5000000
+ 38632 multiletter control sequences out of 15000+600000
+ 570413 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,12n,79p,420b,560s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </Users/youyasushi/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on backup.pdf (13 pages, 636291 bytes).
+ </Users/youyasushi/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></Users/youyasushi/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on backup.pdf (13 pages, 592584 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
- 239 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 194 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 279 PDF objects out of 1000 (max. 8388607)
+ 221 compressed objects within 3 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
