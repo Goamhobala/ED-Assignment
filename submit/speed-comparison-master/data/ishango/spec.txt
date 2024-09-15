@@ -1,0 +1,21 @@
+# System Details Report
+---
+
+## Report details
+- **Date generated:**                              2024-09-04 11:53:39
+
+## Hardware Information:
+- **Hardware Model:**                              ASUSTeK COMPUTER INC. PRIME H370M-PLUS
+- **Memory:**                                      8.0 GiB
+- **Processor:**                                   Intel® Core™ i3-9100 × 4
+- **Graphics:**                                    Intel® UHD Graphics 630 (CFL GT2)
+- **Disk Capacity:**                               1.0 TB
+
+## Software Information:
+- **Firmware Version:**                            2601
+- **OS Name:**                                     Ubuntu 24.04 LTS
+- **OS Build:**                                    (null)
+- **OS Type:**                                     64-bit
+- **GNOME Version:**                               46
+- **Windowing System:**                            Wayland
+- **Kernel Version:**                              Linux 6.8.0-36-generic
