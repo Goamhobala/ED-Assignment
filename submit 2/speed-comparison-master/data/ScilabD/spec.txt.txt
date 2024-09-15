@@ -1,0 +1,8 @@
+Device name	SCI-D-049
+Full device name	SCI-D-049.wf.uct.ac.za
+Processor	Intel(R) Core(TM) i5-10500 CPU @ 3.10GHz   3.10 GHz
+Installed RAM	16,0 GB (15,8 GB usable)
+Device ID	4A728C8C-B0C9-4C04-BF97-BB3602D5C7D7
+Product ID	00329-00000-00003-AA739
+System type	64-bit operating system, x64-based processor
+Pen and touch	No pen or touch input is available for this display

@@ -1,0 +1,8 @@
+Device name	CSS-JAMES4B
+Full device name	CSS-JAMES4B.wf.uct.ac.za
+Processor	Intel(R) Core(TM) i5-9400F CPU @ 2.90GHz   2.90 GHz
+Installed RAM	8,00 GB
+Device ID	B2AE1ADB-1EF2-462E-B261-9A21F61F9380
+Product ID	00329-00000-00003-AA391
+System type	64-bit operating system, x64-based processor
+Pen and touch	No pen or touch input is available for this display
