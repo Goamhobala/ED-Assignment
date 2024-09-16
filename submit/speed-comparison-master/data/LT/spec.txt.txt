@@ -1,8 +1,0 @@
-Device name	CSS-CS302
-Full device name	CSS-CS302.wf.uct.ac.za
-Processor	Intel(R) Core(TM) i5-9400F CPU @ 2.90GHz   2.90 GHz
-Installed RAM	8,00 GB
-Device ID	2BE333A3-5B8A-4444-A45C-8A3DD10F96FD
-Product ID	00329-00000-00003-AA382
-System type	64-bit operating system, x64-based processor
-Pen and touch	No pen or touch input is available for this display

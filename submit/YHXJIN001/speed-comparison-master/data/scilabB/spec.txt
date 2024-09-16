@@ -1,8 +1,0 @@
-Device name	SCI-B-017
-Full device name	SCI-B-017.wf.uct.ac.za
-Processor	12th Gen Intel(R) Core(TM) i5-12400   2.50 GHz
-Installed RAM	16,0 GB (15,7 GB usable)
-Device ID	517FE155-A109-4A17-8F2D-985B9682A2E8
-Product ID	00329-00000-00003-AA146
-System type	64-bit operating system, x64-based processor
-Pen and touch	No pen or touch input is available for this display

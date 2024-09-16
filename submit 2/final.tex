@@ -111,7 +111,7 @@
 \and
 \name{Saurav Sathnarayan}
 %
-\email{\href{mailto:sthsau01001@myuct.ac.za}{sthsau01001@myuct.ac.za}}%
+\email{\href{mailto:sthsau001@myuct.ac.za}{sthsau001@myuct.ac.za}}%
 %
 %
 %
@@ -127,7 +127,7 @@ Our results suggest that programmers can benefit from taking the
 efficiency of various programming languages into account, rather than
 simply opting for simplicity in the syntax of these languages .}
 
-\date{2024-09-15}
+\date{2024-09-16}
 
 \keywords{Programming Languages, Efficieny, Large-Scaled Iterative
 Compuations}
@@ -258,18 +258,18 @@ at the number 15 through trial and error, and 30 from {[}8{]})
 
 \paragraph{Treatments:}\label{treatments}
 
-We have 6 treatment factors, which are the programming languages we
-applied the algorithm to. Each treatment has one level (applying the
-formula up to \(100 \times 10^6\) terms). We selected this particular
-level because it is the largest, practical number of terms we could
-apply with our hardware setups (For some setups, it may take up to 4
-hours to arrive at a single observation), and having fewer terms implies
-larger relative measurement error {[}7{]}. We cannot include more levels
-because in the existing literature, most studies of such kind chose to
-run all languages on the same machine. However, since we would like to
-avoid pseudo replication as much as possible we used one machine per
-observation. The downside of this approach is that we do not have
-sufficient machines to test for more than one levels.
+We have 6 treatment factors, which are the programming languages in
+which we applied the formula up to \(100 \times 10^6\) terms. We
+selected this particular number of terms because it is the largest,
+practical number of terms we could apply with our hardware setups (For
+some setups, it may take up to 4 hours to arrive at a single
+observation), and having fewer terms implies larger relative measurement
+error {[}7{]}. We cannot examine the effects of using different numbers
+of terms because in the existing literature, most studies of such kind
+chose to run all languages on the same machine. However, since we would
+like to avoid pseudo replication as much as possible we used one machine
+per observation. The downside of this approach is that we do not have
+sufficient machines to test for more factors.
 
 \paragraph{Blocks:}\label{blocks}
 
@@ -562,7 +562,7 @@ applications. \newpage
   9 & HP (i5-7200)  &   7th Gen Intel(R) Core(TM) i5-7200  &   8.0 GB   &   Windows 10 \\ 
    \hline
 \end{tabular}
-\caption{Table of Pcs used and their respective specifications} 
+\caption{Table of Hardware Setups} 
 \end{table}
 
 \begin{table}[ht]
@@ -580,7 +580,7 @@ applications. \newpage
   7 & LT & 2.76 & 2.68 & 3.01 & 3.71 & 4.12 & 3.40 \\ 
    \hline
 \end{tabular}
-\caption{Table of data used for analysis} 
+\caption{Table of Execution Time in log(ms)} 
 \end{table}
 \begingroup\fontsize{9}{11}\selectfont
 

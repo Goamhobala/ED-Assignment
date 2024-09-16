@@ -8,7 +8,7 @@ author:
   - name: Jing Yeh
     email: yhxjin001@myuct.ac.za
   - name: Saurav Sathnarayan
-    email: sthsau01001@myuct.ac.za
+    email: sthsau001@myuct.ac.za
 nocite: '@*'
 
 abstract: In this report, we explored the efficiency of 6 programming languages through the approximation of $\pi$. We found that efficiency of various programming languages can vary widely, with C and C++ being the most efficient programming languages. We also presented evidence for compiled languages having better performance than interpreted languages. Our results suggest that programmers can benefit from taking the efficiency of various programming languages into account, rather than simply opting for simplicity in the syntax of these languages .
@@ -144,7 +144,7 @@ Existing literature suggests that execution times of programming languages are n
 ## Sources of Variation
 
 #### Treatments:
-We have 6 treatment factors, which are the programming languages in which we applied the formula up to $100 \times 10^6$ terms. We selected this particular number of terms because it is the largest, practical number of terms we could apply with our hardware setups (For some setups, it may take up to 4 hours to arrive at a single observation), and having fewer terms implies larger relative measurement error [7]. We cannot examine the effects of using other number of terms because in the existing literature, most studies of such kind chose to run all languages on the same machine. However, since we would like to avoid pseudo replication as much as possible we used one machine per observation. The downside of this approach is that we do not have sufficient machines to test for more factors.
+We have 6 treatment factors, which are the programming languages in which we applied the formula up to $100 \times 10^6$ terms. We selected this particular number of terms because it is the largest, practical number of terms we could apply with our hardware setups (For some setups, it may take up to 4 hours to arrive at a single observation), and having fewer terms implies larger relative measurement error [7]. We cannot examine the effects of using different numbers of terms because in the existing literature, most studies of such kind chose to run all languages on the same machine. However, since we would like to avoid pseudo replication as much as possible we used one machine per observation. The downside of this approach is that we do not have sufficient machines to test for more factors.
 
 #### Blocks: 
 We know that the hardware setup of a computer can significantly affect its speed, and therefore the execution time of our algorithm. We also know that, two computers with the same hardware setup should run at relatively the same speed, provided that they run on the same operating system, and no major damage has been done to either of them. This motivated us to block for the hardware setup of computers, our experimental units.

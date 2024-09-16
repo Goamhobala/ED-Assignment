@@ -1,4 +1,0 @@
-Device name	DESKTOP-QPDR91U
-Full device name	LIB-LWTR-011.wf.uct.ac.za
-Processor	Intel(R) Core(TM) i5-7200 CPU @ 2.50GHz   2.71 GHz
-Installed RAM	8,00 GB (7,89 GB usable)
